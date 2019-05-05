@@ -1,0 +1,5 @@
+洗车店/修理厂的商户平台，包含日常开单、支付、项目维护等功能
+
+com.software5000.ma.server是后台项目，包含接口
+
+com.software5000.ma.vue是使用vue开发的前端页面，包含移动端 wap 和 电脑端 web 两个项目。
