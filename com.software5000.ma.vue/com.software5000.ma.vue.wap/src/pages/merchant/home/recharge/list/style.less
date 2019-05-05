@@ -1,0 +1,76 @@
+@import '../../../../../assets/css/src/var';
+
+/* ----------------------------------------------------------- Page ----------------------------------------------------------------*/
+.page-recharge {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .list-empty {
+        .list-empty();
+    }
+    .show-more {
+        .show-more();
+    }
+    .no-more {
+        .no-more();
+    }
+}
+
+/* ----------------------------------------------------------- 复用 ----------------------------------------------------------------*/
+
+/* ----------------------------------------------------------- 模块 ----------------------------------------------------------------*/
+
+.recharge-sec-1 {
+    position: relative;
+    padding-top: 54px;
+    padding-bottom: 20px;
+    min-height:100%;
+    .recharge-info-list {
+        margin-bottom: 10px;
+        padding: 0 15px;
+        background-color: @color-white;
+    }
+    .recharge-info-1 {
+        height: 46px;
+        line-height: 46px;
+        .right {
+            font-size: 10px;
+            color: @color-base-silver;
+        }
+    }
+    .recharge-info-2 {
+        padding-left: 20px;
+        height: 26px;
+        line-height: 26px;
+        font-weight: bold;
+        font-size: 18px;
+        color: @color-primary;
+        .right {
+            color: @color-danger;
+        }
+    }
+    .recharge-info-3 {
+        padding-left: 20px;
+        margin-bottom: 10px;
+        height: 25px;
+        line-height: 25px;
+        color: @color-base-silver;
+        font-size: 12px;
+    }
+    .recharge-info-4 {
+        height: 44px;
+        line-height: 44px;
+        text-align: right;
+        font-size: 12px;
+        border-top: 1px solid @border-color-sep;
+        span {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 9px;
+        }
+    }
+    .right {
+        float: right;
+        width: 120px;
+    }
+}

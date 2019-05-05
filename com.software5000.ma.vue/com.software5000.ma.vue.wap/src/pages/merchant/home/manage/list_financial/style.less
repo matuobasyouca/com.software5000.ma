@@ -1,0 +1,271 @@
+@import '../../../../../assets/css/src/var';
+
+.financial-page{
+    padding-top: 88px;
+}
+.new-project{
+    position: absolute;
+    right: 10px;
+    font-size: 14px;
+    color: @color-white;
+}
+
+.merchant-list {
+    padding-left: 15px;
+    background-color: @color-white;
+    li {
+        height: 46px;
+        padding-right: 35px;
+        line-height: 46px;
+        font-size: 14px;
+        color: #333;
+        border-bottom: 1px solid @border-color-sep;
+    }
+    li.curr {
+        position: relative;
+        color: @color-primary;
+        &:after {
+            position: absolute;
+            content: '';
+            right: 15px;
+            top: 50%;
+            width: 10px;
+            height: 4px;
+            border: solid @color-primary;
+            border-width: 0 0 2px 2px;
+            transform: rotate(-45deg) translateY(-70%);
+        }
+    }
+    li:last-child {
+        border-bottom: none;
+    }
+}
+.create-time-select {
+    padding: 30px 15px;
+    background-color: @color-white;
+    .clearfix();
+    .time-wrap {
+        position: relative;
+        float: left;
+        padding-right: 36px;
+        padding-left: 10px;
+        height: 40px;
+        line-height: 40px;
+        width: 45%;
+        border: 1px solid @border-color-base;
+        border-radius: 2px;
+        color: #999;
+        font-size: 15px;
+        &:after {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            content: '';
+            width: 15px;
+            height: 40px;
+            background-image: url('../../../../../components/icon/assets/date.png');
+            background-size: 15px 15px;
+            background-position: 0 center;
+            background-repeat: no-repeat;
+        }
+        input {
+            position: absolute;
+            top:0;
+            left:40px;
+            width: 100%;
+            z-index: -1;
+        }
+    }
+    .time-wrap-sep {
+        float: left;
+        width: 10%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #999;
+    }
+}
+.create-time-btn {
+    .clearfix();
+    li {
+        float: left;
+        width: 50%;
+        height: 44px;
+        line-height: 44px;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+    }
+    li:first-child {
+        background-color: #999;
+    }
+    li:last-child {
+        background-color: @color-primary;
+    }
+}
+
+.financial-header {
+    background: @color-white;
+    height: 70px;
+    padding-top: 8px;
+    padding-bottom: 7px;
+    ul {
+        .clearfix();
+        li {
+            width: 50%;
+            float: left;
+            text-align: center;
+            position: relative;
+            .nr{
+                display: inline-block;
+            }
+            .num {
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 28px;
+                text-align: left;
+            }
+            .zi {
+                font-size: 12px;
+                color: @color-base-silver;
+                line-height: 27px;
+                text-align: left;
+            }
+            &:first-child {
+                .num{
+                    color: @color-primary;
+                }
+                .xian{
+                    position: absolute;
+                    width: 1px;
+                    height: 50px;
+                    background: @color-light-gray;
+                    right: 0;
+                    top: 50%;
+                    margin-top: -25px;
+                }
+            }
+            &:last-child{
+                .num{
+                    color: @color-success;
+                }
+            }
+        }
+    }
+}
+
+.financial-title{
+    padding-left: 15px;
+    line-height: 40px;
+    font-size: 12px;
+    color: @color-light-black;
+}
+
+.financial-body{
+    .financial-ul{
+        li{
+            background: @color-white;
+            padding: 13px 10px 13px 15px;
+            border-bottom: 1px solid @color-light-gray;
+            &:last-child{
+                border-bottom: none;
+            }
+            .row{
+                .clearfix();
+                .row-h3{
+                    line-height: 30px;
+                    height: 30px;
+                    color: @color-base-black;
+                    font-weight: bold;
+                    float: left;
+                    .explainInfo{
+                        font-size: 12px;
+                        color: @color-light-black;
+                    }
+                }
+                .row-money{
+                    .row-h3();
+                    float: right;
+                }
+                .row-time{
+                    line-height: 26px;
+                    height: 26px;
+                    font-size: 12px;
+                    color: @color-base-silver;
+                    float: left;
+                }
+                .row-payWay{
+                    .row-time();
+                    float: right;
+                }
+            }
+
+        }
+
+    }
+    .show_all_css {
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+        background-color: transparent !important;
+        color: @color-base-silver;
+    }
+    .show_more_css{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: @color-light-black;
+        background-color: @color-white !important;
+    }
+    .no_data_css {
+        text-align: center;
+        font-size: 14px;
+        color: @color-base-silver;
+        margin-top: 30px;
+    }
+    .data-empty {
+        .list-empty();
+        background-image: url("../../../../../assets/img/no_data.png");
+    }
+}
+
+.pay-record{
+    .go-home{
+        display: none;
+    }
+    .new-pay-record{
+        margin-top: 10px;
+        .sec1-ul{
+            background: @color-white;
+            .sec1-li{
+                padding-left: 82px;
+                border-bottom: 1px solid @color-light-silver;
+                position: relative;
+                .li-title{
+                   position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 82px;
+                    text-align: right;
+                    line-height: 50px;
+                    em{
+                        color: @color-danger;
+                        display: inline-block;
+                        margin-right: 4px;
+                    }
+                }
+                .zs-input__inner{
+                    height: 50px;
+                    padding: 3px 10px 3px 35px;
+                }
+            }
+        }
+        .new-botton{
+            margin-top: 25px;
+            text-align: center;
+            .zs-button{
+                width: 90%;
+            }
+        }
+    }
+}

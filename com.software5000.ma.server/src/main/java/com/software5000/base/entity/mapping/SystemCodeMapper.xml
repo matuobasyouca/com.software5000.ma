@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="SystemCode" >
+  <!--<resultMap type="SystemCode" id="BaseResultMap">-->
+    <!--<result column="codeType" jdbcType="VARCHAR" property="codeType" />-->
+    <!--<result column="codeName" jdbcType="VARCHAR" property="codeName" />-->
+    <!--<result column="codeValue" jdbcType="VARCHAR" property="codeValue" />-->
+    <!--<result column="codeStatus" jdbcType="VARCHAR" property="codeStatus" />-->
+    <!--<result column="codeShowName" jdbcType="VARCHAR" property="codeShowName" />-->
+    <!--<result column="codeFiter" jdbcType="INTEGER" property="codeFiter" />-->
+    <!--<result column="codeSort" jdbcType="INTEGER" property="codeSort" />-->
+    <!--<result column="codeParentValue" jdbcType="VARCHAR" property="codeParentValue" />-->
+    <!--<result column="codeDesc" jdbcType="VARCHAR" property="codeDesc" />-->
+  <!--</resultMap>-->
+  <sql id="Base_Column_List" >
+    codeType,codeName,codeValue,codeStatus,codeShowName,codeFiter,codeSort,codeParentValue,codeDesc
+  </sql>
+  <select id="selectByPrimaryKey" resultType="SystemCode" parameterType="java.lang.String" >
+    select 
+    *
+    from SystemCode
+    where codeValue = #{codeValue,jdbcType=CHAR}
+  </select>
+</mapper>

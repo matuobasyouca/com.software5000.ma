@@ -1,0 +1,56 @@
+@import '../../../../../../../assets/css/src/var';
+
+.r{
+    float: right;
+}
+.page-main {
+    .clearfix();
+    width: 700px;
+    margin: 0 auto;
+    background: @color-white;
+    box-shadow: @box-shadow-base;
+    border-radius: @border-radius-base;
+}
+
+.page-main-title{
+    position: relative;
+    background-color: @color-success;
+    color: @color-white;
+    line-height: 60px;
+    border-radius: 4px 4px 0 0;
+}
+.page-main-title-left{
+    font-size: 20px;
+    padding-left: 16px;
+    font-weight: bold;
+    .price{
+        font-size: 24px;
+        margin-left: 30px;
+    }
+}
+.page-main-title-right{
+    position: absolute;
+    top:50%;
+    right: 16px;
+    transform: translateY(-50%);
+}
+
+
+.page-main-body{
+    padding: 0 20px 10px;
+}
+.package-price{
+    line-height: 50px;
+    color: @color-light-black;
+    .black{
+        font-weight: bold;
+        color: @color-base-black;
+    }
+}
+.package-explain{
+    line-height: 32px;
+    color: @color-light-black;
+}
+.package-text{
+    line-height: 32px;
+}

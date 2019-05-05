@@ -1,0 +1,133 @@
+@import "../../../../../assets/css/src/var";
+
+.merchant-insert-page{
+    padding-top:54px;
+    padding-bottom:60px;
+    .zs-textarea__inner{
+        background:none;
+        border:none;
+        &::placeholder {
+            color: @input-placeholder-color !important;
+        }
+    }
+}
+.insert-detail{
+    padding-left:15px;
+    background-color:@color-white;
+    li{
+        border-bottom:1px solid @border-color-sep;
+        color:@color-base-silver;
+        font-size:15px;
+    }
+    .insert-detail-title{
+        line-height:50px;
+        color:@color-base-black;
+    }
+    li.show-inline{
+        position: relative;
+        height:50px;
+        line-height:50px;
+        padding-left:90px;
+        .insert-detail-title{
+            position: absolute;
+            left:0;
+            top:0;
+        }
+    }
+    .address{
+        .icon_wrap{
+            position: absolute !important;
+            right:10px;
+            top:50%;
+            transform:translateY(-50%);
+        }
+        em{
+            padding-left:16px;
+            font-size:14px;
+        }
+        em.color-black{
+            color:@color-base-black;
+        }
+    }
+    .address-detail{
+        height:75px !important;
+    }
+    .merchant-state{
+        padding-right:66px;
+        .merchant-state-switch{
+            position: absolute;
+            right:10px;
+            top:50%;
+            transform:translateY(-50%);
+        }
+        em{
+            padding-left:16px;
+            color:@color-base-black;
+        }
+    }
+    .merchant-pic{
+        padding-bottom:15px;
+    }
+    .merchant-desc{
+        padding-bottom:15px;
+        .zs-textarea__inner{
+            background:none;
+            border:none;
+            padding-top:0;
+            padding-left:0;
+        }
+    }
+}
+.confirm-button{
+    position: fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    font-size:16px;
+    color:@color-white;
+    text-align: center;
+    line-height:49px;
+    background-color:@color-primary;
+}
+.image-label {
+    display: block;
+    width:100px;
+    height:100px;
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    input{
+        position: absolute;
+        left: -9999em;
+    }
+    &.add-label{
+        border: 1px dashed #dadada;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 2px;
+            background-color:#dadada;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 40px;
+            background-color: #dadada;
+        }
+    }
+}
+.reset-pic{
+    float: right;
+    margin-right:10px;
+    color:@color-primary;
+}

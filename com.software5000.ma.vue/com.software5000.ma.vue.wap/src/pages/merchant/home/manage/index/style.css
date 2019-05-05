@@ -1,0 +1,280 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Font
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+.manage-page {
+  padding-bottom: 49px;
+}
+.manage-header {
+  background: #4b8dde;
+  height: 220px;
+  position: relative;
+}
+.manage-header .presonMsg .header-top {
+  line-height: 44px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.8;
+  position: relative;
+}
+.manage-header .presonMsg .header-top span {
+  position: absolute;
+  right: 10px;
+  color: #fff;
+}
+.manage-header .presonMsg .all-money {
+  font-size: 45px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  line-height: 45px;
+}
+.manage-header .presonMsg .userName {
+  height: 32px;
+  line-height: 32px;
+  font-size: 10px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+.manage-header .presonMsg .btn-get {
+  width: 115px;
+  height: 33px;
+  border: 1px solid #fff;
+  border-radius: 33px;
+  line-height: 31px;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto;
+}
+.manage-header .binding {
+  padding-top: 29px;
+}
+.manage-header .binding .bind-title {
+  line-height: 70px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+.manage-header .binding .btn-get {
+  width: 115px;
+  height: 33px;
+  border: 1px solid #fff;
+  border-radius: 33px;
+  line-height: 31px;
+  text-align: center;
+  color: #fff;
+  margin: 0 auto;
+}
+.manage-header .notice-board {
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  padding: 0 15px;
+  width: 100%;
+}
+.manage-header .notice-board .board {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  height: 70px;
+  position: relative;
+}
+.manage-header .notice-board .board .half {
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+.manage-header .notice-board .board .half .mid {
+  display: inline-block;
+  padding: 8px 0 10px 0;
+}
+.manage-header .notice-board .board .half .mid div {
+  line-height: 28px;
+  font-size: 18px;
+  color: #232d3c;
+  text-align: left;
+  height: 28px;
+}
+.manage-header .notice-board .board .half .mid p {
+  line-height: 24px;
+  font-size: 12px;
+  color: #999;
+  text-align: left;
+}
+.manage-header .notice-board .board .xian {
+  position: absolute;
+  width: 1px;
+  height: 50px;
+  background: #f2f2f2;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+}
+.manage-body {
+  background: #f6f6f6;
+}
+.manage-body .enter-list {
+  margin-top: 50px;
+  margin-bottom: 15px;
+  background: #fff;
+}
+.manage-body .enter-list ul {
+  zoom: 1;
+}
+.manage-body .enter-list ul:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.manage-body .enter-list ul li {
+  float: left;
+  width: 33.3%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.manage-body .enter-list ul li .li-content {
+  display: inline-block;
+}
+.manage-body .enter-list ul li .li-content .title {
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+  color: #232d3c;
+}
+.manage-body .enter-list ul li .li-content div {
+  width: 33px;
+  height: 33px;
+  margin: 0 auto;
+}
+.manage-body .enter-list ul li .li-content .img1 {
+  background: url("asset/record.png");
+  background-size: 100% 100%;
+}
+.manage-body .enter-list ul li .li-content .img2 {
+  background: url("asset/reconciliation.png");
+  background-size: 100% 100%;
+}
+.manage-body .enter-list ul li .li-content .img3 {
+  background: url("asset/member.png");
+  background-size: 100% 100%;
+}
+.manage-body .enter-list ul li .li-content .img4 {
+  background: url("asset/serve.png");
+  background-size: 100% 100%;
+}
+.manage-body .enter-list ul li .li-content .img5 {
+  background: url("asset/record.png");
+  background-size: 100% 100%;
+}
+.manage-body .enter-list ul li .li-content .img6 {
+  background: url("asset/recharge.png");
+  background-size: 100% 100%;
+}
+.manage-body .enter-list ul li .li-content .img7 {
+  background: url("asset/set.png");
+  background-size: 100% 100%;
+}
+.manage-body .enter-list ul li .li-content .img8 {
+  background: url("asset/present.png");
+  background-size: 100% 100%;
+}
+.manage-body .enter-list ul li .li-content .img9 {
+  background: url("asset/exit.png");
+  background-size: 100% 100%;
+}
+.hit-dialog .zs-dialog__header {
+  background: #fff;
+}
+.hit-dialog .money-img {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  background: url("asset/gold.png");
+  background-size: 100% 100%;
+}
+.hit-dialog .h3 {
+  font-size: 16px;
+  color: #232d3c;
+  line-height: 35px;
+  text-align: center;
+  margin-top: 20px;
+}
+.hit-dialog .h4 {
+  font-size: 12px;
+  color: #999;
+  line-height: 30px;
+  text-align: center;
+}
+.hit-dialog .zs-button {
+  width: 100%;
+}
+.exit-dialog .zs-dialog__header {
+  background: #fff;
+}
+.exit-dialog .money-img {
+  width: 60px;
+  height: 60px;
+  margin: 7px auto 0;
+  background: url("asset/quit.png");
+  background-size: 100% 100%;
+}
+.exit-dialog .h3 {
+  line-height: 55px;
+  font-size: 16px;
+  color: #232d3c;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.exit-dialog .zs-dialog__footer {
+  text-align: center;
+}
+.exit-dialog .zs-button {
+  width: 116px;
+  height: 44px;
+}

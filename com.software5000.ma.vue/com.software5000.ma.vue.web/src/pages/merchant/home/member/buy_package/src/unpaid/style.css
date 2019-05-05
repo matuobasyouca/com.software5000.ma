@@ -1,0 +1,89 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+// -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* z-index
+ -------------------------- */
+/* Disable base
+-------------------------- */
+/* icon
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Message Box
+ -------------------------- */
+/* Message
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Scrollbar
+--------------------------*/
+/* Popover
+-------------------------- */
+/* Tooltip
+  -------------------------- */
+/* Radio
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Tag
+-------------------------- */
+/* clearfix
+--------------------------*/
+.r {
+  float: right;
+}
+.gray {
+  color: #999;
+}
+.unpaid {
+  width: 1280px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+.unpaid .table-empty-data {
+  height: 386px;
+}
+.unpaid .zs-table th .zs-table__cell {
+  border-right: 1px solid #e6e6e6;
+}
+.unpaid .zs-table thead tr {
+  background-color: #fff;
+}
+.unpaid tbody .control span {
+  color: #4b8dde;
+  margin-right: 16px;
+  cursor: pointer;
+}
+.unpaid tbody .control span:last-child {
+  margin-right: 0;
+}
+.pay_list-pagination {
+  margin: 20px 10px 10px;
+  text-align: right;
+}

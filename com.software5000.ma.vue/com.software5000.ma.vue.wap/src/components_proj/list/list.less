@@ -1,0 +1,21 @@
+@import '../../../src/assets/css/src/var.less';
+.ma-list{
+    position: relative;
+    background-color:@color-white;
+    min-height:44px;
+    border-bottom:1px solid @border-color-sep;
+    &:last-of-type{
+        border-bottom:none;
+    }
+    .ma-list-left,
+    .ma-list-right{
+        position: absolute;
+        left:0;
+        top:50%;
+        transform:translateY(-50%);
+    }
+    .ma-list-right{
+        left:auto;
+        right:10px;
+    }
+}

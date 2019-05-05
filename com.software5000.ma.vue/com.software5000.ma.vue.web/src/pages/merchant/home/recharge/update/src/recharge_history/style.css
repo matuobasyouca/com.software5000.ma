@@ -1,0 +1,110 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+// -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* z-index
+ -------------------------- */
+/* Disable base
+-------------------------- */
+/* icon
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Message Box
+ -------------------------- */
+/* Message
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Scrollbar
+--------------------------*/
+/* Popover
+-------------------------- */
+/* Tooltip
+  -------------------------- */
+/* Radio
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Tag
+-------------------------- */
+/* clearfix
+--------------------------*/
+.r {
+  float: right;
+}
+.gray {
+  color: #999;
+}
+.unpaid {
+  width: 1280px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+.unpaid .table-empty-data {
+  height: 386px;
+}
+.unpaid tbody .control span {
+  color: #4b8dde;
+  margin-right: 16px;
+  cursor: pointer;
+}
+.unpaid tbody .control span:last-child {
+  margin-right: 0;
+}
+.buy_history .search-box {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 0;
+}
+.buy_history .search-box span {
+  font-size: 14px;
+}
+.buy_history .search-box > span {
+  margin-right: 10px;
+}
+.buy_history .search-box .zs-input {
+  width: 280px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.buy_history .search-box .zs-button {
+  width: 44px;
+  height: 36px;
+  vertical-align: bottom;
+}
+.buy_history .search-box .ivu-date-picker {
+  display: inline-block;
+}
+.buy_history .search-box .ivu-date-picker .zs-input {
+  width: 156px;
+}
+.pay_list-pagination {
+  margin: 20px 10px 10px;
+  text-align: right;
+}

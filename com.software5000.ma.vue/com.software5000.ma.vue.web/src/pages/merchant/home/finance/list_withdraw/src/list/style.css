@@ -1,0 +1,341 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+// -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* z-index
+ -------------------------- */
+/* Disable base
+-------------------------- */
+/* icon
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Message Box
+ -------------------------- */
+/* Message
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Scrollbar
+--------------------------*/
+/* Popover
+-------------------------- */
+/* Tooltip
+  -------------------------- */
+/* Radio
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Tag
+-------------------------- */
+/* clearfix
+--------------------------*/
+.financial-accounts {
+  width: 1000px;
+  margin: 0 auto;
+}
+.financial-accounts .account .account-already .success,
+.financial-accounts .account .account-already .danger {
+  vertical-align: middle;
+}
+.financial-accounts .account .account-already .p {
+  display: inline-block;
+  margin-left: 8px;
+  line-height: 50px;
+  color: #656d78;
+  vertical-align: middle;
+}
+.financial-accounts .account .account-already .go {
+  display: inline-block;
+  line-height: 50px;
+  margin-left: 10px;
+  color: #4b8dde;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.financial-accounts .account-header {
+  zoom: 1;
+}
+.financial-accounts .account-header:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.financial-accounts .account-header .can-reflect {
+  float: left;
+  width: 302px;
+  height: 130px;
+  background: #fff;
+  position: relative;
+  padding-left: 18px;
+}
+.financial-accounts .account-header .can-reflect .can-t {
+  color: #4b8dde;
+  line-height: 40px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.financial-accounts .account-header .can-reflect .can-m {
+  color: #4b8dde;
+  line-height: 40px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.financial-accounts .account-header .can-reflect .can-p {
+  color: #999;
+  line-height: 42px;
+  font-size: 12px;
+}
+.financial-accounts .account-header .can-reflect .can-b {
+  width: 80px;
+  height: 32px;
+  background: #4b8dde;
+  color: #fff;
+  line-height: 32px;
+  border-radius: 16px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.financial-accounts .account-header .list-already {
+  float: left;
+  width: 302px;
+  height: 130px;
+  background: #fff;
+  position: relative;
+  padding-left: 70px;
+  margin-left: 10px;
+  padding-right: 30px;
+}
+.financial-accounts .account-header .list-already .list-t {
+  color: #232d3c;
+  font-weight: bold;
+  line-height: 40px;
+  margin-top: 8px;
+  text-align: right;
+  font-size: 16px;
+}
+.financial-accounts .account-header .list-already .list-m {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 40px;
+  color: #2cc068;
+  text-align: right;
+}
+.financial-accounts .account-header .list-already .list-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: url("asset/ti.png");
+  background-size: 100% 100%;
+  position: absolute;
+  top: 42px;
+  left: 20px;
+}
+.financial-accounts .account-table {
+  background: #fff;
+  padding: 0 10px 20px 10px;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.financial-accounts .account-table .table-select {
+  height: 56px;
+  padding-left: 10px;
+}
+.financial-accounts .account-table .table-select .title {
+  line-height: 56px;
+  color: #656d78;
+  float: left;
+}
+.financial-accounts .account-table .table-select .getTime {
+  float: right;
+  height: 36px;
+  margin: 10px 0;
+}
+.financial-accounts .account-table .table-select .getTime .select-new-time {
+  width: 156px;
+  height: 36px;
+  display: inline-block;
+  margin: 0 8px;
+  float: left;
+}
+.financial-accounts .account-table .table-select .getTime .select-new-time input {
+  color: #252c32 !important;
+  cursor: pointer;
+}
+.financial-accounts .account-table .table-select .getTime .search_label {
+  float: left;
+  line-height: 36px;
+  color: #232d3c;
+}
+.financial-accounts .account-table .table-select .getTime .search-btn {
+  width: 40px;
+  height: 36px;
+  background: #4b8dde;
+  float: left;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+.financial-accounts .account-table .table-select .getTime .search-btn .icon_wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+.financial-accounts .account-table .list-content .employee-table thead tr {
+  background: #fff;
+}
+.financial-accounts .account-table .list-content .employee-table thead tr .zs-table__cell {
+  border-right: 1px solid #f2f2f2;
+}
+.financial-accounts .account-table .list-content .employee-table .table-empty-data {
+  height: 400px;
+}
+.financial-accounts .account-table .list-content .employee-table .account-operation a {
+  color: #4b8dde;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.financial-accounts .account-table .page-div {
+  text-align: right;
+  padding-top: 20px;
+}
+.financial-accounts .em-dialog .zs-dialog {
+  width: 400px;
+}
+.financial-accounts .em-dialog .zs-dialog__body {
+  padding: 0;
+}
+.financial-accounts .em-dialog .zs-dialog__body .dialog-body {
+  padding-top: 12px;
+}
+.financial-accounts .em-dialog .zs-dialog__body .dialog-body .p1 {
+  text-align: center;
+  color: #999;
+  line-height: 32px;
+}
+.financial-accounts .em-dialog .zs-dialog__body .dialog-body .p2 {
+  text-align: center;
+  color: #232d3c;
+  line-height: 32px;
+}
+.financial-accounts .em-dialog .zs-dialog__body .dialog-body .p2 em {
+  font-size: 16px;
+  font-weight: bold;
+}
+.financial-accounts .em-dialog .zs-dialog__body .dialog-body .QR-code {
+  margin: 20px auto 40px;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+}
+.financial-accounts .em-dialog .zs-dialog__body .dialog-body .QR-code img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.financial-accounts .give-dialog .zs-dialog {
+  width: 390px;
+}
+.financial-accounts .give-dialog .zs-dialog__body {
+  padding: 0;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body {
+  padding-top: 12px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .time {
+  padding-bottom: 20px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .time .p1 {
+  text-align: center;
+  color: #999;
+  line-height: 32px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .time .p2 {
+  text-align: center;
+  color: #232d3c;
+  line-height: 32px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .short {
+  padding-left: 30px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .short .num {
+  color: #232d3c;
+  margin-bottom: 22px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .short .num em {
+  margin-left: 40px;
+  font-size: 20px;
+  color: #232d3c;
+  font-weight: bold;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .short .p1 {
+  text-align: left;
+  font-size: 12px;
+  color: #999;
+  line-height: 20px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .can {
+  padding-left: 20px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .can .num {
+  color: #232d3c;
+  line-height: 32px;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .can .num span {
+  display: inline-block;
+  width: 84px;
+  text-align: right;
+  line-height: 32px;
+  vertical-align: middle;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .can .num em {
+  display: inline-block;
+  margin-left: 30px;
+  font-size: 20px;
+  color: #232d3c;
+  font-weight: bold;
+  line-height: 32px;
+  vertical-align: middle;
+}
+.financial-accounts .give-dialog .zs-dialog__body .dialog-body .can .num p {
+  margin-left: 28px;
+  display: inline-block;
+  font-size: 12px;
+  color: #999;
+  line-height: 32px;
+  vertical-align: middle;
+}
+.financial-accounts .give-dialog .zs-dialog__footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}

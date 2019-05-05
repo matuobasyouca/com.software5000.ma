@@ -1,0 +1,69 @@
+@import '../../../../../../../assets/css/src/var';
+
+.pt{
+  padding-top: @pt;
+}
+.r{
+  float: right;
+}
+
+.gray{
+  color: @color-light-black;
+}
+.main{
+  border-radius: 4px;
+  padding: 10px;
+  background: @color-white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+.main-body{
+  .zs-table{
+    box-shadow: none;
+  }
+  .zs-table thead tr{
+    background-color: @color-white;
+  }
+  .zs-table__body{
+    .control{
+      span{
+        color: @color-primary;
+        margin-right: 10px;
+        cursor : pointer;
+      }
+    }
+  }
+  .table-empty-data{
+    height: 336px;
+  }
+  .car-number{
+    p{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 20em;
+      margin: 0 auto;
+    }
+  }
+}
+
+.main-top{
+
+}
+.search-box{
+  margin-bottom: 10px;
+  font-size: 0;
+  .zs-input{
+    width: 280px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  .zs-button{
+    width: 44px;
+    height: 36px;
+    vertical-align: bottom;
+  }
+}
+.main-bottom{
+  margin: 20px 10px;
+  text-align: right;
+}

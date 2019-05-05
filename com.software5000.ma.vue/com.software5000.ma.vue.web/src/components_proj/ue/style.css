@@ -1,0 +1,30 @@
+.ue b {
+  font-weight: bold !important;
+}
+.ue b i {
+  font-weight: bold !important;
+}
+.ue i {
+  font-style: italic !important;
+}
+.ue i b {
+  font-style: italic !important;
+}
+.ue strong {
+  font-weight: bold !important;
+}
+.ue strong em {
+  font-weight: bold !important;
+}
+.ue em {
+  font-style: italic !important;
+}
+.ue em strong {
+  font-style: italic !important;
+}
+.ue ul {
+  list-style: circle ;
+}
+.ue ol {
+  list-style-type: decimal ;
+}

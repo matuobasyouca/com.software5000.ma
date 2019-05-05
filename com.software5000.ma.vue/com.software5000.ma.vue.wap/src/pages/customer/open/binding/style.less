@@ -1,0 +1,41 @@
+@import "../../../../assets/css/src/var";
+
+.binding-page {
+    padding-top: calc(@pt + 10);
+    .binding-wrap {
+        position: relative;
+        padding-left: 6em;
+        height: 50px;
+        line-height: 50px;
+        background-color: @color-white;
+        &.mobile-wrap {
+            border-top: 1px solid @border-color-sep;
+        }
+        .binding-title {
+            position: absolute;
+            left: 10px;
+            top: 0;
+        }
+        .car-number {
+            border-bottom: none;
+        }
+    }
+    .binding-mobile {
+        .zs-input__inner {
+            height: 50px;
+            line-height: 50px;
+        }
+    }
+    .binding-btn {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 48px;
+        line-height: 48px;
+        font-size: 16px;
+        text-align: center;
+        color: #fff;
+        background-color: @color-primary;
+    }
+}

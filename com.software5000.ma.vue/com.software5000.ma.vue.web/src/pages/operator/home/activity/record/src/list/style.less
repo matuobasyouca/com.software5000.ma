@@ -1,0 +1,89 @@
+@import "../../../../../../../assets/css/src/var";
+
+.group-record {
+    .page-base();
+    padding: 10px 10px 20px 10px;
+    box-sizing: border-box;
+    background: @color-white;
+    margin-top: 16px;
+    border-radius: 4px;
+    .record-header {
+        .clearfix();
+        .summary {
+            padding: 0 6px;
+            background: @table-td-hover-bg;
+            border-radius: 2px;
+            display: inline-block;
+            line-height: 30px;
+            color: @color-primary;
+            font-size: 12px;
+            .zs-icon-warning {
+                background-color: @color-primary;
+            }
+        }
+        .form-list {
+            display: inline-block;
+            float: right;
+            .select-new-time {
+                display: inline-block;
+                .zs-input {
+                    width: 156px;
+                }
+            }
+            .select_label {
+                line-height: 36px;
+                padding: 0 5px;
+            }
+            .select-form__select {
+                display: inline-block;
+                .zs-input {
+                    width: 156px;
+                }
+            }
+            .r {
+                display: inline-block;
+                margin-left: 10px;
+                .search-box {
+                    margin-bottom: 10px;
+                    font-size: 0;
+                }
+                .zs-input {
+                    width: 280px;
+                    font-size: 14px;
+                    margin-right: 10px;
+                }
+                .zs-button {
+                    width: 44px;
+                    height: 36px;
+                    vertical-align: bottom;
+                }
+            }
+        }
+    }
+
+    .group-table {
+        margin-top: 10px;
+        thead {
+            tr {
+                background: @color-white;;
+                .zs-table__cell {
+                    border-right: 1px solid @border-color-sep;
+                }
+            }
+        }
+        .table-empty-data {
+            height: 400px;
+        }
+        .account-operation {
+            a {
+                color: @color-primary;
+                margin: 0 5px;
+                cursor: pointer;
+            }
+        }
+    }
+    .page {
+        text-align: right;
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,81 @@
+@import "../../../../../assets/css/src/var";
+
+.business-list-page {
+    padding-top: @pt;
+    .list-empty {
+        .list-empty();
+    }
+    .business {
+        padding: 10px 0;
+        .list {
+            position: relative;
+            height: 100px;
+            padding: 15px 15px 15px 129px;
+            margin-bottom: 10px;
+            background-color: @color-white;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            .business-pic {
+                position: absolute;
+                left: 15px;
+                top: 15px;
+                width: 99px;
+                height: 70px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-color: #f6f6f6;
+            }
+            .business-name {
+                position: relative;
+                padding-right: 30px;
+                font-size: 15px;
+                .ellipsis();
+                &.has-card:after {
+                    content: '有卡';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    width: 25px;
+                    height: 14px;
+                    font-size: 10px;
+                    background-color: @color-primary;
+                    text-align: center;
+                    line-height: 14px;
+                    color: @color-white;
+                    transform: translateY(-50%);
+                    border-radius: 2px;
+                }
+            }
+            .business-location {
+                height: 32px;
+                width: 100%;
+                line-height: 32px;
+                font-size: 12px;
+                color: @color-extra-light-black;
+                .ellipsis();
+            }
+            .business-tel {
+                height: 28px;
+                font-size: 12px;
+                color: @color-extra-light-black;
+                .distance {
+                    margin-right: 20px;
+                    color: @color-base-black;
+                }
+            }
+        }
+    }
+    .check-more {
+        margin: 30px auto;
+        width: 150px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border: 1px solid @border-color-base;
+        border-radius: 2px;
+        color: @color-extra-light-black;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,335 @@
+@import '../../../../../assets/css/src/var';
+
+.r {
+    float: right;
+}
+
+.page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-bottom: 49px;
+    .page-top {
+        position: relative;
+        background-color: @color-white;
+        margin-bottom: 15px;
+        text-align: center;
+        color: @color-white;
+        .icon-back{
+            position: absolute;
+            top:15px;
+            left: 15px;
+            .zs-icon-arrow-left{
+                border-color: @color-white;
+                border-width: 2px;
+            }
+        }
+        .page-top-main {
+            padding: 39px 0 15px;
+            &.grouping{
+                background: @color-primary;
+            }
+            &.success{
+                background: @color-success;
+            }
+            &.fail{
+                background: @color-danger;
+            }
+        }
+        .state-top {
+        }
+        .state-text{
+            font-size: 22px;
+            font-weight: bold;
+            line-height:39px;
+        }
+        .state-time {
+            line-height: 24px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .state-over {
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+    }
+    .store-name {
+        line-height: 40px;
+        height: 40px;
+        background-color: @color-white;
+        padding-left: 15px;
+        border-bottom: 1px solid @color-light-gray;
+        .icon_wrap{
+            span{
+                margin-left: -5px;
+            }
+        }
+        .r{
+            display: inline-block;
+            color: @color-danger;
+            background-color: #ffe5e1;
+            font-size: 12px;
+            line-height: 19px;
+            width: 53px;
+            text-align: center;
+            border-radius: 19px;
+            margin-top: 10px;
+            margin-right: 15px;
+        }
+    }
+    .package-main{
+        background: @color-white;
+        margin-bottom: 15px;
+    }
+    .package {
+        position: relative;
+        margin: 15px;
+        padding-left: 95px;
+        .package-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 80px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .package-right {
+            min-height: 80px;
+        }
+        .package-title {
+            font-size: 15px;
+            line-height: 22px;
+            padding-top: 9px;
+            .r {
+                font-size: 12px;
+                color: @color-base-silver;
+            }
+        }
+        .package-date {
+            line-height: 22px;
+            padding-top: 9px;
+            font-size: 14px;
+        }
+        .package-price{
+            font-size: 0;
+            line-height: 24px;
+            p{
+                display: inline-block;
+                color: @color-light-black;
+            }
+            .original{
+                font-size: 12px;
+                .red{
+                    font-size: 14px;
+                    color: @color-danger;
+                }
+            }
+            .del{
+                margin-left: 8px;
+                font-size: 10px;
+                text-decoration: line-through;
+            }
+        }
+        .package-item {
+            //line-height: 18px;
+            //font-size: 12px;
+            //color: @color-light-black;
+        }
+    }
+    .package-item{
+        padding: 0 15px 20px;
+        .package-item-table{
+            border: 1px solid @color-light-gray;
+            border-width: 1px 0 0 1px;
+            .package-item-table-td{
+                float: left;
+                width: 50%;
+                font-size: 0;
+            }
+            .item-table-td-left,
+            .item-table-td-right{
+                display: inline-block;
+                border-right: 1px solid @color-light-gray;
+                border-bottom: 1px solid @color-light-gray;
+                font-size: 15px;
+                color: #666;
+                line-height: 30px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .item-table-td-left{
+                padding-left: 5px;
+                width: 70%;
+            }
+            .item-table-td-right{
+                width: 30%;
+                text-align: center;
+            }
+        }
+    }
+    .price {
+        font-size: 12px;
+        text-align: right;
+        background-color: @color-white;
+        padding-right: 15px;
+        line-height: 40px;
+        margin-bottom: 10px;
+        .del {
+            text-decoration: line-through;
+            color: @color-base-silver;
+            margin-right: 15px;
+        }
+        .gray {
+            color: @color-light-black;
+            margin-right: 4px;
+        }
+        .black {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    }
+    .details-info-1 {
+        background-color: @color-white;
+        line-height: 50px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        .item {
+            position: relative;
+            padding: 0 15px;
+            border-bottom: 1px solid @border-color-sep;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        .item-right {
+            position: absolute;
+            right: 15px;
+            top: 0;
+        }
+    }
+    .details-info-2 {
+        background-color: @color-white;
+        margin-bottom: 30px;
+        .info-2-top {
+            padding: 12px 0;
+            border-bottom: 1px solid @border-color-sep;
+            li {
+                position: relative;
+                padding-left: 95px;
+                line-height: 33px;
+                font-size: 14px;
+            }
+            .top-left {
+                position: absolute;
+                left: 15px;
+                color: @color-base-silver;
+            }
+        }
+        .notice {
+            padding: 0 15px;
+            line-height: 40px;
+            color: @color-base-silver;
+            font-size: 12px;
+            .r {
+                color: @color-base-black;
+                margin-left: -10px;
+                .icon_wrap {
+                    margin-left: 8px;
+                    span {
+                        margin-left: -6px;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        padding:8px 15px;
+        background-color: @color-white;
+        box-shadow: 0 0 8px #ccc;
+        .footer-main {
+            max-width: 640px;
+            position: relative;
+            margin: 0 auto;
+            line-height: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 15px;
+            color: @color-white;
+            background-color: @color-primary;
+        }
+    }
+}
+
+.countdown {
+    display: inline-block;
+    font-size: 0;
+    .red-block {
+        position: relative;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        width: 18px;
+        height: 26px;
+        line-height: 26px;
+        color: @color-white;
+        background-color: @color-danger;
+        border-radius: 2px;
+        text-align: center;
+        span{
+            position: relative;
+            z-index:1;
+        }
+        & + .red-block{
+            margin-left: 2px;
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            top:50%;
+            left:0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+    }
+    .maohao {
+        font-size: 14px;
+        color: @color-danger;
+        padding: 0 13px;
+    }
+}
+
+//分享样式
+.share-model {
+    position: fixed;
+    .position(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 21;
+    padding-top: 100px;
+    .guide-arrow-icon {
+        position: absolute;
+        right: 18px;
+        top: 0;
+    }
+    .body-main {
+        background-image: url("../../../../../components/icon/assets/stay.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        text-align: center;
+        font-size: 18px;
+        color: @color-white;
+        padding: 30px 0;
+    }
+}

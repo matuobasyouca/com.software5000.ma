@@ -1,0 +1,47 @@
+@import './var';
+
+.fade-in-linear-enter-active,
+.fade-in-linear-leave-active {
+    transition: @fade-linear-transition;
+}
+.fade-in-linear-enter,
+.fade-in-linear-leave,
+.fade-in-linear-leave-active {
+    opacity: 0;
+}
+
+.zs-zoom-in-center-enter-active,
+.zs-zoom-in-center-leave-active {
+    transition: all .3s cubic-bezier(.55,0,.1,1);
+}
+.zs-zoom-in-center-enter,
+.zs-zoom-in-center-leave-active {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.zs-zoom-in-top-enter-active,
+.zs-zoom-in-top-leave-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: @md-fade-transition;
+    transform-origin: center top;
+}
+.zs-zoom-in-top-enter,
+.zs-zoom-in-top-leave-active {
+    opacity: 0;
+    transform: scaleY(0);
+}
+
+.zs-zoom-in-bottom-enter-active,
+.zs-zoom-in-bottom-leave-active {
+    opacity: 1;
+    transform: scaleY(1);
+    transition: @md-fade-transition;
+    transform-origin: center bottom;
+}
+.zs-zoom-in-bottom-enter,
+.zs-zoom-in-bottom-leave-active {
+    opacity: 0;
+    transform: scaleY(0);
+}

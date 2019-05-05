@@ -1,0 +1,264 @@
+@import '../../../src/assets/css/src/var.less';
+.crm-head__wrap {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: @color-base-black;
+    border-bottom: 1px solid @border-color-base;
+}
+.page-w{
+    width: 1280px;
+    margin: 0 auto;
+}
+.crm-head__main {
+    position: relative;
+    padding-left: 200px;
+    padding-right: 200px;
+    height: 50px;
+}
+.crm-head__logo {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 50px;
+    line-height: 51px;
+    font-size: 16px;
+    font-weight: bold;
+    color: @color-white;
+}
+.crm-head__menu {
+    line-height: 50px;
+    font-size: 0;
+}
+.crm-head__menu>li {
+    font-size: 14px;
+    display: inline-block;
+    margin-right: 1px;
+    color: @color-light-black;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover{
+        .crm-head__title{
+            color:@color-primary;
+            font-weight:bold;
+        }
+        background-color: @color-white;
+    }
+    &.curr{
+        .crm-head__title{
+            color:@color-primary;
+            font-weight:bold;
+        }
+    }
+}
+.create-requirement__button {
+    position: relative;
+    padding-left: 34px !important;
+    color: @color-white !important;
+    cursor: pointer;
+}
+.crm-head__user-pull .blue-circle {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    border-radius: 50%;
+    //background-color:@color-primary;
+    background-image: @gradient-base;
+    text-align: center;
+    line-height: 20px;
+    color: @color-white;
+}
+.crm-head__title{
+    display: inline-block;
+    min-width: 7em;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+}
+.crm-head__user {
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 50px;
+    color: @color-white;
+    font-size: 0;
+}
+.crm-head__user-name{
+    display: inline-block;
+    padding-right: 20px;
+    font-size: 14px;
+}
+.crm-head__exit{
+    display: inline-block;
+    width: 60px;
+    height: 50px;
+    background: url("../../components/icon/assets/quit.png") center no-repeat;
+    background-size: 24px 24px;
+    background-color: @color-primary;
+    vertical-align: top;
+    cursor: pointer;
+    transition : all 0.3s;
+}
+.crm-head__exit:hover{
+    background-color: #5d98e1;
+}
+
+.crm-head__user-logout{
+    float: right;
+}
+.crm-head__user-logout {
+    cursor: pointer;
+    & .zs-icon-shut {
+        margin-right: 8px;
+    }
+
+}
+
+.zs-icon_caret-bottom{
+   transition: all 0.3s;
+}
+.crm-head__user-pull{
+    position: relative;
+    .user-pull__left-icon{
+        display: inline-block;
+        width: 10px;
+    }
+    .user-pull__box{
+        position: absolute;
+        left:0;
+        z-index: 10;
+        transition: all 0.3s;
+        width: 100%;
+        height:0;
+        text-align: center;
+        color: @color-base-light-black;
+        box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+        line-height: 32px;
+        overflow: hidden;
+    }
+    &:hover{
+        .zs-icon_caret-bottom{
+            border-top-color:#fff;
+            transform: rotate(180deg);
+            margin-top: -3px;
+        }
+        .user-pull__box{
+            height:auto;
+            background: @color-white;
+            cursor : pointer;
+            a{
+                color: @color-base-light-black;
+            }
+            li:hover{
+                color: @color-primary;
+                font-weight: bold;
+                a{
+                    color:@color-primary;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+.crm-head__notice{
+    position: absolute;
+    display: block;
+    left: 15px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius:20px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height:20px;
+    text-align: center;
+    color: @color-white;
+    background: @color-danger;
+    cursor : pointer;
+}
+.crm-head__notice-box{
+    position: relative;
+    height:50px;
+}
+.crm-head__user-pic {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: 15px;
+    background:url("./bell.png") center center no-repeat;
+    background-size: cover;
+    cursor : pointer;
+    filter: grayscale(100%);
+    opacity: 0.66;
+    transition: all 0.3s ease;
+}
+.crm-head__user-pic:hover {
+    filter: none;
+    opacity: 1;
+}
+.create-demand__wrap{
+    background-color:rgba(0,0,0,.5);
+    .zs-dialog{
+        width:488px;
+        position: absolute !important;
+    }
+    .zs-loading-mask{
+        bottom:0;
+        right:0;
+    }
+    .zs-dialog__footer{
+        padding:0 0 30px 0 !important;
+    }
+    .dialog-footer{
+        display: block;
+        margin: 0 auto;
+        width:428px;
+        overflow:hidden;
+    }
+    .zs-button{
+        float: left;
+        width:204px;
+        height:50px;
+    }
+    .zs-button:last-child{
+        margin-left:20px;
+    }
+    .demand-mobile{
+        margin-bottom:0;
+    }
+}
+.zs-message-box__content{
+    //margin-bottom:20px;
+}
+.shut-down-confirm{
+    .zs-message-box__content{
+        padding-bottom:20px;
+    }
+    .zs-message-box__message{
+        margin-left:0 !important;
+    }
+    .zs-message-box__btns{
+        text-align: center;
+        .zs-button__primary{
+            margin-left: 10px !important;
+        }
+    }
+    .zs-button{
+        float: none !important;
+        width:120px;
+    }
+    .zs-message-box__status{
+        font-size:46px !important;
+        position: static;
+        //display: block;
+        text-align: center;
+        color:@color-danger !important;
+    }
+}

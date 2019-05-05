@@ -1,0 +1,98 @@
+@import "../../../../../../assets/css/src/var";
+
+.employee {
+    .employee-content {
+        .page-base();
+        padding: 10px 10px 20px 10px;
+        box-sizing: border-box;
+        background: @color-white;
+        margin-top: 10px;
+        .list-content {
+            margin-top: 10px;
+            .employee-table {
+                thead {
+                    tr {
+                        background: @color-white;;
+                        .zs-table__cell {
+                            border-right: 1px solid @border-color-sep;
+                        }
+                    }
+                }
+                .table-empty-data {
+                    height: 400px;
+                }
+                .account-operation {
+                    a {
+                        color: @color-primary;
+                        margin: 0 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            .curr {
+                color: @color-light-black !important;
+            }
+        }
+        .page-div {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .em-dialog {
+            .zs-dialog {
+                width: 460px;
+            }
+            .zs-dialog__body {
+                padding: 30px 45px 0 45px;
+            }
+            .dialog-body {
+                ul {
+                    li {
+                        height: auto;
+                        margin-bottom: 16px;
+                        em {
+                            color: @color-danger;
+                        }
+                        &:last-child {
+                            float: right;
+                            line-height: 36px;
+                            text-align: right;
+                            color: @color-base-black;
+                            font-size: 14px;
+                        }
+                        &:first-child {
+                            width: 280px;
+                            float: right;
+                            margin-left: 16px;
+                        }
+
+                        .zs-radio-group {
+                            padding: 8px 0;
+                            .zs-radio {
+                                &:last-child {
+                                    margin-left: 30px;
+                                }
+                            }
+                        }
+                        .zs-checkbox-group {
+                            .zs-checkbox {
+                                padding: 7px 0;
+                                margin-left: 0;
+                                margin-right: 30px;
+                            }
+
+                        }
+                        .select-form__select {
+                            width: 100%;
+                        }
+                    }
+                    .clearfix();
+                }
+            }
+            .zs-dialog__footer {
+                padding-bottom: 30px;
+                text-align: center;
+            }
+        }
+    }
+}

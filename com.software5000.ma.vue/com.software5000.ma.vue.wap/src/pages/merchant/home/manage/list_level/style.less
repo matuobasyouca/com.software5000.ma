@@ -1,0 +1,150 @@
+@import '../../../../../assets/css/src/var';
+
+.level-page{
+    padding-top: 44px;
+}
+
+.new-project{
+    position: absolute;
+    right: 10px;
+    font-size: 14px;
+    color: @color-white;
+}
+
+.record-body{
+    .record-ul{
+        li{
+            background: @color-white;
+            padding-left: 15px;
+            border-bottom: 1px solid @color-light-gray;
+            margin-bottom: 10px;
+            &:last-child{
+                border-bottom: none;
+                margin-bottom: 0 !important;
+            }
+            .row-one{
+                height: 50px;
+                line-height: 50px;
+                position: relative;
+                color: @color-base-black;
+                &:first-child{
+                    border-bottom: 1px solid @color-light-gray;
+                }
+                .vip{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-weight: bold;
+                    .icon_wrap{
+                        padding-left: 24px !important;
+                    }
+                }
+                .discount{
+                    text-align: center;
+                }
+                .cost{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding-right: 15px;
+                }
+            }
+            .row-two{
+                height: 40px;
+                line-height: 40px;
+                padding-right: 15px;
+                color: @color-base-black;
+                .clearfix();
+                .switch-btn{
+                    float: right;
+                    margin-top: 7px;
+                }
+                .switch-h3{
+                    float: right;
+                    margin-right: 5px;
+                    font-size: 12px;
+                }
+                .switch-h4{
+                    .switch-h3();
+                    color: @color-base-silver;
+                }
+                .make{
+                    float: right;
+                    margin-right: 20px;
+                    margin-top: 14px;
+                    padding-left: 18px !important;
+                    font-size: 12px;
+                }
+            }
+        }
+
+    }
+    .show_all_css {
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+        background-color: transparent !important;
+        color: @color-base-silver;
+    }
+    .show_more_css{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        color: @color-light-black;
+        background-color: @color-white !important;
+    }
+    .no_data_css {
+        text-align: center;
+        font-size: 14px;
+        color: @color-base-silver;
+        margin-top: 30px;
+    }
+    .data-empty {
+        .list-empty();
+        background-image: url("../../../../../assets/img/no_data.png");
+    }
+}
+.ProjectPage{
+    .go-home{
+        display: none;
+    }
+}
+.newProject-page{
+    .new-body{
+        margin-top: 10px;
+        ul{
+            background: @color-white;
+            li{
+                .clearfix();
+                line-height: 50px;
+                padding-left: 122px;
+                border-bottom: 1px solid @disabled-border-base;
+                position: relative;
+                .li-title{
+                    position: absolute;
+                    left: 15px;
+                    top: 0;
+                    font-size: 15px;
+                    color: @color-base-black;
+                    width: 72px;
+                    em{
+                        color: @color-danger;
+                    }
+                }
+                .zs-input{
+                    .zs-input__inner{
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .new-bottom{
+        padding: 0 15px;
+        margin-top: 20px;
+        .btn-click{
+            width: 100%;
+        }
+    }
+
+}

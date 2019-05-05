@@ -1,0 +1,272 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Font
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+html {
+  min-width: 320px;
+  max-width: 640px;
+  height: 100%;
+  margin: 0 auto;
+}
+body {
+  height: 100%;
+  background-color: #f6f6f6;
+  -webkit-overflow-scrolling: touch;
+}
+/* 清除内外边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td,
+img,
+canvas {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+/* 设置默认字体 */
+body,
+input,
+textarea,
+select,
+button {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: "microsoft yahei", "PingHei", "Arial", "Helvetica", "Verdana", "sans-serif";
+  color: #232d3c;
+}
+select {
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+body,
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+th {
+  font-weight: bold;
+}
+em,
+i,
+b {
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+h1 {
+  font-size: 18px;
+}
+h2 {
+  font-size: 16px;
+}
+h3 {
+  font-size: 14px;
+}
+h4 {
+  font-size: 12px;
+}
+h5 {
+  font-size: 10px;
+}
+/* 重置列表元素 */
+ul,
+ol {
+  list-style: none;
+}
+/* 重置超链接元素 */
+a {
+  text-decoration: none;
+}
+a:link {
+  color: #333;
+}
+/* 重置图片元素 */
+img {
+  vertical-align: middle;
+}
+/* 重置表格元素 */
+table {
+  border-style: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+thead,
+tbody {
+  width: 100%;
+}
+td {
+  padding: 0;
+  border: 0;
+}
+input {
+  -webkit-appearance: none;
+}
+/* 重置表单元素 */
+input[type="button"],
+input[type='submit'],
+input[type='reset'],
+input[type='text'],
+input[type="search"],
+input[type="date"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+textarea {
+  resize: none;
+}
+input:focus,
+textarea:focus,
+input,
+textarea {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-modify: read-write-plaintext-only;
+}
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+input[type="button"] {
+  border: none;
+}
+::-ms-clear,
+input::-ms-reveal {
+  display: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* 设置输入框属性placeholder中值的文件颜色 */
+::-webkit-input-placeholder {
+  color: #999;
+  font-weight: normal;
+}
+:-moz-placeholder {
+  color: #999;
+  font-weight: normal;
+}
+:-ms-input-placeholder {
+  color: #999;
+  font-weight: normal;
+}
+.placeholder {
+  color: #999;
+  font-weight: normal;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+/**
+ * End reset
+ */
+.page {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+}
+.pb-for-title {
+  padding-top: 44px;
+}
+.pt44 {
+  padding-top: 44px;
+}
+[v-cloak] {
+  display: none;
+}
+.clr {
+  zoom: 1;
+}
+.clr:after {
+  content: " ";
+  display: table;
+  clear: both;
+}

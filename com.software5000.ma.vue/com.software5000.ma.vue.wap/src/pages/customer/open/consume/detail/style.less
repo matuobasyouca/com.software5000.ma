@@ -1,0 +1,224 @@
+@import '../../../../../assets/css/src/var';
+
+.consume-detail-page {
+    .page-margin{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .side() {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 14px;
+        height: 14px;
+        border-radius: 10px;
+        background-color: #f6f6f6;
+    }
+
+    .manage-header{
+        position: relative;
+        height: 120px;
+        background-color: @color-primary;
+        margin-bottom: 70px;
+    }
+    .detail-head {
+        padding: 19px 10px 0;
+        text-align: center;
+        background-color: @color-white;
+        font-size: 24px;
+        border-radius: 4px;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        margin-top: 50px;
+        .car-number {
+            position: relative;
+            margin-top: 19px;
+            margin-bottom: 10px;
+            height: 44px;
+            line-height: 44px;
+            font-size: 15px;
+            color: #333333;
+            border-top: 1px solid #f2f2f2;
+        }
+        .finish-cls{
+            color: #3ac75c;
+        }
+        .serving-cls{
+            color: #008aff;
+        }
+        .nopay-cls{
+            color: #ff2e35;
+        }
+    }
+    .detail-info {
+        padding: 0 10px;
+        margin-bottom: 10px;
+        background-color: @color-white;
+        border-radius: 2px;
+        li {
+            height: 44px;
+            line-height: 44px;
+            border-bottom: 1px solid @border-color-sep;
+        }
+        .info-title {
+            font-size: 14px;
+            color: @color-light-black;
+            font-weight: bold;
+        }
+        .info-service {
+            height: auto;
+            color: #222;
+            .info-service-p1 {
+                height: 38px;
+                line-height: 38px;
+                i {
+                    margin-left: 4px;
+                    margin-right: 6px;
+                    color: @color-base-silver;
+                    font-size: 12px;
+                }
+                .user-card {
+                    width: 57px;
+                    height: 21px;
+                    text-align: center;
+                    line-height: 21px;
+                    color:#ff2e35;
+                    font-size: 12px;
+                    background-color: #ffeaea;
+                    border-radius: 10px;
+                    display: inline-block;
+                }
+            }
+            .info-service-p2,
+            .info-service-p3,
+            .info-service-p4 {
+                height: 36px;
+                line-height: 36px;
+            }
+            .info-service-p2 {
+                i {
+                    font-size: 13px;
+                    color: @color-base-silver;
+                }
+            }
+            .info-service-p4 {
+                text-align: right;
+            }
+
+        }
+        .info-service-sum {
+            text-align: right;
+            color: @color-light-black;
+            span {
+                margin: 0 10px 0 4px;
+            }
+            span:last-child {
+                margin-right: 0;
+            }
+        }
+        .info-sum {
+            text-align: right;
+            font-size: 15px;
+            color: #222;
+            .info-sum-price {
+                font-size: 17px;
+                color: #ff733a;
+                margin-left: 6px;
+                font-weight: bold;
+            }
+        }
+        .price {
+            float: right;
+            color: #222;
+        }
+        .info-finish {
+            .icon_wrap {
+                i {
+                    font-size: 10px;
+                }
+            }
+            .info-discount-num {
+                margin-left: 4px;
+                font-size: 10px;
+                border: 1px solid #fb6753;
+                border-radius: 2px;
+                padding: 1px 2px;
+                color: #fb6753;
+            }
+            .info-deduct {
+                float: right;
+                color: #fb6753;
+            }
+            .coupon-name {
+                color: @color-base-silver;
+            }
+            &.first {
+                position: relative;
+                &:before {
+                    .side();
+                    left: -10px;
+                    transform: translate(-60%, -50%);
+                }
+                &:after {
+                    .side();
+                    right: -10px;
+                    transform: translate(60%, -50%);
+                }
+            }
+        }
+    }
+    .detail-image {
+        padding: 0 10px;
+        margin-bottom: 10px;
+        background-color: @color-white;
+        border-radius: 2px;
+        .image-title {
+            height: 44px;
+            line-height: 44px;
+            border-bottom: 1px solid @border-color-sep;
+        }
+        .image-wrap {
+            position: relative;
+            padding: 5px 0;
+            margin: 0 -5px;
+            .clearfix();
+            li {
+                position: relative;
+                float: left;
+                width: 33.33%;
+                height: 0;
+                padding-bottom: 33.33%;
+                i {
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    right: 5px;
+                    bottom: 5px;
+                    background: #f6f6f6 center center no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+        .image-empty {
+            height: 50px;
+            line-height: 50px;
+            color: @color-base-silver;
+            text-align: center;
+        }
+    }
+    .detail-other {
+        padding: 8px 10px;
+        background-color: @color-white;
+        border-radius: 2px;
+        P {
+            height: 32px;
+            line-height: 32px;
+            color: @color-base-silver;
+            span {
+                margin-left: 30px;
+                color: #222;
+            }
+        }
+    }
+}

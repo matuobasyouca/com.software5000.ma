@@ -1,0 +1,247 @@
+{
+    "pages": [
+        {
+            "entry": "test",
+            "title": "测试页面",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/open/404",
+            "title": "找不到页面",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/open/login",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "02_1",
+            "entry": "merchant/home/workorder/update",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "02_2",
+            "entry": "merchant/home/workorder/list_unfinish",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "02_3",
+            "entry": "merchant/home/workorder/list_balance",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/workorder/detail_pay",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/workorder/detail_balance",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "01",
+            "entry": "merchant/home/index",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "04",
+            "entry": "merchant/home/employee",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "03_1",
+            "entry": "merchant/home/member/list",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/detail",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "03_2",
+            "entry": "merchant/home/package/list",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/package/update",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "03_3",
+            "entry": "merchant/home/member/buy_package",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/package/detail",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/package_billing",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "03_4",
+            "entry": "merchant/home/member/list_level",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "05_1",
+            "entry": "merchant/home/finance/list_withdraw",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "05_2",
+            "entry": "merchant/home/finance/list_financial",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "06_1",
+            "entry": "merchant/home/setting/services",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "06_2",
+            "entry": "merchant/home/setting/store",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "06_3",
+            "entry": "merchant/home/setting/update",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/open/login",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "11_1",
+            "entry": "operator/home/activity/manage",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/home/activity/add_activity",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/home/activity/detail",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "11_2",
+            "entry": "operator/home/activity/record",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/update_discount",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "id": "03_5",
+            "entry": "merchant/home/recharge/update",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/recharge/detail",
+            "title": "联盟商家",
+            "cdn": {
+                "js": []
+            }
+        }
+    ],
+    "basePath": "./src/pages/",
+    "cdn": {
+        "js": [],
+        "css": []
+    },
+    "externals": {
+        "vue": "Vue",
+        "vuex": "Vuex"
+    }
+}

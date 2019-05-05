@@ -1,0 +1,55 @@
+@import "../../../../../assets/css/src/var";
+
+.car-pad-page {
+    padding: 59px 0 10px;
+    .car-pad-control {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50px;
+        font-size: 16px;
+        text-align: center;
+        line-height: 50px;
+        color: @color-white;
+        background-color: @color-primary;
+    }
+    .has-mobile {
+        padding-left: 15px;
+    }
+    .has-mobile-notice {
+        padding-top: 20px;
+        margin-left: 10px;
+        font-size: 12px;
+        color: #999;
+        i {
+            top: 22px;
+            transform: none !important;
+        }
+    }
+    .pay-user-detail {
+        padding-left: 15px;
+        background-color: @color-white;
+        .user-detail-list {
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+            padding-left: 65px;
+            border-bottom: 1px solid @border-color-sep;
+            &:last-child {
+                border-bottom: none;
+            }
+            & > span {
+                position: absolute;
+                left: 0;
+            }
+            .car-number {
+                height: 49px;
+                line-height: 49px;
+                .car-number-input {
+                    padding: 0 2px 0 10px;
+                }
+            }
+        }
+    }
+}

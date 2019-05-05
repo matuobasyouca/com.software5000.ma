@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PaySetting>
+    <mchId>${PaySetting_mchId}</mchId>
+    <appId>${AppSetting_appId}</appId>
+    <key>${PaySetting_key}</key>
+    <certPath>${PaySetting_certPath}</certPath>
+    <certPassword>${PaySetting_certPassword}</certPassword>
+</PaySetting>

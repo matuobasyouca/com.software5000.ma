@@ -1,0 +1,32 @@
+@import '../../../src/assets/css/src/var.less';
+
+.serve-item-wrap{
+    position: relative;
+    padding-left:40px;
+    line-height:1.5;
+    .item-name-label{
+        position: absolute;
+        left:0;
+        top:50%;
+        transform:translateY(-50%);
+        width:25px;
+        height:25px;
+        border-radius:2px;
+        background-color:@color-warning;
+        color:@color-white;
+        text-align: center;
+        line-height:25px;
+    }
+    .item-name{
+        font-weight:bold;
+    }
+    .item-price{
+        font-size:16px;
+        font-weight:bold;
+        color:@color-warning;
+        em{
+            font-size:12px;
+            font-weight:bold;
+        }
+    }
+}

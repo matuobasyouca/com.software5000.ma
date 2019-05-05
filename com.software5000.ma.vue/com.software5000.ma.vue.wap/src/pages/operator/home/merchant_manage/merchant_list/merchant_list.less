@@ -1,0 +1,142 @@
+@import '../../../../../assets/css/src/var';
+
+.merchant-list-page {
+    padding-top: 44px;
+    padding-bottom:10px;
+    .list-empty{
+        height:200px;
+        line-height:200px;
+        background:none;
+    }
+    .show-more{
+        background-color:@color-white;
+        text-align: center;
+        line-height:44px;
+        color:@color-light-black;
+        &.no-more{
+            background:none;
+        }
+    }
+    .search__wrap{
+        background: #f6f6f6;
+    }
+    .search__wrap.is-focus {
+        background: #f6f6f6;
+    }
+    .search-input-control{
+        color: #4b8dde
+    }
+}
+
+.merchant-list {
+    li {
+        background: @color-white;
+        padding-left:15px;
+        margin-bottom:10px;
+        padding-right: 15px;
+    }
+    .merchant-list-item {
+        position: relative;
+        min-height:100px;
+        padding: 15px 40px 15px 114px;
+        border-bottom:1px solid @border-color-sep;
+        .merchant-pic {
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 99px;
+            height: 70px;
+            border-radius: 2px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #f6f6f6;
+        }
+        .state-label {
+            position: absolute;
+            right: 0px;
+            top: 15px;
+            width: 25px;
+            height: 14px;
+            font-size: 10px;
+            text-align: center;
+            line-height: 14px;
+            border-radius: 2px;
+            color: @color-white;
+            &.label-green {
+                background-color:#4b8dde;
+            }
+            &.label-gray{
+                background-color:#bbbbbb;
+            }
+        }
+        .merchant-name{
+            font-size:15px;
+            font-weight:bold;
+            .ellipsis();
+        }
+        .merchant-address,
+        .merchant-tel{
+            padding-left: 19px !important;
+            width:100%;
+            font-size:12px;
+            color:#999999;
+            .ellipsis();
+        }
+        .merchant-address{
+            line-height:26px !important;
+            height: 25px !important;
+        }
+    }
+    .merchant-list-control{
+        height:46px;
+        line-height:46px;
+        text-align: right;
+        .icon_wrap{
+            margin-left:25px;
+            padding-left:20px !important;
+        }
+    }
+}
+
+//搜索
+.searchGroupMask {
+    position: relative;
+    overflow: hidden;
+    //border-bottom: 1px solid @border-color-sep;
+    .searchGroup {
+        display: block;
+        position: relative;
+        height: 32px;
+        margin: 10px;
+        background-color: @color-white;
+        border: 1px solid @border-color-base;
+        border-radius: 4px;
+        color: @color-light-black;
+        line-height: 30px;
+        text-align: center;
+        margin-right: 60px;
+    }
+    input {
+        width: 100%;
+        padding-left: 26px;
+    }
+    .pageIconSearch {
+        position: absolute;
+        top: 30%;
+        left: 6px;
+        width: 14px;
+        height: 14px;
+        margin-top: -7px;
+        background-position: -99px 0;
+    }
+    .doSearch {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        margin-top: -16px;
+        line-height: 32px;
+        font-size: 16px;
+        color: @color-primary;
+    }
+}

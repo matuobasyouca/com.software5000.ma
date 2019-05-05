@@ -1,0 +1,74 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Font
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+.page-404 {
+  padding-top: 80px;
+  text-align: center;
+  height: 100%;
+  background-color: #fff;
+}
+.page-404 .image {
+  width: 270px;
+  height: 120px;
+  margin: 0 auto;
+  background: url("assets/404.png") no-repeat center center;
+  background-size: contain;
+}
+.page-404 .notice {
+  margin-top: 25px;
+  height: 63px;
+  line-height: 63px;
+  text-align: center;
+  font-size: 15px;
+  color: #999;
+}
+.page-404 .zs-button {
+  width: 170px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  border-radius: 20px;
+}

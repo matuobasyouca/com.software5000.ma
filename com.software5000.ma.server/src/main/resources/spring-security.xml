@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	">
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <!-- override these for application-specific URLs if you like:
+        <property name="loginUrl" value="/login.jsp"/>
+        <property name="successUrl" value="/home.jsp"/>
+        <property name="unauthorizedUrl" value="/unauthorized.jsp"/> -->
+        <!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean  -->
+        <!-- defined will be automatically acquired and available via its beanName in chain        -->
+        <!-- definitions, but you can perform instance overrides or name aliases here if you like: -->
+        <property name="filters">
+            <map>
+                <entry key="jwtFilter" value-ref="jwtFilter"/>
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                # some example chain definitions:
+                <!--/img/**=anon-->
+                <!--/admin/** = authc, roles[admin]-->
+                <!--/my/** = jwtFilter-->
+                /**/open/** = anon
+                <!-- workOrder 工单 -->
+                /**/workOrder/select** = jwtFilter[merchant,customer,operator,zsoperator]
+                /**/workOrder/insert** = jwtFilter[merchant,operator]
+                /**/workOrder/update** = jwtFilter[merchant,operator]
+
+                <!-- member 会员 -->
+                /**/member/select** = jwtFilter[merchant,operator]
+                /**/member/insert** = jwtFilter[merchant,operator]
+                /**/member/update** = jwtFilter[merchant]
+
+                <!-- finance 财务 -->
+                /**/finance/select** = jwtFilter[merchant,zsoperator]
+                /**/finance/insert** = jwtFilter[merchant]
+                /**/finance/update** = jwtFilter[merchant]
+
+                <!-- serviceItem 服务项 -->
+                /**/serviceItem/select** = jwtFilter
+                /**/serviceItem/insert** = jwtFilter[merchant]
+                /**/serviceItem/update** = jwtFilter[merchant]
+
+                <!-- business 商家 -->
+                /**/business/select** = jwtFilter
+                /**/business/insert** = jwtFilter[merchant,zsoperator]
+                /**/business/update** = jwtFilter[merchant,zsoperator]
+
+                <!-- businessPackage 套餐卡 -->
+                /**/businessPackage/select** = jwtFilter[merchant,zsoperator]
+                /**/businessPackage/insert** = jwtFilter[merchant,zsoperator]
+                /**/businessPackage/update** = jwtFilter[merchant,zsoperator]
+
+                <!-- coupons 卡券 -->
+                /**/coupons/select** = jwtFilter[merchant,zsoperator]
+                /**/coupons/insert** = jwtFilter[merchant]
+                /**/coupons/update** = jwtFilter[merchant]
+
+                /**/home/** = jwtFilter
+                /**/api/** = jwtFilter[api]
+                ** = anon
+                # more URL-to-FilterChain definitions here
+            </value>
+        </property>
+    </bean>
+    <!--<bean id="builtInCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>-->
+    <bean id="jwtFilter" class="com.software5000.base.security.jwt.JWTOrFormAuthenticationFilter">
+        <property name="loginUrl" value="/login"/>
+        <!--<bean id="myRealm" class="com.zscp.base.security.BasicRealm">-->
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
+        <!--<property name="subjectDAO.sessionStorageEvaluator.sessionStorageEnabled"-->
+                  <!--value="false"/>-->
+
+        <property name="realms">
+            <list>
+                <ref bean="formRealm"/>
+                <ref bean="jwtRealm"/>
+            </list>
+        </property>
+        <!-- By default the servlet container sessions will be used.  Uncomment this line
+             to use shiro's native sessions (see the JavaDoc for more): -->
+        <!-- <property name="sessionMode" value="native"/> -->
+    </bean>
+
+    <!-- Define the Shiro Realm implementation you want to use to connect to your back-end -->
+    <!-- security datasource: -->
+    <bean id="jwtRealm" class="com.software5000.base.security.jwt.JWTRealm">
+        <property name="credentialsMatcher" ref="tokenMatcher"/>
+    </bean>
+    <bean id="formRealm" class="com.software5000.base.security.jwt.FormRealm">
+        <property name="credentialsMatcher" ref="passwordMatcher"/>
+    </bean>
+
+    <bean id="tokenMatcher"
+          class="org.apache.shiro.authc.credential.SimpleCredentialsMatcher">
+    </bean>
+    <bean id="passwordMatcher"
+          class="org.apache.shiro.authc.credential.PasswordMatcher">
+    </bean>
+
+    <bean id="captchaService"
+          class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+        <property name="captchaEngine">
+            <bean class="com.software5000.base.security.GMailEngine" />
+        </property>
+        <!-- 默认生成的图片180秒过期 , 可另行设置 -->
+        <property name="minGuarantedStorageDelayInSeconds"
+                  value="180" />
+    </bean>
+</beans>

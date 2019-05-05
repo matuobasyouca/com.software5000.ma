@@ -1,0 +1,110 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+// -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* z-index
+ -------------------------- */
+/* Disable base
+-------------------------- */
+/* icon
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Message Box
+ -------------------------- */
+/* Message
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Scrollbar
+--------------------------*/
+/* Popover
+-------------------------- */
+/* Tooltip
+  -------------------------- */
+/* Radio
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Tag
+-------------------------- */
+/* clearfix
+--------------------------*/
+.r {
+  float: right;
+}
+.page-main {
+  zoom: 1;
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+}
+.page-main:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.page-main-title {
+  position: relative;
+  background-color: #2cc068;
+  color: #fff;
+  line-height: 60px;
+  border-radius: 4px 4px 0 0;
+}
+.page-main-title-left {
+  font-size: 20px;
+  padding-left: 16px;
+  font-weight: bold;
+}
+.page-main-title-left .price {
+  font-size: 24px;
+  margin-left: 30px;
+}
+.page-main-title-right {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+}
+.page-main-body {
+  padding: 0 20px 10px;
+}
+.package-price {
+  line-height: 50px;
+  color: #999;
+}
+.package-price .black {
+  font-weight: bold;
+  color: #232d3c;
+}
+.package-explain {
+  line-height: 32px;
+  color: #999;
+}
+.package-text {
+  line-height: 32px;
+}

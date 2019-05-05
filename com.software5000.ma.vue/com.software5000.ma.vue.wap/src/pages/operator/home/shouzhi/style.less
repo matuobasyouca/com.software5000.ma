@@ -1,0 +1,262 @@
+@import "../../../../assets/css/src/var";
+
+.shouzhi-page {
+    padding-top: 88px;
+    .merchant-list {
+        padding-left: 15px;
+        background-color: @color-white;
+        li {
+            height: 46px;
+            padding-right: 35px;
+            line-height: 46px;
+            font-size: 10px;
+            color: #333;
+            border-bottom: 1px solid @border-color-sep;
+        }
+        li.curr {
+            position: relative;
+            color: @color-primary;
+            &:after {
+                position: absolute;
+                content: '';
+                right: 15px;
+                top: 50%;
+                width: 10px;
+                height: 4px;
+                border: solid @color-primary;
+                border-width: 0 0 2px 2px;
+                transform: rotate(-45deg) translateY(-70%);
+            }
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+    }
+    .create-time-select {
+        padding: 30px 15px;
+        background-color: @color-white;
+        .clearfix();
+        .time-wrap {
+            position: relative;
+            float: left;
+            padding-right: 36px;
+            padding-left: 10px;
+            height: 40px;
+            line-height: 40px;
+            width: 45%;
+            border: 1px solid @border-color-base;
+            border-radius: 2px;
+            color: #999;
+            font-size: 15px;
+            &:after {
+                position: absolute;
+                top: 0;
+                right: 10px;
+                content: '';
+                width: 15px;
+                height: 40px;
+                background-image: url('../../../../components/icon/assets/date.png');
+                background-size: 15px 15px;
+                background-position: 0 center;
+                background-repeat: no-repeat;
+            }
+            input {
+                position: absolute;
+                top:0;
+                left:40px;
+                width: 100%;
+                z-index: -1;
+            }
+        }
+        .time-wrap-sep {
+            float: left;
+            width: 10%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #999;
+        }
+    }
+    .create-time-btn {
+        .clearfix();
+        li {
+            float: left;
+            width: 50%;
+            height: 44px;
+            line-height: 44px;
+            color: #fff;
+            text-align: center;
+            font-size: 16px;
+        }
+        li:first-child {
+            background-color: #999;
+        }
+        li:last-child {
+            background-color: @color-primary;
+        }
+    }
+    .shouzhi-num {
+        background: #FFFFFF;
+        border-top: 1px solid #F2F2F2;
+        height: 50px;
+        ul {
+            height: 25px;
+            margin-top: 12px;
+            li {
+                width: 50%;
+                float: left;
+                text-align: center;
+
+                .nr{
+                    display: inline-block;
+                }
+                &:first-child {
+                    border-right: 1px solid #F2F2F2;
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        background: url("assets/shou.png");
+                        background-size: 100% 100%;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                }
+                &:last-child {
+                    &:before {
+                        content: '';
+                        display: inline-block;
+                        background: url("assets/zhi.png");
+                        background-size: 100% 100%;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                }
+                .num {
+                    font-size: 15px;
+                    color: #333333;
+                    font-weight: bold;
+                    line-height: 15px;
+                    margin-top: -2px;
+                    text-align: left;
+                }
+                .zi {
+                    font-size: 10px;
+                    color: #999999;
+                    line-height: 10px;
+                    margin-top: 2px;
+                    text-align: left;
+                }
+            }
+            &:after {
+                content: '';
+                clear: both;
+            }
+        }
+    }
+    .shouzhi-list {
+        padding: 15px;
+        ul {
+            width: 100%;
+            .list-li {
+                margin-top: 15px;
+                background: #FFFFFF;
+                box-shadow: 0 4px 4px #ececec;
+                border-radius: 4px;
+                &:first-child {
+                    margin-top: 0;
+                }
+                .tit{
+                    line-height: 44px;
+                    border-bottom: 1px solid #F2F2F2;
+                    color: #333333;
+                    font-size: 14px;
+                    padding-left: 35px;
+                    position: relative;
+                    &:before{
+                        content: '';
+                        display: block;
+                        width: 15px;
+                        height: 15px;
+                        position: absolute;
+                        left: 10px;
+                        top: 50%;
+                        margin-top: -7px;
+                        background: url("assets/shang2.png");
+                        background-size: 100% 100%;
+                    }
+                }
+                .con{
+                    overflow: hidden;
+                    .li{
+                        width: 50%;
+                        float: left;
+                        margin: 10px 0;
+                        .num{
+                            display: block;
+                            text-align: center;
+                            font-size: 20px;
+                            font-weight: bold;
+                            line-height: 20px;
+                        }
+                        .zi{
+                            display: block;
+                            text-align: center;
+                            font-size: 12px;
+                            font-weight: bold;
+                            color: #999999;
+                            line-height: 12px;
+                            margin-top: 8px;
+                        }
+                        &:first-child{
+                            border-right: 1px solid #F2F2F2;
+                            box-sizing: border-box;
+                            .num{
+                                color: #ff7247;
+                            }
+                        }
+                        &:last-child{
+                            .num{
+                                color: #28bf76;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .show_all_css {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #999999;
+        }
+        .no_data_css {
+            text-align: center;
+            font-size: 14px;
+            color: #999999;
+            margin-top: 30px;
+        }
+        .data-empty {
+            height: 64px;
+            padding-top: 94px;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            .wushuju{
+                width: 40px;
+                height: 40px;
+                background: url("assets/wushuju.png");
+                background-size: 100% 100%;
+                margin: 0 auto;
+            }
+            p{
+                text-align: center;
+                line-height: 24px;
+                color: #999999;
+                font-size: 10px;
+            }
+        }
+
+    }
+}

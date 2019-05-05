@@ -1,0 +1,69 @@
+@import '../../../../../assets/css/src/var';
+
+.binding-page {
+    padding-top: 64px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.WXmessage {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    .module-one {
+        background: @color-primary;
+        padding-top: 19px;
+        .wx-img {
+            width: 60px;
+            height: 60px;
+            background: url("asset/wechat.png");
+            background-size: 100% 100%;
+            margin: 0 auto;
+        }
+        .h3 {
+            text-align: center;
+            line-height: 46px;
+            color: @color-white;
+        }
+    }
+    .module-two {
+        background: @color-white;
+        ul {
+            li {
+                height: 50px;
+                padding-left: 15px;
+                border-bottom: 1px solid @color-light-gray;
+                line-height: 50px;
+                display: flex;
+                align-items: center;
+                .icon_wrap {
+                    float: left;
+                    line-height: 50px;
+                    span {
+                        color: @color-light-black;
+                    }
+                }
+                .detail {
+                    float: left;
+                    margin-left: 30px;
+                    font-size: 15px;
+                    color: @color-base-black;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+.hit {
+    font-size: 10px;
+    color: @color-base-silver;
+    line-height: 33px;
+    margin-bottom: 10px;
+}
+
+.bind-btn {
+    width: 100%;
+}

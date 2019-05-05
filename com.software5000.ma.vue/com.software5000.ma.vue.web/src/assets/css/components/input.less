@@ -1,0 +1,239 @@
+@import "../src/var.less";
+.zs {
+    &-input {
+        position: relative;
+        font-size: @font-size-base;
+        display: inline-block;
+        width: 100%;
+
+        &__inner {
+            appearance: none;
+            background-color: @color-white;
+            //border-radius: @input-border-radius;
+            border: @input-border;
+            box-sizing: border-box;
+            color: @input-color;
+            display: block;
+            font-size: @input-font-size;
+            height: @input-height;
+            line-height: 1;
+            outline: none;
+            padding: 3px 10px 3px 16px;
+            transition: @border-transition-base;
+            width: 100%;
+
+            &::placeholder {
+                color: @color-base-silver;
+            }
+
+            //&:hover {
+            //    border-color: @input-hover-border;
+            //}
+
+            &:focus {
+                outline: none;
+                //border-color: @input-focus-border;
+                box-shadow: @box-shadow-base;
+            }
+        }
+        &__icon {
+            position: absolute !important;
+            width: 35px;
+            height: 100%;
+            right: 0;
+            top: 0;
+            text-align: center;
+            color: @input-icon-color;
+            transition: all .3s;
+
+            &:after {
+                content: '';
+                height: 100%;
+                width: 0;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            & + .zs-input__inner {
+                padding-right: 35px;
+            }
+
+            &.is-clickable {
+                &:hover {
+                    cursor: pointer;
+                    color: @input-hover-border;
+
+                    & + .zs-input__inner {
+                        //border-color: @input-hover-border;
+                    }
+                }
+            }
+        }
+        &__icon-prev {
+            right: auto;
+            left: 0;
+            & + .zs-input__icon + .zs-input__inner,
+            & + .zs-input__inner {
+                padding-left: 35px;
+            }
+        }
+        &.is-active {
+            .zs-input__inner {
+                outline: none;
+                //border-color: @input-focus-border;
+            }
+        }
+        &.is-disabled {
+            .zs-input__inner {
+                background-color: @input-disabled-fill;
+                border-color: @input-disabled-border;
+                color: @input-disabled-color;
+                cursor: not-allowed;
+
+                &::placeholder {
+                    color: @input-disabled-placeholder-color;
+                }
+            }
+            .zs-input__icon {
+                color: @input-disabled-color !important;
+            }
+        }
+        &__large {
+            font-size: @input-large-font-size;
+
+            & .zs-input__inner {
+                height: @input-large-height;
+            }
+        }
+        &__small {
+            font-size: @input-small-font-size;
+
+            & .zs-input__inner {
+                height: @input-small-height;
+            }
+        }
+        &__mini {
+            font-size: @input-mini-font-size;
+
+            & .zs-input__inner {
+                height: @input-mini-height;
+            }
+        }
+    }
+
+    &-input-group {
+        line-height: normal;
+        display: inline-table;
+        width: 100%;
+        border-collapse: separate;
+
+        & > .zs-input__inner {
+            vertical-align: middle;
+            display: table-cell;
+        }
+        &__append,
+        &__prepend {
+            background-color: @color-white;
+            color: @color-base-black;
+            vertical-align: middle;
+            display: table-cell;
+            position: relative;
+            //border: @border-base;
+            //border-radius: @input-border-radius;
+            padding: 0 35px 0 15px;
+            width: 1%;
+            white-space: nowrap;
+            font-size:16px;
+            & .zs-select,
+            & .zs-button {
+                display: block;
+                margin: -10px;
+            }
+
+            & .zs-button,
+            & .zs-select .zs-input__inner,
+            & .zs-select:hover .zs-input__inner {
+                border-color: transparent;
+                background-color: transparent;
+                color: inherit;
+                border-top: 0;
+                border-bottom: 0;
+            }
+            & .zs-button,
+            & .zs-input {
+                font-size: inherit;
+            }
+        }
+        //&__prepend {
+        //    border-right: 0;
+        //    border-top-right-radius: 0;
+        //    border-bottom-right-radius: 0;
+        //}
+        //&__append {
+        //    border-left: 0;
+        //    border-top-left-radius: 0;
+        //    border-bottom-left-radius: 0;
+        //}
+
+    }
+    &-input-group-prepend {
+        .zs-input__inner {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+    &-input-group-append {
+        .zs-input__inner {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    &-textarea {
+        display: inline-block;
+        width: 100%;
+        vertical-align: bottom;
+
+        &__inner {
+            display: block;
+            resize: vertical;
+            padding: 12px 16px;
+            line-height: 1.5;
+            box-sizing: border-box;
+            width: 100%;
+            font-size: @font-size-base;
+            color: @input-color;
+            background-color: @color-white;
+            background-image: none;
+            border: @input-border;
+            border-radius: @input-border-radius;
+            transition: @border-transition-base;
+
+            &::placeholder {
+                color: @input-placeholder-color;
+            }
+
+            //&:hover {
+            //    border-color: @input-hover-border;
+            //}
+
+            &:focus {
+                outline: none;
+                //box-shadow: @box-shadow-base;
+                //border-color: @input-focus-border;
+            }
+        }
+        &.is-disabled {
+            .zs-textarea__inner {
+                background-color: @disabled-fill-base;
+                border-color: @disabled-border-base;
+                color: @disabled-color-base;
+                cursor: not-allowed;
+
+                &::placeholder {
+                    color: @input-disabled-placeholder-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+@import '../../../src/assets/css/src/var.less';
+
+.ma-appraise{
+  overflow: hidden;
+  .appraise-title{
+    font-size: 16px;
+    color: #232d3c;
+    display: inline-block;
+    float: left;
+    line-height: 32px;
+    padding-left: 16px;
+  }
+  .star{
+    display: inline-block;
+    float: left;
+    li{
+      width: 32px;
+      height: 32px;
+      background: url("assets/starOld.png");
+      background-size: 100% 100%;
+      float: left;
+      margin-left: 10px;
+      &:after{
+        content: '';
+        display: table;
+        clear: both;
+      }
+    }
+    .starChange{
+      background: url("assets/starNew.png");
+      background-size: 100% 100%;
+    }
+  }
+  .score{
+    line-height: 32px;
+    font-size: 16px;
+    color: #232d3c;
+    float: left;
+    margin-left: 16px;
+  }
+}

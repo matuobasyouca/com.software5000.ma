@@ -1,0 +1,136 @@
+@import "../../../../../../../assets/css/src/var";
+
+.services-list{
+    .page-base();
+    border-radius: 4px;
+    background: @color-white;
+    margin-top: 10px;
+    padding: 10px;
+    .list-content {
+        margin-top: 10px;
+        .employee-table {
+            thead {
+                tr {
+                    background: @color-white;;
+                    .zs-table__cell {
+                        border-right: 1px solid @border-color-sep;
+                    }
+                }
+            }
+            .table-empty-data {
+                height: 400px;
+            }
+            .account-operation {
+                a {
+                    color: @color-primary;
+                    margin: 0 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .istop{
+            width: 48px;
+            display: inline-block;
+            text-align: center;
+        }
+        .item-times{
+            p {
+                cursor: pointer;
+            }
+            input {
+                font-size: 12px;
+                border-radius: 2px;
+                text-align: center;
+                width: 100%;
+                &:focus {
+                    border: 1px solid @color-primary;
+                    background-color: @color-white;
+                }
+            }
+        }
+    }
+    .page-div {
+        text-align: right;
+        margin-top: 20px;
+    }
+
+    .new-dialog {
+        .zs-dialog {
+            width: 460px;
+        }
+        .zs-dialog__body {
+            padding: 30px 65px 30px 30px;
+        }
+        .dialog-body {
+            ul {
+                position: relative;
+                li {
+                    height: 36px;
+                    margin-bottom: 16px;
+                    em{
+                        color: @color-danger;
+                    }
+                    &:last-child {
+                        float: right;
+                        line-height: 36px;
+                        text-align: right;
+                        color: @color-base-black;
+                        font-size: 14px;
+                    }
+                    &:first-child {
+                        width: 280px;
+                        float: right;
+                        margin-left: 16px;
+                    }
+
+                    .select-form-select {
+                        width: 280px;
+                    }
+                }
+                .hint{
+                    position: absolute;
+                    right: -50px;
+                    top: 0;
+                    line-height: 36px;
+                    width: 40px;
+                    text-align: left;
+                    color: @color-light-black;
+                }
+                .clearfix();
+            }
+        }
+        .zs-dialog__footer {
+            padding-bottom: 30px;
+            text-align: center;
+        }
+    }
+    .del-dialog {
+        .zs-dialog {
+            width: 400px;
+            height: 340px;
+        }
+        .zs-dialog__body{
+            padding: 0;
+        }
+        .dialog-body {
+            .del-img{
+                width: 50px;
+                height: 50px;
+                margin: 30px auto 0;
+                background: url("asset/delete.png");
+                background-size: 100% 100%;
+            }
+            .del-p{
+                line-height: 86px;
+                text-align: center;
+                font-size: 16px;
+                color: @color-base-black;
+            }
+        }
+        .zs-dialog__footer {
+            margin-top: 52px;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+    }
+}

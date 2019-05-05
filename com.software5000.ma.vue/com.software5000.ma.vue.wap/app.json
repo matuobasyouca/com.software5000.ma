@@ -1,0 +1,411 @@
+{
+    "pages": [
+        {
+            "entry": "test",
+            "title": "组件测试使用",
+            "cdn": {
+                "js": [
+                    "http://res.wx.qq.com/open/js/jweixin-1.2.0.js"
+                ]
+            }
+        },
+        {
+            "entry": "merchant/open/login",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/open/404",
+            "title": "找不到页面",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/workorder/update",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/workorder/list",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/workorder/detail",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/index",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/car_pad",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/binding",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/withdraw",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/record",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/list_financial",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/manage",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/detail",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/bing_car",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/buy_package",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/package_detail",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/store_setting",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/list_level",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/services_available",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/service_package/package_list",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/service_package/new_package",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/manage/service_package/package_detail",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/member/package",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/recharge/update",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/recharge/list",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "merchant/home/recharge/detail",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/open/login",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/home/workbench",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/home/shouzhi",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/home/merchant_manage/merchant_list",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/home/merchant_manage/merchant_edit",
+            "title": "诚品车服",
+            "cdn": {
+                "js": [
+                    "http://api.map.baidu.com/api?v=2.0&ak=bARLAXR5fUM3M4DB8GNiWBIF"
+                ]
+            }
+        },
+        {
+            "entry": "operator/home/merchant_manage/merchant_insert",
+            "title": "诚品车服",
+            "cdn": {
+                "js": [
+                    "http://api.map.baidu.com/api?v=2.0&ak=bARLAXR5fUM3M4DB8GNiWBIF"
+                ]
+            }
+        },
+        {
+            "entry": "operator/home/merchant_data/data_list",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "operator/home/merchant_manage/account_insert",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/package",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/business/my_list",
+            "title": "诚品车服",
+            "cdn": {
+                "js": [
+                    "http://api.map.baidu.com/api?v=2.0&ak=bARLAXR5fUM3M4DB8GNiWBIF"
+                ]
+            }
+        },
+        {
+            "entry": "customer/open/business/list",
+            "title": "诚品车服",
+            "cdn": {
+                "js": [
+                    "http://api.map.baidu.com/api?v=2.0&ak=bARLAXR5fUM3M4DB8GNiWBIF"
+                ]
+            }
+        },
+        {
+            "entry": "customer/open/business/detail",
+            "title": "诚品车服",
+            "cdn": {
+                "js": [
+                    "http://api.map.baidu.com/api?v=2.0&ak=bARLAXR5fUM3M4DB8GNiWBIF"
+                ]
+            }
+        },
+        {
+            "entry": "customer/open/business/map",
+            "title": "诚品车服",
+            "cdn": {
+                "js": [
+                    "http://api.map.baidu.com/api?v=2.0&ak=bARLAXR5fUM3M4DB8GNiWBIF"
+                ]
+            }
+        },
+        {
+            "entry": "customer/open/binding",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/cashier",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/consume/list",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/consume/detail",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/lottery_search",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/lottery",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/parkingcall",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/car",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/scan",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/group/activity",
+            "title": "诚品车服",
+            "cdn": {
+                "js": [
+                    "http://res.wx.qq.com/open/js/jweixin-1.2.0.js"
+                ]
+            }
+        },
+        {
+            "entry": "customer/open/group/join",
+            "title": "诚品车服",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/group/list",
+            "title": "中晟诚品好车网",
+            "cdn": {
+                "js": []
+            }
+        },
+        {
+            "entry": "customer/open/group/details",
+            "title": "中晟诚品好车网",
+            "cdn": {
+                "js": [
+                    "http://res.wx.qq.com/open/js/jweixin-1.2.0.js"
+                ]
+            }
+        },
+        {
+            "entry": "customer/open/pay_success",
+            "title": "中晟诚品好车网",
+            "cdn": {
+                "js": [
+                    "http://res.wx.qq.com/open/js/jweixin-1.2.0.js"
+                ]
+            }
+        }
+    ],
+    "basePath": "./src/pages/",
+    "cdn": {
+        "js": [],
+        "css": []
+    },
+    "externals": {
+        "vue": "Vue",
+        "vuex": "Vuex"
+    }
+}

@@ -1,0 +1,290 @@
+@import "../../../../../../../assets/css/src/var";
+
+.activity-detail {
+    width: 900px;
+    margin: 16px auto 40px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: @color-white;
+    border-radius: 4px;
+    .body-top {
+        border-bottom: 1px solid @border-color-sep;
+        padding-bottom: 18px;
+        .clearfix();
+        .activity-image {
+            width: 334px;
+            float: left;
+            .show-img {
+                width: 334px;
+                height: 250px;
+                transition: all 0.3s;
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            .img-list {
+                .clearfix();
+                margin-top: 6px;
+                li {
+                    float: left;
+                    width: 64px;
+                    height: 48px;
+                    border: 2px solid transparent;
+                    margin-left: 1px;
+                    &:hover {
+                        border: 2px solid #4a8bdd;
+                    }
+                    &:first-child {
+                        margin-left: 3px;
+                    }
+                    .img-li {
+                        width: 60px;
+                        height: 44px;
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
+                }
+                .choose-img {
+                    border: 2px solid #4a8bdd;
+                }
+            }
+        }
+        .body-msg {
+            float: right;
+            width: 496px;
+            .msg-title {
+                .clearfix();
+                .title-width{
+                    width: 250px;
+                    float: left;
+                    font-size: 18px;
+                    color: #252c32;
+                }
+                span {
+                    display: inline-block;
+                    line-height: 24px;
+                    vertical-align: middle;
+                }
+                .title {
+                    font-size: 18px;
+                    color: #252c32;
+                    max-width: 200px;
+                    vertical-align: top;
+                }
+                .state {
+                    vertical-align: top;
+                    width: 40px;
+                    background: #4a8bdd;
+                    height: 24px;
+                    color: @color-white;
+                    text-align: center;
+                    border-radius: 2px;
+                    font-size: 14px;
+                }
+                .state2 {
+                    background: #bbb !important;
+                }
+                .time {
+                    color: @color-light-black;
+                    font-size: 12px;
+                    /*margin-left: 30px;*/
+                    vertical-align: middle;
+                    float: right;
+                    line-height: 20px;
+                }
+            }
+            .msg-detail {
+                li {
+                    line-height: 32px;
+                    min-height: 32px;
+                    position: relative;
+                    padding-left: 70px;
+                    color: #252c32;
+                    span {
+                        display: inline-block;
+                        color: @color-light-black;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                    em {
+                        font-size: 20px;
+                        color: @color-danger;
+                    }
+                    .share-img {
+                        .clearfix();
+                        width: 74px;
+                        height: 74px;
+                        float: left;
+                        margin-left: 10px;
+                        background-position: center center;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .body-bottom {
+        padding-top: 18px;
+        .activity-merchant {
+            .icon_wrap {
+                color: @color-light-black;
+            }
+            .merchant-title {
+                font-size: 16px;
+                line-height: 24px;
+                color: #252c32;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.package-box {
+    position: relative;
+    width: 370px;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+    border: 1px solid @border-color-sep;
+    border-radius: 4px;
+    &.more-item {
+        z-index: 4;
+        .package-box-bottom {
+            overflow: auto;
+            height: auto;
+            z-index: 4;
+            width: 370px;
+            left: -1px;
+        }
+        .package-box-more {
+            position: relative;
+            i {
+                border-bottom: 1px solid @color-primary;
+                border-left: 1px solid @color-primary;
+                border-top-color: transparent;
+                border-right-color: transparent;
+                transform: rotate(90deg);
+                margin-top: 5px;
+            }
+            span {
+                color: @color-primary;
+            }
+        }
+        &:before,
+        &:after {
+            z-index: 5;
+            background-color: #ccc;
+        }
+    }
+    &:nth-child(3n) {
+        margin-right: 0;
+    }
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 45px;
+        background-color: @color-white;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        transform: rotate(45deg);
+        z-index: 1;
+    }
+    &:before {
+        left: -6px;
+        border: 1px solid transparent;
+        border-right-color: @border-color-sep;
+    }
+    &:after {
+        right: -6px;
+        border: 1px solid transparent;
+        border-bottom-color: @border-color-sep;
+    }
+    &:hover {
+        box-shadow: @box-shadow-base;
+    }
+    &.curr {
+        .package-box-top {
+            background-color: @color-success;
+        }
+    }
+    .package-box-top {
+        position: relative;
+        background-color: @color-light-black;
+        line-height: 50px;
+        color: @color-white;
+        border-radius: 4px 4px 0 0;
+        transition: all .3s;
+    }
+    .package-box-top-left {
+        padding-left: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        span {
+            font-size: 18px;
+            margin-left: 16px;
+        }
+    }
+    .package-box-top-right {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        font-size: 12px;
+        transform: translateY(-50%);
+    }
+    .package-box-bottom {
+        position: relative;
+        overflow: hidden;
+        max-height: 96px;
+        border-radius: 4px;
+        background-color: @color-white;
+        color: @color-base-light-black;
+    }
+    .package-box-bottom-item {
+        padding-left: 10px;
+        line-height: 32px;
+        .r {
+            margin-right: 60px;
+            float: right;
+        }
+    }
+    .package-box-select {
+        position: absolute;
+        /*top:110px;*/
+        bottom: 5px;
+        right: 10px;
+        z-index: 5;
+    }
+    .more-package {
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        background-color: @color-white;
+        color: @color-base-light-black;
+    }
+    .package-box-more {
+        width: 100%;
+        line-height: 32px;
+        text-align: center;
+        color: @select-group-color;
+        font-size: 12px;
+        border-top: 1px solid @border-color-sep;
+        background-color: @color-white;
+        .package-box {
+            &:before,
+            &:after {
+                background-color: #ccc;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,71 @@
+@import "../../../../assets/css/src/var";
+
+.cashier-page {
+    padding-top: 54px;
+    padding-bottom:64px;
+    .cashier-item {
+        padding-right: 15px;
+        border-bottom: 1px solid #f2f2f2;
+        &:last-child {
+            border-bottom: none;
+        }
+        span {
+            float: right;
+        }
+    }
+    .cashier-info {
+        padding-left: 15px;
+        font-size: 15px;
+        color: #222;
+        background-color: @color-white;
+        .cashier-item {
+            height: 46px;
+            line-height: 46px;
+            span {
+                font-weight: bold;
+            }
+            &:first-child span {
+                color: #fb6753;
+            }
+        }
+    }
+    .cashier-block-title {
+        padding-left: 15px;
+        height: 30px;
+        line-height: 30px;
+        color: #999;
+    }
+    .cashier-detail {
+        margin-top: 15px;
+        color: #666;
+        .cashier-detail-list {
+            padding-left: 15px;
+            background-color: @color-white;
+        }
+        .cashier-item {
+            height: 44px;
+            line-height: 44px;
+        }
+    }
+    .cashier-instruction {
+        margin-top: 15px;
+        .cashier-instruction-main {
+            padding: 10px 15px;
+            color: #666;
+            line-height: 30px;
+            background-color: @color-white;
+        }
+    }
+    .cashier-button{
+        position: fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        height:50px;
+        line-height:50px;
+        text-align: center;
+        font-size:16px;
+        color: @color-white;
+        background-color: @color-primary;
+    }
+}

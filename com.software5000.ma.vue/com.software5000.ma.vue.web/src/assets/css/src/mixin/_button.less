@@ -1,0 +1,38 @@
+.button-variant (@color,@background-color,@border-color) {
+    color:@color;
+    background-color:@background-color;
+    border-color:@border-color;
+
+    //&:hover{
+    //    background:lighten(@background-color,@button-hover-lighten-percent);
+    //    border-color:lighten(@border-color,@button-hover-lighten-percent);
+    //}
+
+    &:active,
+    &.is-active{
+        background:darken(@background-color,@button-active-darken-percent);
+        border-color:darken(@border-color,@button-active-darken-percent);
+        outline:none;
+    }
+    &.is-plain{
+        background: @button-default-fill;
+        border: @border-base;
+        color: @button-default-color;
+        //&:hover{
+        //    background: @color-white;
+        //    border-color: @border-color;
+        //    color: @background-color;
+        //}
+        &:active{
+            background: @color-white;
+            border-color: darken(@border-color, @button-active-darken-percent);
+            color: shade(@background-color, @button-active-darken-percent);
+            outline: none;
+        }
+    }
+}
+.button-size(@padding-vertical,@padding-horizontal,@font-size,@border-radius){
+    //padding: @padding-vertical @padding-horizontal;
+    font-size: @font-size;
+    border-radius: @border-radius;
+}

@@ -1,0 +1,203 @@
+@import "../src/var.less";
+@import "../src/mixin/_button";
+.zs {
+    &-button {
+        display: inline-block;
+        width:100px;
+        height:40px;
+        text-align: center;
+        line-height:1;
+        white-space: nowrap;
+        cursor: pointer;
+        background: @button-default-fill;
+        border: @border-base;
+        color: @button-default-color;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+        outline: none;
+        margin: 0;
+        user-select: none;
+        & + .zs-button {
+            margin-left: 10px;
+        }
+        .button-size(@button-padding-vertical, @button-padding-horizontal, @button-font-size, @button-border-radius);
+
+        //&:hover{
+        //    color: @color-primary;
+        //    border-color: @color-primary;
+        //}
+
+        &:active {
+            color: @color-white;
+            border-color: darken(@color-primary, @button-active-darken-percent);
+            outline: none;
+        }
+
+        &::-moz-focus-inner {
+            border: 0;
+        }
+
+        & [class*="zs-icon-"] {
+            & + span {
+                margin-left: 5px;
+            }
+        }
+
+        &.is-plain {
+            //&:hover{
+            //    background: @color-white;
+            //    border-color: @color-primary;
+            //    color: @color-primary;
+            //}
+            &:active {
+                background: @color-white;
+                border-color: darken(@color-primary, @button-active-darken-percent);
+                color: darken(@color-primary, @button-active-darken-percent);
+                outline: none;
+            }
+        }
+        &.is-active {
+            color: darken(@color-primary, @button-active-darken-percent);
+            border-color: darken(@color-primary, @button-active-darken-percent);
+        }
+        &.is-disabled {
+            &,
+            &:hover{
+                color: @button-disabled-color;
+                cursor: not-allowed;
+                background-image: none;
+                background-color: @button-disabled-fill;
+                border-color: @button-disabled-border;
+            }
+
+            &.zs-button--text {
+                background-color: transparent;
+            }
+
+            &.is-plain {
+                &,
+                &:hover {
+                    background-color: @color-white;
+                    border-color: @color-base-black;
+                    color: @color-base-black;
+                }
+            }
+        }
+        &.is-loading {
+            position: relative;
+            pointer-events: none;
+
+            &:before {
+                pointer-events: none;
+                content: '';
+                position: absolute;
+                left: -1px;
+                top: -1px;
+                right: -1px;
+                bottom: -1px;
+                border-radius: inherit;
+                background-color: rgba(255, 255, 255, .35);
+            }
+        }
+        &__primary {
+            .button-variant(@button-primary-color, @button-primary-fill, @button-primary-border);
+        }
+        &__cancel{
+            .button-variant(@button-cancel-color, @button-cancel-fill, @button-cancel-border);
+        }
+        &__success {
+            .button-variant(@button-success-color, @button-success-fill, @button-success-border);
+        }
+        &__warning {
+            .button-variant(@button-warning-color, @button-warning-fill, @button-warning-border);
+        }
+        &__danger {
+            .button-variant(@button-danger-color, @button-danger-fill, @button-danger-border);
+        }
+        &__info {
+            .button-variant(@button-info-color, @button-info-fill, @button-info-border);
+        }
+        &__large {
+            .button-size(@button-large-padding-vertical, @button-large-padding-horizontal, @button-large-font-size, @button-border-radius);
+        }
+        &__small {
+            .button-size(@button-small-padding-vertical, @button-small-padding-horizontal, @button-small-font-size, @button-border-radius);
+        }
+        &__mini {
+            .button-size(@button-mini-padding-vertical, @button-mini-padding-horizontal, @button-mini-font-size, @button-border-radius);
+        }
+        &__text {
+            border: none;
+            color: @color-primary;
+            background: transparent;
+            padding-left: 0;
+            padding-right: 0;
+            &:hover {
+                color: lighten(@color-primary, @button-hover-lighten-percent);
+            }
+            &:active {
+                color: darken(@color-primary, @button-active-darken-percent);
+            }
+        }
+    }
+    &-button-group {
+        display: inline-block;
+        vertical-align: middle;
+        zoom: 1;
+        &:after {
+            content: " ";
+            display: table;
+            clear: both;
+        }
+        & .zs-button {
+            float: left;
+            position: relative;
+            & + .zs-button {
+                margin-left: 0;
+            }
+
+            &:first-child {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            &:last-child {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+            &:not(:first-child):not(:last-child) {
+                border-radius: 0;
+            }
+            &:not(:last-child) {
+                margin-right: -1px;
+            }
+
+            &:hover,
+            &:active {
+                z-index: 1;
+            }
+
+            &.is-active {
+                z-index: 1;
+            }
+        }
+
+        @list: primary, danger, warning, danger, info;
+        .buttonTypeLoop(5);
+        .buttonTypeLoop(@n, @i: 1) when (@i =< @n) {
+            @value:extract(@list, @i);
+            .zs-button__@{value} {
+                &:first-child {
+                    border-right-color: fadeout(@color-white, 50);
+                }
+                &:last-child {
+                    border-left-color: fadeout(@color-white, 50);
+                }
+                &:not(:first-child):not(:last-child) {
+                    border-left-color: fadeout(@color-white, 50);
+                    border-right-color: fadeout(@color-white, 50);
+                }
+            }
+            .buttonTypeLoop(@n, (@i + 1));
+        }
+    }
+}

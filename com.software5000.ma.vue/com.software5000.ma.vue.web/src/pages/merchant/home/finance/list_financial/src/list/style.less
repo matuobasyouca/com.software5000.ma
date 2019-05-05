@@ -1,0 +1,218 @@
+@import "../../../../../../../assets/css/src/var";
+
+.financial-accounts {
+    width: 1000px;
+    margin: 0 auto;
+    .account {
+        height: 56px;
+        background: @color-white;
+        margin-bottom: 4px;
+        margin-top: 10px;
+        padding: 0 8px;
+        .get{
+            float: left;
+            height: 36px;
+            margin: 10px 0;
+            .select-new-time{
+                width: 156px;
+                height: 36px;
+                display: inline-block;
+                margin: 0 8px;
+                float: left;
+                input{
+                    color: #252c32 !important;
+                    cursor: pointer;
+                }
+            }
+            .search_label{
+                float: left;
+                line-height: 36px;
+                color: @color-base-black;
+            }
+            .search-btn{
+                width: 40px;
+                height: 36px;
+                background: @color-primary;
+                float: left;
+                border-radius: 4px;
+                position: relative;
+                cursor: pointer;
+                .icon_wrap{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -10px;
+                    margin-left: -10px;
+                }
+            }
+            .select-form-select{
+                width: 180px;
+                margin: 0 8px;
+            }
+        }
+    }
+    .account-header {
+        .clearfix();
+        .header-list{
+            width: 498px;
+            height: 120px;
+            background: @color-white;
+            padding-left: 204px;
+            position: relative;
+            float: left;
+            .list-img{
+                position: absolute;
+                top: 50%;
+                left: 50px;
+                margin-top: -46px;
+                width: 94px;
+                height: 94px;
+                border-radius: 94px;
+            }
+            .list-t{
+                margin-top: 14px;
+                line-height: 40px;
+                font-size: 18px;
+                color: @color-base-black;
+                font-weight: bold;
+            }
+            .list-m{
+                font-size: 30px;
+                font-weight: bold;
+                line-height: 56px;
+            }
+        }
+        .totalGet{
+            .list-img{
+                background: url("asset/shou.png");
+                background-size: 100% 100%;
+            }
+            .list-m{
+                color: #fe8661;
+            }
+        }
+        .totalCost{
+            margin-left: 4px;
+            .list-img{
+                background: url("asset/cost.png");
+                background-size: 100% 100%;
+            }
+            .list-m{
+                color: #1fb5ac;
+            }
+        }
+    }
+    .account-table {
+        background: @color-white;
+        padding: 0 10px 20px 10px;
+        margin-bottom: 40px;
+        margin-top: 4px;
+        box-shadow: @box-shadow-bottom;
+        .table-select{
+            padding-left: 10px;
+            height: 56px;
+            .title{
+                float: left;
+                line-height: 56px;
+                color: @color-base-light-black;
+            }
+            .aside-btn{
+                float: right;
+                line-height: 56px;
+                color: @color-primary;
+                cursor: pointer;
+                .icon_wrap{
+                    vertical-align: middle;
+                }
+                span{
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 8px;
+                }
+            }
+        }
+        .list-content {
+            .employee-table {
+                thead {
+                    tr {
+                        background: @color-white;
+                        .zs-table__cell {
+                            border-right: 1px solid @border-color-sep;
+                        }
+                    }
+                }
+                .table-empty-data {
+                    height: 400px;
+                }
+                .account-operation {
+                    a {
+                        color: @color-primary;
+                        margin: 0 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .page-div {
+            text-align: right;
+            padding-top: 20px;
+        }
+    }
+}
+
+.pay-record-dialog{
+    .zs-dialog{
+        width: 460px;
+    }
+    .payRecord{
+        .payRecord-li{
+            .clearfix();
+            margin-bottom: 10px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .li-title{
+                display: inline-block;
+                width: 70px;
+                float: left;
+                margin-right: 15px;
+                color: #434343;
+                text-align: right;
+                line-height: 36px;
+                em{
+                    color: @color-danger;
+                    display: inline-block;
+                    margin-right: 6px;
+                }
+            }
+            .zs-input{
+                width: 270px;
+                display: inline-block;
+            }
+            .info-length{
+                display: inline-block;
+                margin-left: 8px;
+                line-height: 36px;
+                color: #434343;
+            }
+        }
+    }
+    .zs-dialog__body{
+        padding: 30px 10px 30px 30px;
+    }
+    .foot-btn{
+        padding-left: 90px;
+        text-align: left;
+        .zs-button__primary{
+            margin-left: 30px;
+        }
+        .zs-button{
+            width: 110px;
+        }
+    }
+}
+.zs-select-dropdown{
+    .zs-select-dropdown__wrap{
+        max-height: 341px !important;
+    }
+}

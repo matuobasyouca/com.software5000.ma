@@ -1,0 +1,378 @@
+/* Transition
+ -------------------------- */
+@all-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+@fade-only-transition: opacity .3s;
+@border-transition-base: border-color .2s cubic-bezier(.645, .045, .355, 1);
+
+/* gradient
+ -------------------------- */
+@gradient-base: linear-gradient(to left, #3361f3, @color-primary);
+/* Colors
+ -------------------------- */
+@color-primary: #008aff;
+@color-success: #3ac75c;
+@color-warning: #ff8023;
+@color-danger: #ff2e35;
+@color-info: #50bfff;
+
+@color-white: #fff;
+@color-black: #000;
+@color-dark-white: darken(@color-white, .2);
+
+@color-base-black: #232d3c;
+@color-light-black: #656d78;
+@color-extra-light-black: #999;
+
+@color-base-gray: #dadada;
+@color-light-gray: #f2f2f2;
+@color-extra-light-gray: #f6f6f6;
+
+@color-base-silver: #999;
+@color-light-silver: #f9f9f9;
+@color-extra-light-silver: #f9f9f9;
+
+/* Link
+ -------------------------- */
+@link-color: @color-black;
+@link-hover-color: @color-primary;
+
+/* Border
+-------------------------- */
+@border-width-base: 1px;
+@border-style-base: solid;
+@border-color-base: @color-base-gray;
+@border-color-hover: @color-primary;
+@border-color-sep: @color-light-gray;
+@border-base: @border-width-base @border-style-base @border-color-base;
+@border-radius-base: 4px;
+@border-radius-small: 2px;
+@border-radius-circle: 100%;
+
+/* Box-shadow
+-------------------------- */
+@box-shadow-base: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+@box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12);
+@box-shadow-top: 0 -2px 4px rgba(0, 0, 0, .06);
+@box-shadow-bottom: 0 2px 4px rgba(0, 0, 0, .06);
+
+/* Font
+-------------------------- */
+
+@font-size-extra-large: 18px;
+@font-size-large: 16px;
+@font-size-base: 14px;
+@font-size-small: 12px;
+@font-size-mini: 10px;
+@font-color-base: @color-base-black;
+@font-color-notice-base: @color-extra-light-black;
+@font-color-disabled-base: #bbb;
+@font-lineheight-base: 1.5;
+@font-family-base: "microsoft yahei", "PingHei", "Arial", "Helvetica", "Verdana", "sans-serif";
+
+/* Disable base
+-------------------------- */
+@disabled-fill-base: #bbb;
+@disabled-color-base: #bbb;
+@disabled-border-base: #f2f2f2;
+
+/* Icon
+ -------------------------- */
+@icon-url: "../img/sprite.png";
+@icon-image-size: 270px 141px;
+@icon-url-large: "../img/lg_icon_sprite.png";
+@icon-image-size-large: 50px 67px;
+
+/* Checkbox
+-------------------------- */
+
+/* Radio
+-------------------------- */
+@radio-font-size: 14px;
+@radio-color: @color-base-black;
+@radio-input-height: 18px;
+@radio-input-width: 18px;
+@radio-input-border-radius: @border-radius-circle;
+@radio-input-fill: @color-white;
+@radio-input-border: @border-base;
+@radio-input-border-color: @border-color-base;
+@radio-icon-color: @color-white;
+
+@radio-disabled-input-border-color: @disabled-border-base;
+@radio-disabled-input-fill: @disabled-fill-base;
+@radio-disabled-icon-color: @disabled-fill-base;
+
+@radio-disabled-checked-input-fill: @disabled-border-base;
+@radio-disabled-checked-input-border-color: @disabled-border-base;
+@radio-disabled-checked-icon-color: @color-white;
+
+@radio-checked-input-border-color: @color-primary;
+@radio-checked-input-fill: @color-white;
+@radio-checked-icon-color: @color-primary;
+
+@radio-input-border-color-hover: @color-primary;
+
+@radio-button-font-size: @font-size-base;
+@radio-button-checked-fill: @color-primary;
+@radio-button-checked-color: @color-primary;
+@radio-button-checked-border-color: @color-primary;
+
+/* Select
+-------------------------- */
+
+/* Input
+-------------------------- */
+
+@input-font-size: @font-size-base;
+@input-color: @font-color-base;
+@input-width: 140px;
+@input-height: 30px;
+@input-border: @border-base;
+@input-border-color: @border-color-base;
+@input-border-radius: @border-radius-small;
+@input-border-color-hover: @border-color-hover;
+@input-fill: @color-white;
+@input-fill-disabled: @disabled-fill-base;
+@input-color-disabled: @font-color-disabled-base;
+@input-icon-color: @color-extra-light-silver;
+@input-placeholder-color: @color-base-silver;
+@input-max-width: 314px;
+
+@input-hover-border: @border-color-hover;
+
+@input-focus-border: @color-primary;
+@input-focus-fill: @color-white;
+
+@input-disabled-fill: @disabled-fill-base;
+@input-disabled-border: @disabled-border-base;
+@input-disabled-color: @disabled-color-base;
+@input-disabled-placeholder-color: @color-extra-light-silver;
+
+@input-large-font-size: 16px;
+@input-large-height: 42px;
+
+@input-small-font-size: 13px;
+@input-small-height: 30px;
+
+@input-mini-font-size: 12px;
+@input-mini-height: 22px;
+
+/* Button
+-------------------------- */
+@button-font-size: 14px;
+@button-border-radius: @border-radius-base;
+@button-padding: 5px 20px;
+@button-padding-vertical: 0;
+@button-padding-horizontal: 15px;
+
+@button-large-font-size: 16px;
+@button-large-padding-vertical: 0;
+@button-large-padding-horizontal: 0;
+
+@button-small-font-size: 12px;
+@button-small-padding-vertical: 7px;
+@button-small-padding-horizontal: 9px;
+
+@button-mini-font-size: 12px;
+@button-mini-padding-vertical: 4px;
+@button-mini-padding-horizontal: 4px;
+
+@button-default-color: @color-base-black;
+@button-default-fill: @color-white;
+@button-default-border: #c4c4c4;
+
+@button-ghost-color: #666;
+@button-ghost-fill: transparent;
+@button-ghost-border: none;
+
+@button-disabled-color: @color-extra-light-silver;
+@button-disabled-fill: @color-extra-light-gray;
+@button-disabled-border: @disabled-border-base;
+
+@button-primary-border: @color-primary;
+@button-primary-color: @color-white;
+@button-primary-fill: @color-primary;
+
+@button-success-border: @color-success;
+@button-success-color: @color-white;
+@button-success-fill: @color-success;
+
+@button-warning-border: @color-warning;
+@button-warning-color: @color-white;
+@button-warning-fill: @color-warning;
+
+@button-danger-border: @color-danger;
+@button-danger-color: @color-white;
+@button-danger-fill: @color-danger;
+
+@button-info-border: @color-info;
+@button-info-color: @color-white;
+@button-info-fill: @color-info;
+
+@button-info-border: @disabled-fill-base;
+@button-info-color: @color-white;
+@button-info-fill: @disabled-fill-base;
+
+@button-hover-lighten-percent: 20%;
+@button-active-darken-percent: 10%;
+/* Table
+-------------------------- */
+
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+@loading-spinner-size: 42px;
+@loading-fullscreen-spinner-size: 50px;
+@loading-transition: @fade-only-transition;
+@loading-mask-color: rgba(255, 255, 255, .9);
+@loading-index: 10000;
+
+/* Modal
+ --------------------------*/
+@modal-spinner-size: 42px;
+@modal-fullscreen-spinner-size: 50px;
+@modal-transition: @fade-only-transition;
+@modal-mask-color: rgba(255, 255, 255, 0);
+@modal-index: 10000;
+
+/* Message
+-------------------------- */
+@message-shadow: @box-shadow-base;
+@message-min-width: 300px;
+@message-padding: 8px 10px;
+@message-content-color: @color-white;
+@message-close-color: @color-base-black;
+@message-close-hover-color: @color-base-black;
+
+@message-success-color: @color-success;
+@message-info-color: @color-info;
+@message-warning-color: @color-warning;
+@message-danger-color: @color-danger;
+
+/* Message Box
+ -------------------------- */
+@msgbox-width: 90%;
+@msgbox-border-radius: 4px;
+@msgbox-font-size: 16px;
+@msgbox-content-font-size: 14px;
+@msgbox-content-color: @link-color;
+@msgbox-error-font-size: 12px;
+
+@msgbox-success-color: @color-success;
+@msgbox-info-color: @color-info;
+@msgbox-warning-color: @color-warning;
+@msgbox-danger-color: @color-danger;
+
+/* Dialog
+-------------------------- */
+
+@dialog-background-color: @color-warning;
+@dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+@dialog-tiny-width: 30%;
+@dialog-small-width: 50%;
+@dialog-large-width: 90%;
+@dialog-close-color: @color-extra-light-silver;
+@dialog-close-hover-color: @color-primary;
+@dialog-title-font-size: 16px;
+@dialog-font-size: 14px;
+
+/* Switch
+-------------------------- */
+@switch-on-color: @color-primary;
+@switch-off-color: @color-white;
+@switch-off-border-color: @color-light-gray;
+@switch-disabled-color: @color-light-gray;
+@switch-disabled-text-color: @color-dark-white;
+
+@switch-font-size: @font-size-base;
+@switch-core-border-radius: 12px;
+@switch-width: 46px;
+@switch-height: 26px;
+@switch-button-size: 22px;
+
+/* ellisps
+----------------------------*/
+.clearfix() {
+    zoom: 1;
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+@pt: 44px;
+@pb: 49px;
+
+.size(@s) {
+    width: @s;
+    height: @s;
+}
+
+.ellipsis() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.position(@t,@r,@b,@l) {
+    top: @t;
+    right: @r;
+    bottom: @b;
+    left: @l;
+}
+
+.circle(@s) {
+    width: @s;
+    height: @s;
+    border-radius: 50%;
+}
+
+.show-more() {
+    margin-bottom: 15px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: @color-white;
+    font-size: 12px;
+    color: @color-light-black;
+}
+
+.no-more() {
+    background: none;
+    color: @color-extra-light-black;
+}
+
+.list-empty() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 77px;
+    width: 100%;
+    padding-top: 60px;
+    font-size: 14px;
+    color: @color-extra-light-black;
+    text-align: center;
+    line-height: 34px;
+    transform: translate(-50%, -50%);
+    background-image: url("../../../assets/img/empty2.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 60px 60px;
+}
+
+.arrow-right() {
+    position: relative;
+    padding-right: 20px;
+    &:after {
+        content: '';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        .size(10px);
+        border: solid @color-extra-light-black;
+        border-width: 0 1px 1px 0;
+        transform: rotate(-45deg) translateY(-50%);
+    }
+}

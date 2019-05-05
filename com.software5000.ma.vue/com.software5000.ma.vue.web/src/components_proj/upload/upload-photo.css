@@ -1,0 +1,96 @@
+/* Transition
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+.upload-photo__wrap {
+  margin: 0 -5px;
+}
+.upload-photo__wrap li {
+  position: relative;
+  float: left;
+  width: 33.3%;
+  padding-bottom: 33.3%;
+  height: 0px;
+}
+.upload-photo__wrap li .delete-icon-mark {
+  display: block;
+}
+.image-label {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image-label .image-del-icon {
+  position: absolute !important;
+  top: -9px;
+  right: -9px;
+}
+.image-label.add-label {
+  border: 1px dashed #dadada;
+  background-color: #f2f2f2;
+}
+.image-label.add-label:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 2px;
+  background-color: #dadada;
+}
+.image-label.add-label:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 40px;
+  background-color: #dadada;
+}
+.image-label.add-label input {
+  position: absolute;
+  left: -9999em;
+}

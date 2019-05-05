@@ -1,0 +1,69 @@
+@import '../../../../../../../assets/css/src/var';
+
+.r{
+  float: right;
+}
+
+.gray{
+  color: @color-light-black;
+}
+.unpaid{
+  width: 1280px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  padding: 10px;
+  background: @color-white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  .table-empty-data{
+    height: 386px;
+  }
+  tbody{
+    .control{
+      span{
+        color: @color-primary;
+        margin-right: 16px;
+        cursor: pointer;
+      }
+      span:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}
+.buy_history{
+  .search-box{
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 0;
+    span{
+      font-size: 14px;
+    }
+    &>span{
+      margin-right: 10px;
+    }
+    .zs-input{
+      width: 280px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .zs-button{
+      width: 44px;
+      height: 36px;
+      vertical-align: bottom;
+    }
+    .ivu-date-picker{
+      display: inline-block;
+      .zs-input{
+        width: 156px;
+      }
+    }
+  }
+}
+
+
+//表格
+.pay_list-pagination {
+  margin: 20px 10px 10px;
+  text-align: right;
+}
+

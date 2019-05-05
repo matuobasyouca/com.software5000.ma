@@ -1,0 +1,415 @@
+@import '../../../../../../../assets/css/src/var';
+
+.page-main {
+    .clearfix();
+    width: 1000px;
+    margin: 0 auto 10px;
+    background-color: @color-white;
+    .table-empty-data {
+        height: 200px;
+    }
+    .page-main-body {
+        padding: 20px 20px 10px;
+    }
+    .page-main-footer {
+        height: 70px;
+        padding-top: 10px;
+        padding-right: 10px;
+        text-align: right;
+        box-shadow: @box-shadow-top;
+        .zs-button {
+            width: 130px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
+        }
+        .is-disabled {
+            color: @color-white;
+        }
+    }
+    .table-switch-wrap {
+        padding-left: 40px;
+        position: relative;
+        display: inline-block;
+        width: 86px;
+        height: 20px;
+        font-size: 12px;
+        color: #bbb;
+        text-align: left;
+        .table-switch {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 36px;
+            height: 20px;
+            background-color: #bbb;
+            border-radius: 10px;
+            cursor: pointer;
+            &:before {
+                content: '';
+                position: absolute;
+                .circle(16px);
+                background-color: @color-white;
+                top: 50%;
+                left: 2px;
+                transform: translateY(-50%);
+            }
+        }
+        &.is-usecard {
+            color: @color-success;
+            .table-switch {
+                background-color: @color-success;
+                &:before {
+                    left: 18px;
+                }
+            }
+        }
+    }
+    .settle-pop {
+        .zs-dialog {
+            width: 400px;
+        }
+        .zs-dialog__body {
+            padding-top: 0;
+            padding-bottom: 50px;
+            text-align: center;
+        }
+        .pay-pop-p1 {
+            height: 86px;
+            line-height: 86px;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .pay-pop-p2 {
+            height: 36px;
+            line-height: 36px;
+            font-size: 16px;
+            color: @color-light-black;
+        }
+        .pay-pop-barcode {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            line-height: 200px;
+            img {
+                width: 100%;
+            }
+            .pay-pop-loading {
+                width: 70%;
+            }
+        }
+        .zs-button {
+            width: 120px;
+            height: 44px;
+            line-height: 44px;
+            & + .zs-button {
+                margin-left: 20px;
+            }
+        }
+    }
+    .wechat-pay-pop {
+        .zs-dialog__body {
+            padding-bottom: 20px;
+        }
+    }
+}
+
+.user-detail {
+    .clearfix();
+    padding: 12px;
+    border: 2px solid @color-primary;
+    border-radius: 4px;
+    min-height: 50px;
+    background: url("../assets/tick.png") no-repeat right bottom;
+    text-align: left;
+    li {
+        float: left;
+        margin-right: 50px;
+        span {
+            color: @color-light-black;
+        }
+    }
+    li:nth-child(5) {
+        margin-right: 0;
+    }
+    li:nth-child(6) {
+        width: 100%;
+        margin-top: 10px;
+        margin-right: 0;
+    }
+}
+
+.account-detail {
+    padding-bottom: 12px;
+    text-align: right;
+    border-bottom: 1px solid @border-color-sep;
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .account-detail-item {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        width: 320px;
+        text-align: left;
+        font-size: 12px;
+        color: @color-base-light-black;
+        .clearfix();
+        input {
+            font-size: 12px;
+        }
+    }
+    .coupon-select {
+        height: auto;
+    }
+    .account-1 {
+        .zs-input {
+            width: 220px;
+            .zs-input__inner {
+                border-radius: 2px;
+            }
+        }
+    }
+    span.account-1 {
+        padding-left: 16px;
+    }
+    .account-2 {
+        float: right;
+        color: @color-base-black;
+        font-weight: bold;
+        .zs-input {
+            width: 80px;
+            border-radius: 2px;
+            .zs-input__inner {
+                text-align: right;
+                border-radius: 2px;
+            }
+        }
+    }
+    span.account-2 {
+        padding-right: 12px;
+    }
+    .coupon-select {
+        margin-top: 12px;
+    }
+    .account-sum {
+        .account-detail-item {
+            height: 50px;
+            line-height: 50px;
+        }
+        .account-2 {
+            font-size: 16px;
+            color: @color-danger;
+            font-weight: normal;
+            i {
+                font-size: 28px;
+                font-weight: bold;
+            }
+        }
+    }
+    .member-balance {
+        width: auto;
+        border: none;
+        .is-checked .zs-checkbox__inner {
+            border-color: @color-primary;
+            background-color: @color-primary;
+            &:after {
+                border-color: @color-white;
+            }
+        }
+        .zs-checkbox__label {
+            color: @color-base-light-black;
+            font-size: 12px;
+        }
+    }
+}
+
+.item-table {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    .use-coupon {
+        color: @color-primary;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        padding-left: 22px;
+        text-align: left;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 2px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+            color: @color-white;
+        }
+        &.zs-coupon:before {
+            content: '诚';
+            background-color: @color-primary;
+        }
+    }
+    .ten-cross {
+        height: 36px;
+        line-height: 36px;
+        cursor: pointer;
+        i {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+            cursor: pointer;
+            .size(10px);
+            .side() {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:before {
+                .side();
+                height: 2px;
+                width: 100%;
+                background-color: @color-light-black;
+            }
+            &:after {
+                .side();
+                width: 2px;
+                height: 100%;
+                background-color: @color-light-black;
+            }
+        }
+    }
+}
+
+.select-pop {
+    .zs-dialog {
+        width: 400px;
+    }
+    .zs-dialog__body {
+        padding: 16px;
+    }
+    .zs-dialog__footer {
+        padding-bottom: 16px;
+        text-align: right;
+    }
+    .table-empty-data {
+        height: 392px;
+    }
+    .zs-table__body {
+        td {
+            height: 38px;
+        }
+        tr {
+            cursor: pointer;
+        }
+    }
+    .table-radio {
+        display: block;
+        margin: 0 auto;
+        .circle(20px);
+        border: 1px solid @border-color-base;
+        cursor: pointer;
+        &.curr {
+            position: relative;
+            border-color: @color-success;
+            background-color: @color-success;
+            &:after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                .circle(8px);
+                background-color: @color-white;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    .employee-select-list {
+        li {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            .clearfix();
+            border: solid #eee;
+            border-width: 0 1px 1px 1px;
+            cursor: pointer;
+            span {
+                float: left;
+                height: 40px;
+                &:first-child {
+                    width: 126px;
+                    .table-radio {
+                        margin-top: 10px;
+                    }
+                }
+                &:last-child {
+                    width: 240px;
+                }
+            }
+        }
+        .employee-select-hd {
+            background-color: #e1e4eb;
+            border: none;
+            span {
+                margin-top: 11px;
+                height: 18px;
+                line-height: 18px;
+                border-right: 1px solid #bbb;
+            }
+            span:last-child {
+                border-right: none;
+            }
+        }
+        .employee-empty {
+            height: 392px;
+            line-height: 392px;
+            text-align: center;
+            p {
+                display: inline-block;
+                min-width: 62px;
+                padding-top: 62px;
+                height: 92px;
+                line-height: 30px;
+                color: @color-light-black;
+                font-size: 12px;
+                background: url("../../../../../../../components/icon/assets/data_empty_member.png") center top no-repeat;
+                background-size: 62px 62px;
+            }
+        }
+    }
+}
+
+.coupon-select-pop {
+    .zs-dialog {
+        width: 600px;
+    }
+    .employee-select-list {
+        li {
+            span {
+                &:first-child {
+                    width: 80px;
+                }
+                &:nth-child(2) {
+                    width: 280px;
+                }
+                &:last-child {
+                    width: 176px;
+                }
+            }
+        }
+        .employee-empty {
+            p {
+                background-image: url("../../../../../../../components/icon/assets/data_empty.png");
+            }
+        }
+    }
+}

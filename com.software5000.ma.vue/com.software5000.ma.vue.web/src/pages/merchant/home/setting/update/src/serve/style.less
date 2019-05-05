@@ -1,0 +1,156 @@
+@import "../../../../../../../assets/css/src/var";
+
+.setting-import{
+    width: 600px;
+    height: 400px;
+    margin: 20px auto 0;
+    box-shadow: @box-shadow-bottom;
+    background: @color-white;
+    .set-title{
+        padding: 0 20px;
+        line-height: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        color: @color-base-black;
+        vertical-align: middle;
+        border-bottom: 1px solid @border-color-sep;
+        .icon_wrap{
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        .download{
+            float: right;
+            color: @color-primary-blue;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+    .set-body{
+        height: 350px;
+        position: relative;
+        .file-upload{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -65px;
+            vertical-align: middle;
+            line-height: 44px;
+            font-size: 16px;
+            label{
+                &:before{
+                    content: '';
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    background: url("asset/jia.png");
+                    background-size: 100% 100%;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    margin-top: -2px;
+                }
+            }
+        }
+    }
+    .set-body2{
+        height: 350px;
+        padding: 20px 20px 30px 20px;
+        position: relative;
+        .file{
+            .clearfix();
+            .success{
+                margin-right: 20px;
+                vertical-align: middle;
+            }
+            .biao{
+                margin-right: 13px;
+                vertical-align: middle;
+            }
+            .file-name{
+                line-height: 44px;
+                color: @color-base-black;
+                display: inline-block;
+            }
+            .re-select-file {
+                float: right;
+                margin-top: 0;
+                label {
+                    cursor: pointer;
+                    font-weight: bold;
+                    height: 40px;
+                    width: 58px;
+                    line-height: 44px;
+                    background: none !important;
+                    color: @color-primary-blue !important;
+                    text-align: right;
+                }
+            }
+        }
+        .up{
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            width: 130px;
+            margin-left: -65px;
+            .icon_wrap{
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+
+    }
+    .set-body3{
+        height: 350px;
+        position: relative;
+        .import{
+            line-height: 70px;
+            color: @color-base-light-black;
+            text-align: center;
+            .icon_wrap{
+                vertical-align: middle;
+                margin-right: 8px;
+            }
+        }
+        .success-error{
+            font-size: 16px;
+            color: @color-base-black;
+            line-height: 32px;
+            text-align: center;
+        }
+        .download-result{
+            font-size: 16px;
+            line-height: 42px;
+            color: @color-primary-blue;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            .icon_wrap{
+                vertical-align: middle;
+                margin-right: 8px;
+            }
+        }
+        .file-upload{
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -65px;
+            vertical-align: middle;
+            line-height: 44px;
+            font-size: 16px;
+            label{
+                cursor: pointer;
+                &:before{
+                    content: '';
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    background: url("asset/jia.png");
+                    background-size: 100% 100%;
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    margin-top: -2px;
+                }
+            }
+        }
+    }
+}

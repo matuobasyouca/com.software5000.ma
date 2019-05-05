@@ -1,0 +1,45 @@
+@import '../../../src/assets/css/src/var.less';
+
+.bottom-nav-wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 49px;
+    background-color: @color-white;
+    box-shadow: @box-shadow-top;
+    .clearfix();
+    .nav {
+        float: left;
+        width: 33.33%;
+        padding-top: 30px;
+        text-align: center;
+        font-size: 10px;
+        color: @color-extra-light-black;
+        line-height: 16px;
+        background-size: 22px 22px;
+        background-repeat: no-repeat;
+        background-position: center 6px;
+        &.is-curr {
+            color: @color-primary;
+        }
+    }
+    .work_order {
+        background-image: url('./assets/work_order.png');
+    }
+    .work_order.is-curr {
+        background-image: url('./assets/work_order_1.png');
+    }
+    .member {
+        background-image: url('./assets/member.png');
+    }
+    .member.is-curr {
+        background-image: url('./assets/member_1.png');
+    }
+    .manage {
+        background-image: url('./assets/manage.png');
+    }
+    .manage.is-curr {
+        background-image: url('./assets/manage_1.png');
+    }
+}

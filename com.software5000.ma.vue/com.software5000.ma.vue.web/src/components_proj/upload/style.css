@@ -1,0 +1,135 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+// -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* z-index
+ -------------------------- */
+/* Disable base
+-------------------------- */
+/* icon
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Message Box
+ -------------------------- */
+/* Message
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Scrollbar
+--------------------------*/
+/* Popover
+-------------------------- */
+/* Tooltip
+  -------------------------- */
+/* Radio
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Tag
+-------------------------- */
+/* clearfix
+--------------------------*/
+.upload-photo__wrap {
+  margin: 0 -5px;
+}
+.upload-photo__wrap li {
+  position: relative;
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+.upload-photo__wrap li .delete-icon-mark {
+  display: block;
+}
+.image-label {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.image-label .image-del-icon {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.image-label .image-del-icon:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #fff;
+  width: 80%;
+  height: 1px;
+}
+.image-label .image-del-icon:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #fff;
+  width: 1px;
+  height: 80%;
+}
+.image-label.add-label {
+  border: 1px dashed #dadada;
+  background-color: #fff;
+}
+.image-label.add-label:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 2px;
+  background-color: #dadada;
+}
+.image-label.add-label:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 40px;
+  background-color: #dadada;
+}
+.image-label.add-label input {
+  position: absolute;
+  left: -9999em;
+}
+.zs-message-box .zs-message-box__content {
+  padding: 50px 18px 60px;
+}

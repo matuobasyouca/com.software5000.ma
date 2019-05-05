@@ -1,0 +1,166 @@
+@import '../../../../../assets/css/src/var';
+
+.merchant-list-page {
+    padding-top: 44px;
+    padding-bottom:10px;
+    .data-chose{
+        position: fixed;
+        top: 44px;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background-color: #fff;
+        .data-chose-tab{
+            height: 44px;
+            line-height: 44px;
+            border-bottom: 1px solid #f6f6f6;
+            & li{
+                width:50%;
+                float: left;
+                text-align: center;
+                font-size: 12px;
+                font-weight: bold;
+                color: #333;
+                & span{
+                    position: relative;
+                    padding-right: 14px;
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        width: 0;
+                        height: 0;
+                        border-top: 4px solid #333;
+                        border-left: 4px solid transparent;
+                        border-right: 4px solid transparent;
+                        transform: translateY(-50%);
+                    }
+                }
+                & input{
+                    position: absolute;
+                    top: 9px;
+                    left: 40px;
+                    width: 100%;
+                    z-index: -1;
+                    background-color: #FFFFFF;
+                    color: transparent;
+                }
+                .time-label{
+                    background-color: #FFFFFF;
+                }
+                .date-have-value{
+                    font-size: 13px;
+                }
+            }
+        }
+
+    }
+
+
+
+    .total-data{
+        margin-top: 44px;
+        background-color: #FFFFFF;
+        height: 60px;
+        .clearfix();
+        & li{
+            float: left;
+            width: 33.333%;
+            & div{
+                text-align: center;
+                margin-top: 10px;
+                margin-bottom: 7px;
+                & p:first-child{
+                    font-size: 16px;
+                    color: #232d3c;
+                    font-weight: bold;
+                    height: 23px;
+                    line-height: 23px;
+                }
+                & p:last-child{
+                    font-size: 10px;
+                    color: #999999;
+                    height: 20px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+    .merchant-list{
+        padding-left: 15px;
+        padding-right: 15px;
+        .list-empty{
+            background:none;
+            text-align: center;
+            margin-top: 95px;
+            & p{
+                height: 32px;
+                line-height: 32px;
+                font-size: 12px;
+                color: #999999;
+            }
+        }
+        .payment-div{
+            background-color: #FFFFFF;
+            height: 108px;
+            border-radius: 3px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .05);
+            margin-top: 15px;
+            .business-name{
+                height: 41px;
+                line-height: 41px;
+                padding-left: 7px;
+                & .icon_wrap{
+                    padding-left: 21px !important;
+                }
+            }
+            .rate-css{
+                border-top: 1px solid #f2f2f2;
+                height: 67px;
+                padding: 7px 0 10px 0;
+                .rate-css-ul{
+                    .clearfix();
+                    & li {
+                        float: left;
+                        width: 33.333%;
+                        & div{
+                            text-align: center;
+                            & p:first-child{
+                                font-size: 20px;
+                                height: 28px;
+                                line-height: 28px;
+                                font-weight: bold;
+                            }
+                            & p:last-child{
+                                font-size: 12px;
+                                color: #999999;
+                                height: 22px;
+                                line-height: 22px;
+                            }
+                            .work-num{
+                                color: #4b8dde;
+                            }
+                            .pay-num{
+                                color: #28bf76;
+                            }
+                            .order-rate{
+                                color: #e75845;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .show-more{
+        background-color:@color-white;
+        text-align: center;
+        line-height:44px;
+        color:@color-light-black;
+        &.no-more{
+            background:none;
+        }
+    }
+}
+

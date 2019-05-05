@@ -1,0 +1,206 @@
+@import "../../../../assets/css/src/var";
+
+.icon-left{
+    display: none;
+}
+.pay-success-page {
+    padding-top: calc(@pt);
+    .pay-success-detail{
+        padding: 0 20px;
+        margin-bottom: 30px;
+
+        .detail-middle{
+            padding-top: 15px;
+            padding-bottom: 12px;
+            background: @color-white;
+            position: relative;
+            .box-shadow{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 15px;
+                background: url("asset/30px.png");
+                background-size: 100% 100%;
+            }
+            .redPack-img{
+                width: 110px;
+                height: 110px;
+                margin: 0 auto;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .p1{
+                text-align: center;
+                color: @color-base-black;
+                line-height: 29px;
+                margin-top: 12px;
+            }
+            .p2{
+                text-align: center;
+                color: @color-base-black;
+                line-height: 37px;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .share-btn{
+                width: 86%;
+                display: block;
+                margin: 12px auto 15px;
+                span{
+                    font-size: 16px;
+                }
+            }
+            .row-make{
+                position: relative;
+                height: 16px;
+                padding: 4px 10px;
+                .circle{
+                    content: '';
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 8px;
+                    background: @color-extra-light-gray;
+                    position: absolute;
+                    top: 0;
+                }
+                &:before{
+                    .circle();
+                    left: -8px;
+                }
+                &:after{
+                    .circle();
+                    right: -8px;
+                }
+                .row-circle{
+                    height: 8px;
+                    background: url("asset/yuan.png") repeat-x;
+                    background-size: auto 8px;
+                }
+            }
+            .ewm-img{
+                margin: 15px auto 14px;
+                width: 100px;
+                height: 100px;
+                line-height: 100px;
+                text-align: center;
+                img{
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+            }
+            .p3{
+                text-align: center;
+                font-size: 12px;
+                color: @color-base-black;
+                line-height: 18px;
+            }
+            .p4{
+                text-align: center;
+                font-size: 12px;
+                color: @color-base-silver;
+                line-height: 18px;
+            }
+        }
+    }
+}
+.shade{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    display: block;
+    &:before{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #000000;
+        opacity: 0.7;
+        filter: alpha(opacity=70);
+    }
+    .redPack-p{
+        position: absolute;
+        top: 105px;
+        left: 50%;
+        margin-left: -119px;
+        width: 238px;
+        height: 91px;
+        background: url("asset/xing.png");
+        background-size: 100% 100%;
+        opacity: 1;
+        filter: alpha(opacity=100);
+        p{
+            position: absolute;
+            left: 90px;
+            color: @color-white;
+            font-size: 16px;
+            width: 68%;
+        }
+        .p-top{
+            top: 26px;
+        }
+        .p-bottom{
+            top: 48px;
+        }
+    }
+    .jian-img{
+        width: 105px;
+        height: 105px;
+        background: url("asset/tou.png");
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        right: 20px;
+    }
+}
+
+
+
+.share-dialog{
+    .dialog-img{
+        margin: 0 auto;
+        width: 70px;
+        height: 70px;
+        background: url("asset/bao.png");
+        background-size: 100% 100%;
+    }
+    .p1{
+        margin-top: 6px;
+        font-size: 16px;
+        color: @color-primary;
+        font-weight: bold;
+        text-align: center;
+        line-height: 33px;
+    }
+    .p2{
+        line-height: 27px;
+        text-align: center;
+        color: @color-base-black;
+    }
+    .zs-dialog__footer{
+        border-top: 1px solid @color-light-gray;
+        text-align: center;
+        padding: 0;
+        span{
+            display: inline-block;
+            width: 49%;
+            text-align: center;
+            line-height: 49px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .continue{
+            color: @color-base-black;
+        }
+        .goGet{
+            color: @color-primary;
+        }
+    }
+}
+

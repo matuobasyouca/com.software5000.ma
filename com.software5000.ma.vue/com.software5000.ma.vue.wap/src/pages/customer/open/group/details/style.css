@@ -1,0 +1,240 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Font
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+.r {
+  float: right;
+}
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-top: 44px;
+  padding-bottom: 49px;
+}
+.page .page-top {
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 4px;
+  text-align: center;
+  padding: 25px 20px;
+}
+.page .page-top .state-top {
+  margin-bottom: 15px;
+}
+.page .page-top .state-time {
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+}
+.page .page-top .state-time .red {
+  color: #e75845;
+}
+.page .page-top .state-over {
+  display: inline-block;
+  color: #e75845;
+  background-color: #ffe5e1;
+  font-size: 14px;
+  line-height: 1;
+  padding: 5px 13px;
+  min-width: 85px;
+  text-align: center;
+  border-radius: 25px;
+}
+.page .store-name {
+  line-height: 40px;
+  background-color: #fff;
+  padding-left: 15px;
+}
+.page .package {
+  position: relative;
+  margin: 15px;
+  padding-left: 95px;
+}
+.page .package .package-left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 80px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.page .package .package-right {
+  min-height: 80px;
+}
+.page .package .package-title {
+  font-size: 15px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.page .package .package-title .r {
+  font-size: 12px;
+  color: #999;
+}
+.page .package .package-date {
+  line-height: 22px;
+  color: #656d78;
+  font-size: 14px;
+}
+.page .package .package-item {
+  line-height: 18px;
+  font-size: 12px;
+  color: #656d78;
+}
+.page .price {
+  font-size: 12px;
+  text-align: right;
+  background-color: #fff;
+  padding-right: 15px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.page .price .del {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 15px;
+}
+.page .price .gray {
+  color: #656d78;
+  margin-right: 4px;
+}
+.page .price .black {
+  font-size: 16px;
+  font-weight: bold;
+}
+.page .details-info-1 {
+  background-color: #fff;
+  line-height: 50px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.page .details-info-1 .item {
+  position: relative;
+  padding: 0 15px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.page .details-info-1 .item:last-child {
+  border-bottom: none;
+}
+.page .details-info-1 .item-right {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  font-weight: bold;
+}
+.page .details-info-2 {
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+.page .details-info-2 .info-2-top {
+  padding: 12px 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+.page .details-info-2 .info-2-top li {
+  position: relative;
+  padding-left: 95px;
+  line-height: 33px;
+  font-size: 14px;
+}
+.page .details-info-2 .info-2-top .top-left {
+  position: absolute;
+  left: 15px;
+  color: #999;
+}
+.page .details-info-2 .notice {
+  padding: 0 15px;
+  line-height: 40px;
+  color: #999;
+  font-size: 12px;
+}
+.page .details-info-2 .notice .r {
+  color: #232d3c;
+  margin-left: -10px;
+}
+.page .details-info-2 .notice .r .icon_wrap {
+  margin-left: 8px;
+}
+.page .details-info-2 .notice .r .icon_wrap span {
+  margin-left: -6px;
+}
+.page .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background-color: #4b8dde;
+}
+.page .footer .footer-main {
+  max-width: 640px;
+  position: relative;
+  margin: 0 auto;
+  line-height: 49px;
+  height: 49px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+.countdown {
+  display: inline-block;
+}
+.countdown .red-block {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  background-color: #e75845;
+  border-radius: 2px;
+  text-align: center;
+}
+.countdown span {
+  color: #e75845;
+}

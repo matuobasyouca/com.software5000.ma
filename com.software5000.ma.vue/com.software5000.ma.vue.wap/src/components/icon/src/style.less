@@ -1,0 +1,532 @@
+@import "../../../assets/css/src/var";
+
+.icon_wrap {
+    position: relative;
+    display: inline-block;
+    i {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        color: #fff;
+        text-align: center;
+    }
+    .zs-right-icon {
+        left: auto;
+        right: 0;
+        top: 50%;
+    }
+    span {
+        white-space: nowrap;
+    }
+}
+
+/*以下是具体图标*/
+
+.zs-icon-arrow-left {
+    border-top: 1px solid #0696f5;
+    border-left: 1px solid #0696f5;
+    transform: translateY(-50%) translateX(25%) rotate(-45deg) !important;
+}
+
+.zs-icon-arrow-right {
+    border-top: 1px solid #0696f5;
+    border-right: 1px solid #0696f5;
+    transform: translateY(-50%) translateX(-25%) rotate(45deg) !important;
+}
+
+.zs-icon-arrow-top {
+    border-top: 1px solid #0696f5;
+    border-right: 1px solid #0696f5;
+    transform: translateY(0) rotate(-45deg) !important;
+}
+
+.zs-icon-arrow-bottom {
+    border-top: 1px solid #0696f5;
+    border-right: 1px solid #0696f5;
+    transform: translateY(-60%) rotate(135deg) !important;
+}
+
+.dot-side() {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.zs-icon-dot:before {
+    .dot-side();
+    width: 5px;
+    height: 5px;
+    background-color: #0696f5;
+}
+
+.zs-icon-dot-large:before {
+    .dot-side();
+    width: 6px;
+    height: 6px;
+    background-color: #0696f5;
+}
+
+.zs-icon-dot-gray:before {
+    .dot-side();
+    width: 5px;
+    height: 5px;
+    background-color: #b5aea4;
+}
+
+.zs-icon-dot-large-gray:before {
+    .dot-side();
+    width: 6px;
+    height: 6px;
+    background-color: #b5aea4;
+}
+
+.zs-icon-ten-cross {
+    .side() {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #000;
+    }
+    &:before {
+        .side();
+        width: 100%;
+        height: 2px;
+
+    }
+    &:after {
+        .side();
+        height: 100%;
+        width: 2px;
+    }
+}
+
+.zs-icon-cross {
+    .zs-icon-ten-cross();
+    &:before {
+        background-color: #999;
+    }
+    &:after {
+        background-color: #999;
+    }
+    transform: translateY(-50%) rotate(45deg) !important;
+}
+
+.zs-icon-add(@color:@color-white) {
+    .zs-icon-ten-cross();
+    .circle(100%);
+    background-color: blue;
+    &:before {
+        width: 2px;
+        height: 60%;
+        background-color: @color;
+    }
+    &:after {
+        height: 2px;
+        width: 60%;
+        background-color: @color;
+    }
+}
+
+.zs-icon-circle-cross {
+    .zs-icon-add();
+    background-color: #999;
+    transform: translateY(-50%) rotate(45deg) !important;
+}
+
+.zs-icon-circle-error {
+    .zs-icon-add();
+    background-color: @color-danger;
+    transform: translateY(-50%) rotate(45deg) !important;
+}
+
+.zs-icon-circle-error-w {
+    .zs-icon-add(rgba(0, 0, 0, .6));
+    background-color: @color-white;
+    transform: translateY(-50%) rotate(45deg) !important;
+}
+
+.zs-icon-tick(@color:#000) {
+    position: relative;
+    .size(100%);
+    &:before {
+        position: absolute;
+        content: '';
+        top: 50%;
+        left: 50%;
+        width: 20%;
+        height: 46%;
+        border: solid @color;
+        border-width: 0 2px 2px 0;
+        transform: translate(-45%, -65%) rotate(38deg);
+    }
+}
+
+.zs-icon-circle-success {
+    .zs-icon-tick(@color-white);
+    border-radius: 50%;
+    background-color: @color-success;
+}
+
+.zs-icon-circle-success-w {
+    .zs-icon-tick(rgba(0, 0, 0, .6));
+    border-radius: 50%;
+    background-color: @color-white;
+}
+
+.zs-icon-warning {
+    position: relative;
+    background-color: @color-warning;
+    .circle(100%);
+    .side() {
+        content: '';
+        position: absolute;
+        left: 50%;
+        background-color: @color-white;
+    }
+    &:before {
+        .side();
+        width: 12.5%;
+        height: 50%;
+        top: 15%;
+        border-radius: 2px;
+        transform: translateX(-50%);
+    }
+    &:after {
+        .side();
+        .circle(12.5%);
+        top: 65%;
+        transform: translate(-50%, 2px);
+    }
+}
+
+/*图片图标*/
+
+.zs-icon-home {
+    background-image: url("../assets/home.png");
+}
+
+.zs-icon-camera {
+    background-image: url("../assets/camera.png");
+}
+
+.zs-icon-user {
+    background-image: url("../assets/user.png");
+}
+
+.zs-icon-mobile {
+    background-image: url("../assets/mobile.png");
+}
+
+.zs-icon-mobile2 {
+    background-image: url("../assets/mobile2.png");
+}
+
+.zs-icon-member {
+    background-image: url("../assets/member.png");
+}
+
+.zs-icon-no-member {
+    background-image: url("../assets/no_member.png");
+}
+
+.zs-icon-binding {
+    background-image: url("../assets/binding.png");
+}
+
+.zs-icon-merchant {
+    background-image: url("../assets/merchant.png");
+}
+
+.zs-icon-car {
+    background-image: url("../assets/car.png");
+}
+
+.zs-icon-wechat-pay {
+    background-image: url("../assets/wechat_pay.png");
+}
+
+.zs-icon-cash {
+    background-image: url("../assets/cash.png");
+}
+
+.zs-icon-cash-pay {
+    background-image: url("../assets/cash_pay.png");
+}
+
+.zs-icon-nopay {
+    background-image: url("../assets/no_pay.png");
+}
+.zs-icon-nopay2 {
+    background-image: url("../assets/nopay2.png");
+}
+.zs-icon-serving {
+    background-image: url("../assets/serving.png");
+}
+.zs-icon-serving2 {
+    background-image: url("../assets/serving2.png");
+}
+
+.zs-icon-finish {
+    background-image: url("../assets/finish.png");
+}
+
+.zs-icon-finish2 {
+    background-image: url("../assets/finish2.png");
+}
+
+.zs-icon-merchant-user {
+    background-image: url("../assets/merchant_user.png");
+}
+
+.zs-icon-merchant-pwd {
+    background-image: url("../assets/merchant_pwd.png");
+}
+
+.zs-icon-shouzhi {
+    background-image: url("../assets/shouzhi.png");
+}
+
+.zs-icon-cooper {
+    background-image: url("../assets/cooper.png");
+}
+
+.zs-icon-cooper_order {
+    background-image: url("../assets/cooper_order.png");
+}
+
+.zs-icon-bus {
+    background-image: url("../assets/bus.png");
+}
+
+.zs-icon-check {
+    background-image: url("../assets/check.png");
+}
+
+.zs-icon-uncheck {
+    background-image: url("../assets/uncheck.png");
+}
+
+.zs-icon-delete {
+    background-image: url("../assets/delete.png");
+}
+
+.zs-icon-write {
+    background-image: url("../assets/write.png");
+}
+
+.zs-icon-delete2 {
+    background-image: url("../assets/delete2.png");
+}
+
+.zs-icon-delete3 {
+    background-image: url("../assets/delete3.png");
+}
+
+.zs-icon-order {
+    background-image: url("../assets/order.png");
+}
+
+.zs-icon-bus-data {
+    background-image: url("../assets/bus_data.png");
+}
+
+.zs-icon-address {
+    background-image: url("../assets/address.png");
+}
+
+.zs-icon-tel-gray {
+    background-image: url("../assets/tel_gray.png");
+}
+
+.zs-icon-account {
+    background-image: url("../assets/account.png");
+}
+
+.zs-icon-edit {
+    background-image: url("../assets/edit.png");
+}
+
+.zs-icon-dengji {
+    background-image: url("../assets/dengji.png");
+}
+
+.zs-icon-pack {
+    background-image: url("../assets/pack.png");
+}
+
+.zs-icon-shang {
+    background-image: url("../assets/shang.png");
+}
+
+.zs-icon-call {
+    background-image: url("../assets/call.png");
+}
+
+.zs-icon-location {
+    background-image: url("../assets/location.png");
+}
+
+.zs-icon-location2 {
+    background-image: url("../assets/location2.png");
+}
+
+.zs-icon-car2 {
+    background-image: url("../assets/car2.png");
+}
+
+.zs-icon-shang1 {
+    background-image: url("../assets/shang1.png");
+}
+
+.zs-icon-time2 {
+    background-image: url("../assets/time2.png");
+}
+
+.zs-icon-time4 {
+    background-image: url("../assets/time4.png");
+}
+
+.zs-icon-wechat {
+    background-image: url("../assets/wechat.png");
+}
+
+.zs-icon-time {
+    background-image: url("../assets/time.png");
+}
+
+.zs-icon-search {
+    background-image: url("../assets/search.png");
+}
+
+.zs-icon-search1 {
+    background-image: url("../assets/search1.png");
+}
+
+.zs-icon-pack_green {
+    background-image: url("../assets/pack_green.png");
+}
+
+.zs-icon-time3 {
+    background-image: url("../assets/time3.png");
+}
+
+.zs-icon-check2 {
+    background-image: url("../assets/check2.png");
+}
+
+.zs-icon-shang2 {
+    background-image: url("../assets/shang2.png");
+}
+
+.zs-icon-no_data {
+    background-image: url("../assets/no_data.png");
+}
+
+.zs-icon-parking-call {
+    background-image: url("../assets/parking_call.png");
+}
+
+.zs-icon-bell {
+    background-image: url("../assets/bell.png");
+}
+
+.zs-icon-cheng {
+    background-image: url("../assets/cheng.png");
+}
+
+.zs-icon-order-pay {
+    background-image: url("../assets/order-pay.png");
+}
+
+.zs-icon-quit {
+    background-image: url("../assets/quit.png");
+}
+
+.zs-icon-cash-pay2 {
+    background-image: url("../assets/cash-pay2.png");
+}
+
+.zs-icon-check3 {
+    background-image: url("../assets/check3.png");
+}
+
+.zs-icon-cross2 {
+    background-image: url("../assets/cross2.png");
+}
+
+.zs-icon-doubt {
+    background-image: url("../assets/doubt.png");
+}
+
+.zs-icon-user2 {
+    background-image: url("../assets/user2.png");
+}
+
+.zs-icon-remark {
+    background-image: url("../assets/remark.png");
+}
+
+.zs-icon-stay {
+    background-image: url("../assets/stay.png");
+}
+
+.zs-icon-guide-arrow {
+    background-image: url("../assets/guide-arrow.png");
+}
+
+.zs-icon-balance {
+    background-image: url("../assets/balance.png");
+}
+
+.zs-icon-money {
+    background-image: url("../assets/money.png");
+}
+
+.zs-icon-recharge {
+    background-image: url("../assets/recharge.png");
+}
+
+.zs-icon-largess {
+    background-image: url("../assets/largess.png");
+}
+
+.zs-icon-user3 {
+    background-image: url("../assets/user3.png");
+}
+
+.zs-icon-shang3 {
+    background-image: url("../assets/shang3.png");
+}
+
+.zs-icon-group-fail {
+    background-image: url("../assets/group-fail.png");
+}
+
+.zs-icon-group-grouping {
+    background-image: url("../assets/group-grouping.png");
+}
+
+.zs-icon-group-success {
+    background-image: url("../assets/group-success.png");
+}
+
+.zs-icon-expansion {
+    background-image: url("../assets/expansion.png");
+}
+
+.zs-icon-packup {
+    background-image: url("../assets/packup.png");
+}
+
+.zs-icon-more-people {
+    background-image: url("../assets/more-people.png");
+}

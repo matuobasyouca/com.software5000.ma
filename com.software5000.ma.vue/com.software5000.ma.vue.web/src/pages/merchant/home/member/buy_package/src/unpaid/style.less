@@ -1,0 +1,47 @@
+@import '../../../../../../../assets/css/src/var';
+
+.r{
+  float: right;
+}
+
+.gray{
+  color: @color-light-black;
+}
+.unpaid{
+  width: 1280px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  padding: 10px;
+  background: @color-white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  .table-empty-data{
+    height: 386px;
+  }
+  .zs-table th .zs-table__cell{
+    border-right: 1px solid #e6e6e6;
+  }
+  .zs-table thead tr{
+    background-color: @color-white
+  }
+  tbody{
+    .control{
+      span{
+        color: @color-primary;
+        margin-right: 16px;
+        cursor: pointer;
+      }
+      span:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+
+}
+
+
+//表格
+.pay_list-pagination {
+  margin: 20px 10px 10px;
+  text-align: right;
+}
+

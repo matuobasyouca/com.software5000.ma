@@ -1,0 +1,48 @@
+@import "../../../../assets/css/src/var";
+
+.mobile-page{
+    padding-top:10px;
+    .mobile-notice{
+        margin: 10px 20px 20px;
+        text-align: center;
+        color:#999;
+    }
+    .mobile-control{
+        padding:100px 0 0;
+        text-align: center;
+        .action-shade{
+            animation:shade 1s infinite linear;
+        }
+        .action-shake{
+            animation:shake .1s infinite linear;
+        }
+    }
+}
+@keyframes shade {
+    0% {
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(15deg);
+    }
+    75%{
+        transform: rotate(-15deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(5px);
+    }
+    75%{
+        transform: translateX(-5px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}

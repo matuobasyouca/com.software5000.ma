@@ -1,0 +1,176 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+// -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* z-index
+ -------------------------- */
+/* Disable base
+-------------------------- */
+/* icon
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Message Box
+ -------------------------- */
+/* Message
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Scrollbar
+--------------------------*/
+/* Popover
+-------------------------- */
+/* Tooltip
+  -------------------------- */
+/* Radio
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Tag
+-------------------------- */
+/* clearfix
+--------------------------*/
+.services-list {
+  width: 1280px;
+  margin: 0 auto;
+  border-radius: 4px;
+  background: #fff;
+  margin-top: 10px;
+  padding: 10px;
+}
+.services-list .list-content {
+  margin-top: 10px;
+}
+.services-list .list-content .employee-table thead tr {
+  background: #fff;
+}
+.services-list .list-content .employee-table thead tr .zs-table__cell {
+  border-right: 1px solid #f2f2f2;
+}
+.services-list .list-content .employee-table .table-empty-data {
+  height: 400px;
+}
+.services-list .list-content .employee-table .account-operation a {
+  color: #4b8dde;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.services-list .list-content .istop {
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+}
+.services-list .list-content .item-times p {
+  cursor: pointer;
+}
+.services-list .list-content .item-times input {
+  font-size: 12px;
+  border-radius: 2px;
+  text-align: center;
+  width: 100%;
+}
+.services-list .list-content .item-times input:focus {
+  border: 1px solid #4b8dde;
+  background-color: #fff;
+}
+.services-list .page-div {
+  text-align: right;
+  margin-top: 20px;
+}
+.services-list .new-dialog .zs-dialog {
+  width: 460px;
+}
+.services-list .new-dialog .zs-dialog__body {
+  padding: 30px 65px 30px 30px;
+}
+.services-list .new-dialog .dialog-body ul {
+  position: relative;
+  zoom: 1;
+}
+.services-list .new-dialog .dialog-body ul li {
+  height: 36px;
+  margin-bottom: 16px;
+}
+.services-list .new-dialog .dialog-body ul li em {
+  color: #e75845;
+}
+.services-list .new-dialog .dialog-body ul li:last-child {
+  float: right;
+  line-height: 36px;
+  text-align: right;
+  color: #232d3c;
+  font-size: 14px;
+}
+.services-list .new-dialog .dialog-body ul li:first-child {
+  width: 280px;
+  float: right;
+  margin-left: 16px;
+}
+.services-list .new-dialog .dialog-body ul li .select-form-select {
+  width: 280px;
+}
+.services-list .new-dialog .dialog-body ul .hint {
+  position: absolute;
+  right: -50px;
+  top: 0;
+  line-height: 36px;
+  width: 40px;
+  text-align: left;
+  color: #999;
+}
+.services-list .new-dialog .dialog-body ul:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.services-list .new-dialog .zs-dialog__footer {
+  padding-bottom: 30px;
+  text-align: center;
+}
+.services-list .del-dialog .zs-dialog {
+  width: 400px;
+  height: 340px;
+}
+.services-list .del-dialog .zs-dialog__body {
+  padding: 0;
+}
+.services-list .del-dialog .dialog-body .del-img {
+  width: 50px;
+  height: 50px;
+  margin: 30px auto 0;
+  background: url("asset/delete.png");
+  background-size: 100% 100%;
+}
+.services-list .del-dialog .dialog-body .del-p {
+  line-height: 86px;
+  text-align: center;
+  font-size: 16px;
+  color: #232d3c;
+}
+.services-list .del-dialog .zs-dialog__footer {
+  margin-top: 52px;
+  padding-bottom: 30px;
+  text-align: center;
+}

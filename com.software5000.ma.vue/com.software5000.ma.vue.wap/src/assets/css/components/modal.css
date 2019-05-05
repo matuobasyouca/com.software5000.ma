@@ -1,0 +1,113 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Font
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+.zs-modal-mask {
+  position: absolute;
+  z-index: 10000;
+  margin: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 640px;
+}
+.zs-modal-mask.is-fullscreen {
+  position: fixed;
+  transition: opacity 0.3s;
+}
+.zs-modal-mask.is-fullscreen .zs-loading-spinner {
+  margin-top: calc(-25px);
+}
+.zs-modal-mask.is-fullscreen .zs-loading-spinner .circular {
+  width: 50px;
+  height: 50px;
+}
+.zs-modal-spinner {
+  top: 50%;
+  text-align: center;
+  position: absolute;
+}
+.zs-modal-spinner .zs-loading-text {
+  color: #fff;
+  font-size: 16px;
+  margin: 3px 0;
+}
+.zs-modal-spinner .circular {
+  width: 42px;
+  height: 42px;
+  animation: loading-rotate 2s linear infinite;
+}
+.zs-modal-spinner .path {
+  animation: loading-dash 1.5s ease-in-out infinite;
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  stroke-width: 2;
+  stroke: #4b8dde;
+  stroke-linecap: round;
+}
+.zs-modal-fade-enter,
+.zs-modal-fade-leave-active {
+  opacity: 0;
+}
+@keyframes loading-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loading-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -40px;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -120px;
+  }
+}

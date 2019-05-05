@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<AppSetting>
+    <appId>${AppSetting_appId}</appId>
+    <secret>${AppSetting_secret}</secret>
+    <token>${AppSetting_token}</token>
+    <aesKey>${AppSetting_aesKey}</aesKey>
+    <tokenHolderClass>com.software5000.util.ZscpAccessTokenHolder</tokenHolderClass>
+</AppSetting>

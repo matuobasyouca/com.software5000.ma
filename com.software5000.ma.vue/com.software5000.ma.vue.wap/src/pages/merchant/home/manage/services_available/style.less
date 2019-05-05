@@ -1,0 +1,205 @@
+@import '../../../../../assets/css/src/var';
+
+.services-page {
+    padding-top: 44px;
+}
+
+.new-project {
+    position: absolute;
+    right: 10px;
+    font-size: 14px;
+    color: @color-white;
+}
+
+.services-body {
+    .services-ul {
+        li {
+            background: @color-white;
+            margin-bottom: 10px;
+            .row-top {
+                height: 70px;
+                padding: 0 15px 6px 15px;
+                .clearfix();
+                border-bottom: 1px solid @color-light-gray;
+                .sort {
+                    margin-top: 15px;
+                    width: 45px;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    font-size: 12px;
+                    color: @color-white;
+                    border-radius: 2px;
+                    float: left;
+                    background: #4b8dde;
+                }
+                .mid {
+                    margin-top: 15px;
+                    float: left;
+                    margin-left: 10px;
+                    p {
+                        line-height: 20px;
+                        color: @color-base-black;
+                        font-weight: bold;
+                    }
+                    em {
+                        font-size: 15px;
+                        color: @color-danger;
+                        line-height: 30px;
+                        font-weight: bold;
+                    }
+                }
+                .zs-switch {
+                    float: right;
+                    margin-top: 12px;
+                }
+                .top {
+                    .zs-switch();
+                    line-height: 26px;
+                    margin-right: 8px;
+                    color: @color-base-silver;
+                }
+                .curr {
+                    color: @color-primary;
+                }
+            }
+            .row-bottom {
+                height: 40px;
+                .clearfix();
+                padding-right: 15px;
+                .icon_wrap {
+                    line-height: 40px !important;
+                    float: right;
+                    margin-left: 20px;
+                    padding-left: 18px !important;
+                }
+            }
+        }
+    }
+}
+
+.show_all_css {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    background-color: transparent !important;
+    color: @color-base-silver;
+}
+
+.show_more_css {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: @color-light-black;
+    background-color: @color-white !important;
+}
+
+.no_data_css {
+    text-align: center;
+    font-size: 14px;
+    color: @color-base-silver;
+    margin-top: 30px;
+}
+
+.data-empty {
+    .list-empty();
+    background-image: url("../../../../../assets/img/no_data.png");
+}
+
+.delete-dialog {
+    .zs-dialog__header {
+        background: @color-white;
+    }
+    .money-img {
+        width: 60px;
+        height: 60px;
+        margin: 7px auto 0;
+        background: url("asset/delete.png");
+        background-size: 100% 100%;
+    }
+    .h3 {
+        line-height: 55px;
+        font-size: 16px;
+        color: @color-base-black;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .zs-dialog__footer {
+        text-align: center;
+    }
+    .zs-button {
+        width: 116px;
+        height: 44px;
+    }
+}
+
+.ProjectPage {
+    .go-home {
+        display: none;
+    }
+}
+
+.newProject-page {
+
+    .new-body {
+        margin-top: 10px;
+        ul {
+            background: @color-white;
+            li {
+                .clearfix();
+                line-height: 50px;
+                padding-left: 122px;
+                padding-right: 45px;
+                border-bottom: 1px solid @disabled-border-base;
+                position: relative;
+                .li-title {
+                    position: absolute;
+                    left: 15px;
+                    top: 0;
+                    font-size: 15px;
+                    color: @color-base-black;
+                    width: 72px;
+                    em {
+                        color: @color-danger;
+                    }
+                }
+                .zs-input {
+                    .zs-input__inner {
+                        padding-left: 0;
+                    }
+                }
+                .li-length {
+                    position: absolute;
+                    right: 15px;
+                    top: 0;
+                    font-size: 12px;
+                    color: @color-base-silver;
+                }
+                .li-select {
+                    width: 100%;
+                    border: none;
+                    color: @color-base-silver;
+                }
+                .li-deal {
+                    position: absolute;
+                    top: 50%;
+                    right: 15px;
+                    margin-top: -5px;
+                    .zs-icon-arrow-right {
+                        border-top: 2px solid #595959 !important;
+                        border-right: 2px solid #595959 !important;
+                    }
+                }
+            }
+        }
+    }
+    .new-bottom {
+        padding: 0 15px;
+        margin-top: 20px;
+        .btn-click {
+            width: 100%;
+            font-size: 16px;
+        }
+    }
+
+}

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="MemberPackageRecord">
+
+    <resultMap id="memberPackageRecordResult" type="MemberPackageRecord">
+        <id property="id" column="id"/>
+        <result property="businessPackageId" column="businessPackage"/>
+        <result property="createTime" column="createTime"/>
+        <result property="payType" column="payType"/>
+        <result property="totalAmount" column="totalAmount"/>
+        <result property="validTime" column="validTime"/>
+        <association property="businessPackage" javaType="BusinessPackage">
+            <result property="packageName" column="packageName"/>
+            <result property="id" column="packageId"/>
+            <result property="validTerm" column="validTerm"/>
+            <result property="salePrice" column="salePrice"/>
+            <result property="originalPrice" column="originalPrice"/>
+            <result property="packageType" column="packageType"/>
+        </association>
+        <collection  property="memberItemUseRecords" ofType="MemberItemUseRecord">
+            <result property="id" column="memberItemUseRecordId"/>
+            <result property="remainTimes" column="remainTimes"/>
+            <result property="serviceItemId" column="mirServiceItemId"/>
+            <result property="useTimes" column="useTimes"/>
+            <association property="serviceItem" javaType="ServiceItem">
+                <result property="id" column="serviceItemId"/>
+                <result property="itemName" column="itemName"/>
+                <result property="originalPrice" column="originalPrice"/>
+                <result property="salePrice" column="itemSalePrice"/>
+            </association>
+        </collection>
+    </resultMap>
+
+    <resultMap id="memberPackageRecordDtoResult" type="MemberPackageRecordDto">
+        <result property="id" column="id"/>
+        <result property="userId" column="userId"/>
+        <result property="businessId" column="businessId"/>
+        <result property="businessPackageId" column="businessPackageId"/>
+        <result property="createTime" column="createTime"/>
+        <result property="validTime" column="validTime"/>
+        <result property="businessName" column="businessName"/>
+        <result property="packageName" column="packageName"/>
+        <result property="isEnable" column="isEnable"/>
+        <collection  property="serviceItemRemainList" ofType="ServiceItemRemain">
+            <result property="serviceItemId" column="serviceItemId"/>
+            <result property="totalTimes" column="totalTimes"/>
+            <result property="remainTimes" column="remainTimes"/>
+            <result property="itemName" column="itemName"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectByParam" parameterType="java.util.HashMap" resultMap="memberPackageRecordResult">
+      SELECT mpr.id,mpr.businessPackageId,mpr.validTime,mpr.createTime,
+      bp.packageName,bp.id AS packageId,bp.validTerm,bp.salePrice,bp.originalPrice,bp.packageType,
+      mur.id AS memberItemUseRecordId,mur.remainTimes,mur.useTimes,mur.serviceItemId AS mirServiceItemId,
+      si.itemName,si.id AS serviceItemId,si.originalPrice,si.salePrice
+      ,bpo.payType AS payType, bpo.totalAmount as totalAmount
+      FROM MemberPackageRecord mpr
+      LEFT JOIN BusinessPackageOrder bpo ON bpo.id = mpr.packageOrderId
+      LEFT JOIN BusinessPackage bp ON mpr.businessPackageId=bp.id
+      LEFT JOIN MemberItemUseRecord mur ON mpr.id=mur.memberPackageRecordId
+      LEFT JOIN ServiceItem si ON mur.serviceItemId=si.id
+      WHERE 1=1
+        <if test="userId != null and userId gt 0">
+           AND mpr.userId= #{userId}
+        </if>
+        <if test="businessId != null and businessId gt 0">
+            AND mpr.businessId=#{businessId}
+        </if>
+        <if test="isNoValid">
+         AND (mpr.validTime&gt;=now() OR mpr.validTime is NULL)
+        </if>
+        <if test="businessPackageId != null and businessPackageId gt 0">
+            AND mpr.businessPackageId=#{businessPackageId}
+        </if>
+       ORDER BY isnull(mpr.validTime), mpr.validTime asc, mur.remainTimes desc
+    </select>
+
+    <select id="selectWorkOrderPackageMsg" parameterType="java.util.Map" resultType="WxMsgDto">
+        SELECT CONCAT('您的套餐卡使用',(GROUP_CONCAT(CONCAT(s.itemName,u.times,'次') SEPARATOR '/'))) AS first
+              ,(SELECT bp.packageName
+		        FROM BusinessPackage bp
+		        WHERE bp.id = p.businessPackageId) AS keyword1
+	          ,(SELECT GROUP_CONCAT(CONCAT(si.itemName,miur.remainTimes,'次') SEPARATOR '/')
+		        FROM MemberItemUseRecord miur
+		        LEFT JOIN ServiceItem si ON si.id = miur.serviceItemId
+		        WHERE miur.memberPackageRecordId = p.id
+		        GROUP BY miur.memberPackageRecordId) AS keyword2
+		      ,(CASE WHEN p.validTime IS NOT NULL THEN date_format(p.validTime, '%Y-%m-%d') ELSE '永久' END) AS keyword3
+        FROM WorkItemUserRecord u
+        LEFT JOIN MemberItemUseRecord i ON i.id = u.memberItemUseRecordId
+        LEFT JOIN ServiceItem s ON s.id = i.serviceItemId
+        LEFT JOIN MemberPackageRecord p ON p.id = i.memberPackageRecordId
+        WHERE u.workOrderId = #{orderId}
+        GROUP BY p.id
+    </select>
+
+    <select id="selectExpirePackageMsg" resultType="WxMsgDto">
+        SELECT CONCAT('您在',b.businessName,'的',p.packageName,'即将到期，请及时到店使用。') AS first
+			,(SELECT GROUP_CONCAT(CONCAT(si.itemName, miur.remainTimes, '次' ) SEPARATOR '/')
+				FROM MemberItemUseRecord miur
+				LEFT JOIN ServiceItem si ON si.id = miur.serviceItemId
+				WHERE miur.memberPackageRecordId = r.id
+				GROUP BY miur.memberPackageRecordId) AS keyword1
+			,date_format(r.validTime, '%Y-%m-%d') AS keyword2
+			,u.wxOpenId AS openId
+        FROM MemberPackageRecord r
+        LEFT JOIN User u ON u.id = r.userId
+        LEFT JOIN Business b ON b.id = r.businessId
+        LEFT JOIN BusinessPackage p ON p.id = r.businessPackageId
+        WHERE r.validTime IS NOT NULL
+        AND DATEDIFF(r.validTime, NOW()) = 7
+        AND u.wxOpenId IS NOT NULL
+    </select>
+
+    <!--用户查询套餐卡分页分类（可用，已用完，过期） -->
+    <select id="selectMemberPackageRecordIds" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        SELECT mpr.id
+        FROM MemberPackageRecord mpr
+        INNER JOIN User u on mpr.userId=u.id
+        LEFT JOIN MemberItemUseRecord miu ON mpr.id=miu.memberPackageRecordId
+        WHERE u.wxOpenId= #{wxOpenId}
+        <if test="type != null and type==1">
+          and  (mpr.validTime >= NOW() or mpr.validTime is NULL )
+        </if>
+        <if test="type != null and type==3">
+            and  mpr.validTime &lt; NOW()
+        </if>
+		GROUP BY mpr.id
+        <if test="type != null and type==1">
+		  having sum(miu.remainTimes)>0
+        </if>
+        <if test="type != null and type==3">
+            having sum(miu.remainTimes)>0
+        </if>
+        <if test="type != null and type==2">
+            having sum(miu.remainTimes)=0
+        </if>
+        ORDER BY mpr.validTime desc
+    </select>
+
+    <select id="selectMemberPackageRecordCount" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+        select type,COUNT(id) as count from (SELECT 1 as type,mpr.id as id
+        FROM MemberPackageRecord mpr
+        INNER JOIN User u on mpr.userId=u.id
+        LEFT JOIN MemberItemUseRecord miu ON mpr.id=miu.memberPackageRecordId
+        WHERE u.wxOpenId= #{wxOpenId}
+        and  (mpr.validTime >= NOW() or mpr.validTime is NULL )
+        GROUP BY mpr.id
+        having sum(miu.remainTimes)>0
+        UNION
+        SELECT 2 as type,mpr.id as id
+        FROM MemberPackageRecord mpr
+        INNER JOIN User u on mpr.userId=u.id
+        LEFT JOIN MemberItemUseRecord miu ON mpr.id=miu.memberPackageRecordId
+        WHERE u.wxOpenId= #{wxOpenId}
+        GROUP BY mpr.id
+        having sum(miu.remainTimes)=0
+        UNION
+        SELECT 3 as type,mpr.id as id
+        FROM MemberPackageRecord mpr
+        INNER JOIN User u on mpr.userId=u.id
+        LEFT JOIN MemberItemUseRecord miu ON mpr.id=miu.memberPackageRecordId
+        WHERE u.wxOpenId= #{wxOpenId}
+        and  mpr.validTime &lt; NOW()
+        GROUP BY mpr.id
+        having sum(miu.remainTimes)>0) as a GROUP BY type
+    </select>
+
+    <!--用户查看已购买套餐-->
+    <select id="selectMemberPackageRecordByOpenId" parameterType="java.util.HashMap" resultMap="memberPackageRecordDtoResult">
+        SELECT mpr.id,mpr.userId,mpr.businessId,mpr.businessPackageId,mpr.createTime,mpr.validTime,
+        b.businessName,
+        bp.packageName,
+        miu.serviceItemId,miu.useTimes AS totalTimes,miu.remainTimes,
+        si.itemName,
+        (case when mpr.validTime >= NOW() or mpr.validTime is NULL then 'true' else 'false' end) AS isEnable
+        FROM MemberPackageRecord mpr
+        INNER JOIN User u on mpr.userId=u.id
+        LEFT JOIN BusinessPackage bp ON mpr.businessPackageId=bp.id
+        LEFT JOIN Business b ON mpr.businessId=b.id
+        LEFT JOIN MemberItemUseRecord miu ON mpr.id=miu.memberPackageRecordId
+        LEFT JOIN ServiceItem si ON si.id=miu.serviceItemId
+        WHERE u.wxOpenId= #{wxOpenId}
+        <if test="ids !=null and ids.size >0">
+            AND mpr.id in
+            <foreach collection="ids" item="id" index="index" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+        ORDER BY miu.remainTimes desc,mpr.validTime desc,miu.createTime desc
+    </select>
+
+
+</mapper>

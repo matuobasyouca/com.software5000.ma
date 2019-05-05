@@ -1,0 +1,97 @@
+@import '../../../../../assets/css/src/var';
+
+.member-page {
+  padding-bottom: 46px;
+
+  .item-list {
+    .list {
+      margin-top: 10px;
+      background-color: @color-white;
+      height: 78px;
+      position: relative;
+      padding-top: 15px;
+      padding-bottom: 78px;
+      padding-left: 85px;
+
+      .list-p-img {
+        position: absolute;
+        left:15px;
+        padding-top:50px;
+        line-height:28px;
+        text-align: center;
+        color:@color-extra-light-black;
+        font-size:10px;
+        background:url("../../../../../assets/img/member_man.png") no-repeat center top;
+        background-size:50px 50px;
+      }
+
+      .list-p-wx-img {
+        background:url("../../../../../assets/img/member_wechat.png") no-repeat center top;
+        background-size:50px 50px;
+      }
+
+      .list-div {
+        height: 15px;
+        line-height: 15px;
+        margin-right: 15px;
+
+        .list-div-mobile {
+          font-size: 15px;
+          font-weight: bold;
+          color: @color-base-black;
+          margin-right: 10px;
+        }
+
+        .icon_wrap {
+          span {
+            margin-left: -5px;
+            font-size: 10px;
+            color: @color-extra-light-black;
+            font-weight: bold;
+          }
+        }
+
+        .list-div-date {
+          float: right;
+          font-size: 10px;
+          color: @color-extra-light-black;
+        }
+
+        .vip {
+          span {
+            color: #ffa207 !important;
+          }
+        }
+      }
+
+      .list-p-car {
+        margin-right: 15px;
+        .ellipsis();
+        font-size: 13px;
+        color: @color-light-black;
+        margin-top: 15px;
+      }
+    }
+  }
+  .show-more {
+    margin-top: 10px;
+    .show-more();
+  }
+  .no-more {
+    margin-top: 10px;
+    .no-more();
+  }
+  .list-empty {
+    .list-empty();
+    background-image: url("../../../../../assets/img/member_man2.png");
+  }
+  .create-label {
+    position: fixed;
+    left: 15px;
+    bottom: 65px;
+    width: 70px;
+    height: 70px;
+    background: url("../../../../../assets/img/add_pack.png") no-repeat center center;
+    background-size: contain;
+  }
+}

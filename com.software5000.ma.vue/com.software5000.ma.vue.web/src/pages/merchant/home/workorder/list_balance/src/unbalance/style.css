@@ -1,0 +1,92 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+// -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* z-index
+ -------------------------- */
+/* Disable base
+-------------------------- */
+/* icon
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Message Box
+ -------------------------- */
+/* Message
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Scrollbar
+--------------------------*/
+/* Popover
+-------------------------- */
+/* Tooltip
+  -------------------------- */
+/* Radio
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Tag
+-------------------------- */
+/* clearfix
+--------------------------*/
+.page-main {
+  zoom: 1;
+  width: 1280px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 10px;
+  text-align: right;
+}
+.page-main:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.page-main .zs-table thead tr {
+  background: none;
+}
+.page-main .zs-table th .zs-table__cell {
+  border-right-color: #e6e6e6;
+}
+.page-main .table-empty-data {
+  height: 380px;
+}
+.page-main .zs-pagination {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.page-main .table-control a {
+  color: #4b8dde;
+  cursor: pointer;
+}
+.page-main .table-control a + a {
+  margin-left: 10px;
+}
+.page-main .item-name .zs-table__cell {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

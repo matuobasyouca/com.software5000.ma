@@ -1,0 +1,113 @@
+@import "../src/var";
+.zs {
+    &-form {
+        &-label__left {
+            & .zs-form-item__label {
+                text-align: left;
+            }
+        }
+        &-label__top {
+            & .zs-form-item__label {
+                float: none;
+                display: inline-block;
+                padding: 0 0 10px 0;
+            }
+        }
+        &__inline {
+            & .zs-form-item {
+                display: inline-block;
+                margin-right: 10px;
+                vertical-align: top;
+            }
+            & .zs-form-item__label,
+            & .zs-form-item__content {
+                display: inline-block;
+                float: left;
+            }
+        }
+    }
+    &-form-item {
+        margin-bottom: 20px;
+        .clearfix;
+        & .zs-form-item {
+            margin-bottom: 0;
+
+            & .zs-form-item__content {
+                margin-left: 0 !important;
+            }
+        }
+        &__label {
+            text-align: right;
+            vertical-align: middle;
+            float: left;
+            font-size: 14px;
+            color: @color-base-black;
+            line-height: 1;
+            padding: 11px 20px 11px 0;
+            box-sizing: border-box;
+        }
+        &__content {
+            height: 36px;
+            line-height: 36px;
+            position: relative;
+            font-size: 14px;
+            .clearfix;
+        }
+        &__error {
+            color: @color-danger;
+            font-size: 12px;
+            line-height: 1;
+            padding-top: 4px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+        &.is-required {
+            .zs-form-item__label:before {
+                content: '*';
+                color: @color-danger;
+                margin-right: 4px;
+            }
+        }
+        &.is-error {
+            & .zs-input__inner,
+            & .zs-textarea__inner {
+                border-color: @color-danger;
+                color: @color-danger;
+                &::placeholder {
+                    color: @color-danger;
+                }
+                &:focus {
+                    box-shadow: @box-shadow-base;
+                }
+            }
+            & .un-validate {
+                .zs-input__inner,
+                .zs-textarea__inner {
+                    border-color: @border-color-base;
+                    &::placeholder {
+                        color: @input-placeholder-color;
+                    }
+                    &:focus {
+                        box-shadow: @box-shadow-base;
+                    }
+                }
+                .zs-input__icon {
+                    //color: @icon-color;
+                }
+            }
+            & .zs-input__icon {
+                color: @color-danger;
+            }
+            & .zs-input__inner:focus {
+                box-shadow: @box-shadow-danger;
+            }
+            //& .zs-input-group__append,
+            //& .zs-input-group__prepend {
+            //    & .zs-input__inner {
+            //        border-color: transparent;
+            //    }
+            //}
+        }
+    }
+}

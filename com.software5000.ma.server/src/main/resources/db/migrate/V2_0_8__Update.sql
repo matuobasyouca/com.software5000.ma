@@ -1,0 +1,1 @@
+ALTER TABLE BusinessPackage ADD instructions varchar(225);

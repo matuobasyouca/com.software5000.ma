@@ -1,0 +1,61 @@
+@import '../../../../../../../assets/css/src/var';
+
+.r{
+  float: right;
+}
+.merchant{
+  border-radius: 4px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  width: 1280px;
+  margin: 20px auto 0;
+}
+.gray{
+  color: @color-light-black;
+}
+.page-base{
+  margin-top: 20px;
+  border-radius: 4px;
+}
+.merchant{
+  .merchant-top{
+    .zs-button__primary{
+      height: 36px;
+      margin-bottom: 10px;
+    }
+  }
+  .zs-table__body{
+    .control{
+      span{
+        color: @color-primary;
+        margin-right: 16px;
+        cursor: pointer;
+      }
+      span:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+  .table-empty-data{
+    height: 348px;
+  }
+  .package-item-name{
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+  }
+}
+//表格
+.package-table{
+  .zs-table thead tr{
+    background-color: @color-white;
+  }
+}
+
+//表格
+.pay_list-pagination {
+  margin: 20px 10px 10px;
+  text-align: right;
+}
+

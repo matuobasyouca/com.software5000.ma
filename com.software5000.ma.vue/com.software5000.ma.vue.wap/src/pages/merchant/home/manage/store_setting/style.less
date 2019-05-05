@@ -1,0 +1,75 @@
+@import '../../../../../assets/css/src/var';
+
+.store-page{
+    padding-top: 44px;
+}
+.store-body{
+    .store-logo{
+        height: 225px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+    .store-msg{
+        background: @color-white;
+        padding-left: 15px;
+        .store-name{
+            font-size: 15px;
+            color: @color-base-black;
+            line-height: 50px;
+            border-bottom: 1px solid @color-light-gray;
+        }
+        .store-addr{
+            .store-name();
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .store-tel{
+            .store-name();
+            border-bottom: none;
+            font-weight: bold;
+        }
+        .icon_wrap{
+            margin-right: 10px;
+        }
+    }
+    .page-title{
+        line-height: 40px;
+        color: @color-light-black;
+        padding-left: 15px;
+    }
+    .day-select{
+        height: 50px;
+        padding-left: 15px;
+        background: @color-white;
+        font-size: 15px;
+        color: @color-base-black;
+        line-height: 50px;
+        position: relative;
+        .li-select{
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: none;
+            padding-left: 82%;
+            line-height: 50px;
+            padding-right: 40px;
+            color: @color-base-silver;
+        }
+        .icon_wrap{
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            margin-top: -8px;
+            .zs-icon-arrow-right{
+                border-top: 1px solid @color-base-silver !important;
+                border-right: 1px solid @color-base-silver !important;
+
+            }
+        }
+
+    }
+}

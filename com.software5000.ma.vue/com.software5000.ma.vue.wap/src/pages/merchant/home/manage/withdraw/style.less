@@ -1,0 +1,57 @@
+@import '../../../../../assets/css/src/var';
+
+.withdraw-page{
+    padding-top: 44px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.withdraw-img{
+    width: 100px;
+    height: 85px;
+    background: url("asset/money.png");
+    background-size: 100% 100%;
+    margin: 25px auto;
+}
+.withdraw-body{
+    border-radius: 4px;
+    background: @color-white;
+    margin-bottom: 30px;
+    ul{
+        li{
+            position: relative;
+            border-bottom: 1px solid @color-light-gray;
+            span{
+                font-size: 15px;
+                color: @color-light-black;
+                position: absolute;
+                left: 15px;
+            }
+            p{
+                padding-left: 130px;
+                font-weight: bold;
+                color: @color-base-black;
+            }
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+        .money-h3{
+            line-height: 60px;
+            height: 60px;
+            p{
+                font-size: 30px;
+            }
+        }
+        .name-h3{
+            line-height: 50px;
+            height: 50px;
+            p{
+                font-size: 18px;
+            }
+        }
+    }
+}
+.bind-btn{
+    width: 100%;
+    font-size: 16px;
+}

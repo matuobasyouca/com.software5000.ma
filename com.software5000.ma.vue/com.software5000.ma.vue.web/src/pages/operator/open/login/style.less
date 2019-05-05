@@ -1,0 +1,120 @@
+@import "../../../../assets/css/src/var";
+
+body {
+  background-color: @color-white !important;
+}
+
+.login{
+    &-header{
+        width: 100%;
+        height: 108px;
+        position: relative;
+        .login-head{
+            width: 1100px;
+            height: 108px;
+            padding: 22px 0 22px 100px;
+            position: absolute;
+            left: 50%;
+            margin-left: -550px;
+            &:before{
+                content: '';
+                display: block;
+                width: 69px;
+                height: 64px;
+                background: url("assets/logo.png");
+                background-size: 100% 100%;
+                position: absolute;
+                left: 16px;
+            }
+            .title-h1{
+                font-size: 28px;
+                color: #434343;
+                line-height: 30px;
+            }
+            .title-h3{
+                font-size: 16px;
+                color: #666;
+                line-height: 34px;
+            }
+        }
+    }
+    &-body{
+        position: relative;
+        height: 600px;
+        margin:0 auto;
+        overflow: hidden;
+        min-width: 1100px;
+        .login-bg{
+            width: 1920px;
+            height: 600px;
+            position: absolute;
+            left: 50%;
+            margin-left: -960px;
+            background: url("assets/bg.png");
+            background-size: cover;
+        }
+        .login-margin{
+            width: 1100px;
+            height: 600px;
+            position: absolute;
+            left: 50%;
+            margin-left: -550px;
+            .login-box {
+                position: absolute;
+                top: 90px;
+                right: 30px;
+                z-index: 2;
+                background: #fff;
+                width: 380px;
+                padding: 0 30px 50px;
+                .login-box__title {
+                    text-align: center;
+                    height: 110px;
+                    line-height: 110px;
+                    font-size: 24px;
+                    color: #252c32;
+                }
+                .zs-input{
+                    height: 40px;
+                    .zs-input__inner{
+                        height: 40px;
+                    }
+                }
+                .user-css{
+                    margin-bottom: 18px;
+                }
+                .pwd-css{
+                    margin-bottom: 15px;
+                }
+                .login-box__auto-item {
+                    font-size: 12px;
+                }
+                .login-box__loginButton {
+                    width: 100%;
+                    height: 50px;
+                    margin-top: 15px;
+                    background: #252c32;
+                    border-radius: 2px;
+                }
+                .zs-button__primary{
+                    border: none !important;
+                }
+                .error-div {
+                    text-align: right;
+                    .error-message {
+                        font-size: 14px;
+                        color: #eb433a;
+                        display: inline-block;
+                        margin-top: -3px;
+                    }
+                }
+            }
+        }
+    }
+    .index-footer{
+        padding: 35px 0;
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+    }
+}

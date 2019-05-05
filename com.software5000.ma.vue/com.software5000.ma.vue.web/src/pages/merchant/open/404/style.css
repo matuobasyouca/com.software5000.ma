@@ -1,0 +1,88 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+// -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Fill
+-------------------------- */
+/* Font
+-------------------------- */
+/* z-index
+ -------------------------- */
+/* Disable base
+-------------------------- */
+/* icon
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Message Box
+ -------------------------- */
+/* Message
+-------------------------- */
+/* Dialog
+-------------------------- */
+/* Scrollbar
+--------------------------*/
+/* Popover
+-------------------------- */
+/* Tooltip
+  -------------------------- */
+/* Radio
+-------------------------- */
+/* Checkbox
+-------------------------- */
+/* Tag
+-------------------------- */
+/* clearfix
+--------------------------*/
+.page-404 {
+  position: relative;
+  padding-top: 50px;
+  height: 100%;
+  background-color: #fff;
+}
+.page-404 .page-404-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 138px;
+  padding-left: 372px;
+  transform: translate(-50%, -50%);
+  background: url("assets/404.png") no-repeat left center;
+}
+.page-404 .p1 {
+  height: 38px;
+  line-height: 38px;
+  font-size: 18px;
+}
+.page-404 .p2 {
+  height: 32px;
+  line-height: 32px;
+  font-size: 18px;
+  color: #999;
+}
+.page-404 .p3 {
+  margin-top: 20px;
+  height: 44px;
+  width: 130px;
+  font-size: 18px;
+  color: #fff;
+}

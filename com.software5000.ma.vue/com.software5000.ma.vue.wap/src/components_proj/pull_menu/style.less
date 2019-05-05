@@ -1,0 +1,64 @@
+@import '../../../src/assets/css/src/var.less';
+
+.pull-menu-wrap {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: @color-white;
+    .pull-menu-tab {
+        height: 44px;
+        line-height: 44px;
+        border-bottom: 1px solid #f6f6f6;
+        .clearfix();
+        li {
+            float: left;
+            width: 33.33%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            span {
+                position: relative;
+                padding-right: 14px;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    width: 0;
+                    height: 0;
+                    border-top: 4px solid #333;
+                    border-left: 4px solid transparent;
+                    border-right: 4px solid transparent;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        li.curr {
+            color: @color-primary;
+            span:after {
+                border-top: none;
+                border-bottom: 4px solid @color-primary;
+            }
+        }
+        &.only2 li {
+            width: 50%;
+        }
+    }
+    .pull-menu-marsk {
+        position: fixed;
+        top: 88px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .5);
+    }
+    .pull-menu-main {
+        position: relative;
+        max-height: 400px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}

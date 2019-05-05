@@ -1,0 +1,165 @@
+@import '../../../../../assets/css/src/var';
+.r{
+    float: right;
+}
+.pay-page {
+    max-width: 640px;
+    padding-bottom: 70px;
+    margin: 0 auto;
+    padding-top: 54px;
+    .store-name{
+        line-height: 40px;
+        background-color: @color-white;
+        padding-left: 15px;
+    }
+    .package{
+        position: relative;
+        margin: 15px;
+        padding-left: 95px;
+        .package-left{
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 80px;
+            height: 80px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .package-right {
+            min-height: 80px;
+        }
+       .package-title{
+           font-size: 14px;
+           line-height: 1;
+           margin-bottom: 8px;
+           .r{
+               font-size: 12px;
+               color: @color-base-silver;
+           }
+           .title{
+               display: inline-block;
+               width: 70%;
+               line-height: 18px;
+           }
+        }
+        .package-date{
+            line-height: 22px;
+            color: @color-light-black;
+            font-size: 14px;
+        }
+        .package-item{
+            line-height: 18px;
+            font-size: 12px;
+            color: @color-light-black;
+        }
+    }
+    .price{
+        font-size: 12px;
+        text-align: right;
+        background-color: @color-white;
+        padding-right: 15px;
+        line-height: 40px;
+        margin-bottom: 20px;
+        .del{
+            text-decoration: line-through;
+            color: @color-base-silver;
+            margin-right: 15px;
+        }
+        .gray{
+            color: @color-light-black;
+            margin-right: 4px;
+        }
+        .black{
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    }
+    .input-wrapper {
+        background-color: @color-white;
+        .input-wrapper-li {
+            height: 50px;
+            line-height: 50px;
+            &:first-child {
+                position: relative;
+                padding-left: 90px;
+                font-size: 16px;
+                border-bottom: 1px solid #f2f2f2;
+                .input-label {
+                    position: absolute;
+                    left: 15px;
+                    top: 0;
+                }
+                .zs-input__inner {
+                    border: none;
+                    padding-left: 20px;
+                    font-size: 15px;
+                    color: @color-light-black;
+                    &:focus {
+                        box-shadow: none;
+                    }
+                }
+
+            }
+            .car-number {
+                height: 50px;
+                line-height: 50px;
+                .car-number-input {
+                    color: @color-light-black;
+                }
+            }
+            .car-number-wrap{
+                border: none;
+            }
+        }
+    }
+    .footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        background-color: @color-white;
+        .footer-main{
+            max-width: 640px;
+            position: relative;
+            margin: 0 auto;
+            line-height: 49px;
+            height: 49px;
+            text-align: right;
+            font-size: 0;
+            &>div{
+                display: inline-block;
+            }
+        }
+        .footer-left{
+            font-size: 14px;
+            .red{
+                font-size: 18px;
+                color: @color-danger;
+                font-weight: bold;
+                margin: 0 25px 0 8px;
+            }
+        }
+    }
+    .confirm-btn {
+        width: 130px;
+        text-align: center;
+        color: @color-white;
+        font-size: 16px;
+        background-color: @color-primary;
+    }
+
+
+}
+.join-message{
+    .zs-message-box__content{
+        padding-top: 16px;
+        .confirm-text{
+            height: auto;
+            line-height: 28px;
+        }
+    }
+}
+

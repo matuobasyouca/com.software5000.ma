@@ -1,0 +1,85 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Font
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+.image-view-box {
+  position: relative;
+  height: 280px;
+  z-index: 1;
+  background-color: #fff;
+  overflow: hidden;
+}
+.image-view-box .image-view-list {
+  position: relative;
+  transition: left .3s;
+  zoom: 1;
+  height: 100%;
+}
+.image-view-box .image-view-list:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.image-view-box .image-view-list li {
+  float: left;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.image-view-box .image-view-index {
+  width: auto;
+  height: auto;
+  left: auto;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  padding: 3px 8px;
+  border-radius: 15px;
+  line-height: 1;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,107 @@
+@import '../../../../assets/css/src/var';
+
+.insert-carnumber{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 20;
+    background-color: @color-extra-light-gray;
+    .title{
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 44px;
+        color:  @color-white;
+        background-color: @color-primary;
+        line-height: 44px;
+        text-align: center;
+        font-size: 16px;
+        .plate-number__arrow-left{
+            position: absolute;
+            height: 44px;
+            top: 0;
+            left: 0;
+            padding: 0 15px;
+            i{
+                border-color:  @color-white;
+            }
+        }
+    }
+    .province_wrap{
+        position: relative;
+        height: 100%;
+        padding-top: 44px;
+        padding-bottom: 20px;
+        overflow: scroll;
+
+    }
+    .create__item__plate-number{
+        background-color: @color-primary;
+        color: @color-white;
+        padding: 3px;
+        line-height: 1;
+        border-radius: 3px;
+        span{
+            display: inline-block;
+            line-height:26px;
+            font-size: 16px;
+            text-align: center;
+            width:100px;
+            border: 1px solid @color-white;
+            border-radius: 2px;
+        }
+    }
+    .modalForCarLicence-ul .create__item{
+        margin-top: 0;
+    }
+    .add__title{
+        padding:20px 0 10px 15px;
+        line-height:1;
+    }
+    .ma-list-left{
+        border-bottom:1px solid  #ebebeb;
+    }
+    .save-add{
+        padding: 20px 0;
+        margin-left: 15px;
+        .zs-button--large{
+            margin: 0 15px 0 0;
+        }
+    }
+}
+
+
+
+
+.page-slide-enter-active {
+    animation: page-slide-in .3s;
+}
+
+.page-slide-leave-active {
+    animation: page-slide-out .3s;
+}
+
+@keyframes page-slide-in {
+    0% {
+        transform: translate3d(100%, 0, 0);
+        //opacity: 0;
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        //opacity: 1;
+    }
+}
+
+@keyframes page-slide-out {
+    0% {
+        transform: translate3d(0, 0, 0);
+        //opacity: 1;
+    }
+    100% {
+        transform: translate3d(100%, 0, 0);
+        //opacity: 0;
+    }
+}

@@ -1,0 +1,103 @@
+@import "../src/var.less";
+
+.zs {
+    &-input-number {
+        display: inline-block;
+        overflow: hidden;
+        width: 120px;
+        position: relative;
+        min-height: 30px;
+        & .zs-input {
+            display: block;
+            padding-right: 35px;
+            padding-left: 35px;
+        }
+        & .zs-input__inner {
+            position: relative;
+            z-index: 2;
+            height: 30px;
+            padding: 3px;
+            line-height: 28px;
+            appearance: none;
+            text-align: center;
+            font-size: 16px;
+            color: @color-light-black;
+            border: 1px solid @border-color-base;
+            border-radius: 0 !important;
+        }
+        & &__increase,
+        & &__decrease {
+            position: absolute;
+            z-index: 1;
+            width: 35px;
+            height: 30px;
+            line-height: 28px;
+            text-align: center;
+            border: 1px solid @border-color-base;
+            background-size: 15px 15px !important;
+            &.is-disabled {
+                color: #eee;
+                cursor: not-allowed;
+                border-color: @border-color-sep;
+                background-color: #f6f6f6;
+            }
+        }
+        & &__increase {
+            right: 1px;
+            border-left: none;
+            border-radius: 0 3px 3px 0;
+            background: url("../../../components/input_number/asset/add.png") center center no-repeat;
+        }
+
+        & &__decrease {
+            left: 1px;
+            border-right: none;
+            border-radius: 3px 0 0 3px;
+            background: url("../../../components/input_number/asset/minus.png") center center no-repeat;
+            &.is-disabled {
+                background-image: url("../../../components/input_number/asset/minus_1.png")
+            }
+        }
+        &.is-isabled {
+            & .zs-input-number__increase, .zs-input-number__decrease {
+                border-color: @disabled-border-base;
+                color: @disabled-border-base;
+            }
+        }
+        & &__large {
+            width: 200px;
+
+            & .zs-input-number__increase, .zs-input-number__decrease {
+                line-height: @input-large-height;
+                width: @input-large-height;
+                font-size: @input-large-font-size;
+            }
+            & .zs-input-number__decrease {
+                right: calc(@input-large-height + 1px);
+            }
+            & .zs-input__inner {
+                padding-right: calc(@input-large-height * 2 + 10);
+            }
+        }
+        & &__small {
+            width: 130px;
+
+            & .zs-input-number__increase, .zs-input-number__decrease {
+                line-height: @input-small-height;
+                width: @input-small-height;
+                font-size: @input-small-font-size;
+            }
+            & .zs-input-number__decrease {
+                right: calc(@input-small-height + 1px);
+            }
+            & .zs-input__inner {
+                padding-right: calc(@input-small-height * 2 + 10);
+            }
+        }
+        &.is-without-controls {
+            & .zs-input__inner {
+                padding-right: 10px;
+            }
+        }
+    }
+}

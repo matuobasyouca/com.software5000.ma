@@ -1,0 +1,111 @@
+@import "../../../../assets/css/src/var";
+
+.user-center{
+  padding-top: 50px;
+  .center-content{
+    width: 720px;
+    margin: 0 auto;
+    margin-top: 30px;
+    ul{
+      width: 750px;
+      li{
+        width: 220px;
+        height: 230px;
+        background: #FFFFFF;
+        float: left;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        .list-logo{
+          width: 102px;
+          height: 102px;
+          border-radius: 102px;
+          overflow: hidden;
+          margin: 0 auto;
+          margin-top: 16px;
+        }
+        .list-logo1{
+          background: url("assets/kuai.png");
+          background-size: 100% 100%;
+        }
+        .list-logo2{
+          background: url("assets/hui.png");
+          background-size: 100% 100%;
+        }
+        .list-logo3{
+          background: url("assets/fu.png");
+          background-size: 100% 100%;
+        }
+        .list-logo4{
+          background: url("assets/buy.png");
+          background-size: 100% 100%;
+        }
+        .list-logo5{
+          background: url("assets/man.png");
+          background-size: 100% 100%;
+        }
+        .list-logo6{
+          background: url("assets/ping.png");
+          background-size: 100% 100%;
+        }
+        .list-title{
+          color: #656d78;
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 40px;
+        }
+        .label{
+          line-height: 26px;
+          font-size: 14px;
+          color: #999;
+          padding-left: 69px;
+        }
+
+        &:nth-child(2) .label{
+          padding-left: 0;
+          text-align: center;
+        }
+        &:hover{
+          box-shadow: 10px 12px 22px rgba(75,141,222,.05);
+        }
+      }
+      .list1{
+        &:hover .list-title, &:hover .label{
+          color: #a991f2;
+        }
+      }
+      .list2{
+        &:hover .list-title, &:hover .label{
+          color: #f17889;
+        }
+      }
+      .list3{
+        &:hover .list-title, &:hover .label{
+          color: #47d183;
+        }
+      }
+      .list4{
+        &:hover .list-title, &:hover .label{
+          color: #23b5fb;
+        }
+      }
+      .list5{
+        &:hover .list-title, &:hover .label{
+          color: #ccac82;
+        }
+      }
+      .list6{
+        &:hover .list-title, &:hover .label{
+          color: #f9af66;
+        }
+      }
+
+      &:after{
+        content: '';
+        display: table;
+        clear: both;
+      }
+    }
+  }
+}

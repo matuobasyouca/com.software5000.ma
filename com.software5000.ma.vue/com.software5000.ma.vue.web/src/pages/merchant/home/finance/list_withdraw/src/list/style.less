@@ -1,0 +1,302 @@
+@import "../../../../../../../assets/css/src/var";
+
+.financial-accounts {
+    width: 1000px;
+    margin: 0 auto;
+    .account {
+        .account-already {
+            .success, .danger {
+                vertical-align: middle;
+            }
+            .p {
+                display: inline-block;
+                margin-left: 8px;
+                line-height: 50px;
+                color: @color-base-light-black;
+                vertical-align: middle;
+            }
+            .go {
+                display: inline-block;
+                line-height: 50px;
+                margin-left: 10px;
+                color: @color-primary;
+                cursor: pointer;
+                vertical-align: middle;
+
+            }
+        }
+    }
+    .account-header {
+        .clearfix();
+        .can-reflect {
+            float: left;
+            width: 302px;
+            height: 130px;
+            background: #fff;
+            position: relative;
+            padding-left: 18px;
+            .can-t {
+                color: @color-primary;
+                line-height: 40px;
+                margin-top: 8px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .can-m {
+                color: @color-primary;
+                line-height: 40px;
+                font-size: 22px;
+                font-weight: bold;
+            }
+            .can-p {
+                color: @color-light-black;
+                line-height: 42px;
+                font-size: 12px;
+            }
+            .can-b {
+                width: 80px;
+                height: 32px;
+                background: @color-primary;
+                color: @color-white;
+                line-height: 32px;
+                border-radius: 16px;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+        .list-already {
+            float: left;
+            width: 302px;
+            height: 130px;
+            background: #fff;
+            position: relative;
+            padding-left: 70px;
+            margin-left: 10px;
+            padding-right: 30px;
+            .list-t {
+                color: @color-base-black;
+                font-weight: bold;
+                line-height: 40px;
+                margin-top: 8px;
+                text-align: right;
+                font-size: 16px;
+            }
+            .list-m {
+                font-size: 22px;
+                font-weight: bold;
+                line-height: 40px;
+                color: @color-success;
+                text-align: right;
+            }
+            .list-img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                background: url("asset/ti.png");
+                background-size: 100% 100%;
+                position: absolute;
+                top: 42px;
+                left: 20px;
+            }
+        }
+    }
+    .account-table {
+        background: @color-white;
+        padding: 0 10px 20px 10px;
+        margin-bottom: 40px;
+        margin-top: 10px;
+        box-shadow: @box-shadow-bottom;
+        .table-select {
+            height: 56px;
+            padding-left: 10px;
+            .title {
+                line-height: 56px;
+                color: @color-base-light-black;
+                float: left;
+            }
+            .getTime {
+                float: right;
+                height: 36px;
+                margin: 10px 0;
+                .select-new-time {
+                    width: 156px;
+                    height: 36px;
+                    display: inline-block;
+                    margin: 0 8px;
+                    float: left;
+                    input {
+                        color: #252c32 !important;
+                        cursor: pointer;
+                    }
+                }
+                .search_label {
+                    float: left;
+                    line-height: 36px;
+                    color: @color-base-black;
+                }
+                .search-btn {
+                    width: 40px;
+                    height: 36px;
+                    background: @color-primary;
+                    float: left;
+                    border-radius: 4px;
+                    position: relative;
+                    cursor: pointer;
+                    .icon_wrap {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-top: -10px;
+                        margin-left: -10px;
+                    }
+                }
+            }
+
+        }
+        .list-content {
+            .employee-table {
+                thead {
+                    tr {
+                        background: @color-white;
+                        .zs-table__cell {
+                            border-right: 1px solid @border-color-sep;
+                        }
+                    }
+                }
+                .table-empty-data {
+                    height: 400px;
+                }
+                .account-operation {
+                    a {
+                        color: @color-primary;
+                        margin: 0 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .page-div {
+            text-align: right;
+            padding-top: 20px;
+        }
+    }
+    .em-dialog {
+        .zs-dialog {
+            width: 400px;
+        }
+        .zs-dialog__body {
+            padding: 0;
+            .dialog-body {
+                padding-top: 12px;
+                .p1 {
+                    text-align: center;
+                    color: @color-light-black;
+                    line-height: 32px;
+                }
+                .p2 {
+                    text-align: center;
+                    color: @color-base-black;
+                    line-height: 32px;
+                    em {
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                }
+                .QR-code {
+                    margin: 20px auto 40px;
+                    width: 200px;
+                    height: 200px;
+                    text-align: center;
+                    line-height: 200px;
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .give-dialog {
+        .zs-dialog {
+            width: 390px;
+        }
+        .zs-dialog__body {
+            padding: 0;
+            .dialog-body {
+                padding-top: 12px;
+                .time {
+                    padding-bottom: 20px;
+                    .p1 {
+                        text-align: center;
+                        color: @color-light-black;
+                        line-height: 32px;
+                    }
+                    .p2 {
+                        text-align: center;
+                        color: @color-base-black;
+                        line-height: 32px;
+                    }
+                }
+                .short {
+                    padding-left: 30px;
+                    .num {
+                        color: @color-base-black;
+                        margin-bottom: 22px;
+                        em {
+                            margin-left: 40px;
+                            font-size: 20px;
+                            color: @color-base-black;
+                            font-weight: bold;
+                        }
+                    }
+                    .p1 {
+                        text-align: left;
+                        font-size: 12px;
+                        color: @color-light-black;
+                        line-height: 20px;
+                    }
+                }
+                .can {
+                    padding-left: 20px;
+                    .num {
+                        color: @color-base-black;
+                        line-height: 32px;
+                        span {
+                            display: inline-block;
+                            width: 84px;
+                            text-align: right;
+                            line-height: 32px;
+                            vertical-align: middle;
+                        }
+                        em {
+                            display: inline-block;
+                            margin-left: 30px;
+                            font-size: 20px;
+                            color: @color-base-black;
+                            font-weight: bold;
+                            line-height: 32px;
+                            vertical-align: middle;
+                        }
+                        p {
+                            margin-left: 28px;
+                            display: inline-block;
+                            font-size: 12px;
+                            color: @color-light-black;
+                            line-height: 32px;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+        }
+        .zs-dialog__footer {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+
+    }
+}

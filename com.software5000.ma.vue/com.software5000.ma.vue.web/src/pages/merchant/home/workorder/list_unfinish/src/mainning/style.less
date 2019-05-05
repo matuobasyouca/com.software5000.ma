@@ -1,0 +1,57 @@
+@import '../../../../../../../assets/css/src/var';
+
+.page-main {
+    .clearfix();
+    .page-base();
+    .table-empty-data {
+        height: 400px;
+    }
+    .table-control {
+        a {
+            color: @color-primary;
+            cursor: pointer;
+        }
+    }
+}
+
+.block-base() {
+    padding: 10px;
+    background-color: @color-white;
+    box-shadow: @box-shadow-round;
+    border-radius: 4px;
+    text-align: right;
+}
+
+.page-left {
+    float: left;
+    width: 726px;
+    .block-base();
+    .zs-pagination {
+        margin-top: 10px;
+    }
+    .zs-table__row {
+        cursor: pointer;
+        &:hover {
+            td {
+                background-color: #f0f3fa;
+            }
+        }
+    }
+    .table-control {
+        a:first-child{
+            margin-right:16px;
+        }
+    }
+}
+
+.page-right {
+    float: right;
+    width: 544px;
+    .block-base();
+    .zs-button {
+        margin-top: 10px;
+        width: 80px;
+        height: 36px;
+    }
+}
+

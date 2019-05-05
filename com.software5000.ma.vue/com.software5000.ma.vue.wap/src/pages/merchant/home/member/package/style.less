@@ -1,0 +1,176 @@
+@import '../../../../../assets/css/src/var';
+
+.package-page {
+
+  padding-bottom: 46px;
+
+  .icon_wrap span{
+    margin-left: -6px;
+  }
+
+  .tab__wrap {
+    height: 50px;
+    margin-top: 44px;
+
+    li {
+      height: 50px;
+      .title {
+        font-size: 12px;
+        color: @color-black;
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+
+    .curr {
+      .title {
+        font-weight: bold;
+        color: @color-primary;
+      }
+    }
+
+    li:after {
+      width: 60px;
+    }
+  }
+
+  .item-list {
+    padding: 15px 15px 0px;
+    li {
+      .clearfix();
+      background-color: @color-white;
+      border-bottom: 1px solid @color-light-gray;
+    }
+
+    .pack-member {
+      height: 40px;
+      line-height: 40px;
+      padding: 0px 15px 0px 10px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+
+      .member {
+        .zs-icon-user {
+          margin-top: 3px;
+        }
+      }
+
+      .pack-member-name {
+        font-size: 14px;
+        color: @color-light-black;
+        margin-left: 8px;
+      }
+
+      .pack-member-mobile {
+        font-size: 14px;
+        color: @color-light-black;
+        margin-left: 10px;
+      }
+
+      .pack-member-vip {
+        height: 40px;
+        line-height: 40px;
+        float: right;
+        font-size: 10px;
+
+        .vip {
+          color: #ffa207;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .pack-info {
+      padding: 0px 15px 0px 34px;
+
+      .pack-info-pack {
+        float: left;
+        .icon_wrap {
+          height: 50px !important;
+          line-height: 50px !important;
+        }
+      }
+
+      .pack-info-name {
+        height: 50px;
+        line-height: 50px;
+        font-size: 14px;
+        color: @color-base-black;
+        margin-left: 10px;
+      }
+
+      .pack-info-time {
+        height: 50px;
+        line-height: 50px;
+        float: right;
+        font-size: 12px;
+        color: @color-extra-light-black;
+      }
+    }
+
+    .pack-pay {
+      padding-right: 15px;
+
+      div{
+        height: 44px;
+        line-height: 44px;
+        float: right;
+
+        .icon_wrap {
+          font-size: 10px;
+        }
+
+        .pack-pay-text {
+          font-size: 14px;
+          color: @color-base-black;
+        }
+
+        .pack-pay-money {
+          font-size: 18px;
+          color: @color-danger;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .pack-btn {
+      height: 50px;
+      line-height: 50px;
+      padding: 10px 15px 10px 0px;
+
+      .zs-button {
+        float: right;
+        height: 30px;
+        line-height: 30px;
+        width: 80px;
+        border:none;
+        border-radius: 4px;
+        background-color: @color-primary;
+        font-size: 14px;
+        color: @color-white;
+      }
+    }
+
+    .pack-pay-time span {
+      float: right;
+      padding-right: 15px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 12px;
+      color: @color-base-black;
+    }
+  }
+
+  .show-more {
+    margin-top: 10px;
+    .show-more();
+  }
+  .no-more {
+    margin-top: 10px;
+    .no-more();
+  }
+  .list-empty {
+    .list-empty();
+    background-image: url("../../../../../assets/img/no_data.png");
+  }
+}

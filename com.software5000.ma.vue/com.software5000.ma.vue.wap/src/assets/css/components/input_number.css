@@ -1,0 +1,142 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Font
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+.zs-input-number {
+  display: inline-block;
+  overflow: hidden;
+  width: 120px;
+  position: relative;
+  min-height: 30px;
+}
+.zs-input-number .zs-input {
+  display: block;
+  padding-right: 35px;
+  padding-left: 35px;
+}
+.zs-input-number .zs-input__inner {
+  position: relative;
+  z-index: 2;
+  height: 30px;
+  padding: 3px;
+  line-height: 28px;
+  appearance: none;
+  text-align: center;
+  font-size: 16px;
+  color: #656d78;
+  border: 1px solid #dadada;
+  border-radius: 0 !important;
+}
+.zs-input-number .zs-input-number__increase,
+.zs-input-number .zs-input-number__decrease {
+  position: absolute;
+  z-index: 1;
+  width: 35px;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  border: 1px solid #dadada;
+  background-size: 15px 15px !important;
+}
+.zs-input-number .zs-input-number__increase.is-disabled,
+.zs-input-number .zs-input-number__decrease.is-disabled {
+  color: #eee;
+  cursor: not-allowed;
+  border-color: #f2f2f2;
+  background-color: #f6f6f6;
+}
+.zs-input-number .zs-input-number__increase {
+  right: 1px;
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+  background: url("../../../components/input_number/asset/add.png") center center no-repeat;
+}
+.zs-input-number .zs-input-number__decrease {
+  left: 1px;
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  background: url("../../../components/input_number/asset/minus.png") center center no-repeat;
+}
+.zs-input-number .zs-input-number__decrease.is-disabled {
+  background-image: url("../../../components/input_number/asset/minus_1.png");
+}
+.zs-input-number.is-isabled .zs-input-number__increase,
+.zs-input-number.is-isabled .zs-input-number__decrease {
+  border-color: #f2f2f2;
+  color: #f2f2f2;
+}
+.zs-input-number .zs-input-number__large {
+  width: 200px;
+}
+.zs-input-number .zs-input-number__large .zs-input-number__increase,
+.zs-input-number .zs-input-number__large .zs-input-number__decrease {
+  line-height: 42px;
+  width: 42px;
+  font-size: 16px;
+}
+.zs-input-number .zs-input-number__large .zs-input-number__decrease {
+  right: calc(43px);
+}
+.zs-input-number .zs-input-number__large .zs-input__inner {
+  padding-right: calc(94px);
+}
+.zs-input-number .zs-input-number__small {
+  width: 130px;
+}
+.zs-input-number .zs-input-number__small .zs-input-number__increase,
+.zs-input-number .zs-input-number__small .zs-input-number__decrease {
+  line-height: 30px;
+  width: 30px;
+  font-size: 13px;
+}
+.zs-input-number .zs-input-number__small .zs-input-number__decrease {
+  right: calc(31px);
+}
+.zs-input-number .zs-input-number__small .zs-input__inner {
+  padding-right: calc(70px);
+}
+.zs-input-number.is-without-controls .zs-input__inner {
+  padding-right: 10px;
+}

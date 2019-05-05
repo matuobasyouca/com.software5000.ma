@@ -1,0 +1,104 @@
+@import "../../../../../../../assets/css/src/var";
+
+.setting-store{
+    width: 700px;
+    margin: 20px auto 0;
+    box-shadow: @box-shadow-bottom;
+    background: @color-white;
+    box-sizing: border-box;
+    .stroe-detail{
+        .clearfix();
+        padding: 20px;
+        border-bottom: 1px solid @border-color-sep;
+        .store-logo{
+            width: 263px;
+            height: 188px;
+            float: left;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .store-msg{
+            padding-left: 293px;
+            .store-name{
+                font-size: 18px;
+                color: @color-base-black;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            .store-tel{
+                line-height: 36px;
+                color: @color-base-light-black;
+                font-size: 18px;
+                .icon_wrap{
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+            }
+            .store-addr{
+                line-height: 36px;
+                color: @color-base-light-black;
+                font-size: 16px;
+                .icon_wrap{
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+            }
+            .hintting{
+                line-height: 32px;
+                color: @color-light-black;
+            }
+        }
+    }
+    .store-set{
+        padding: 20px 20px 30px 20px;
+        .set-title{
+            .icon_wrap{
+                vertical-align: middle;
+                margin-right: 10px;
+                float: left;
+            }
+            .p{
+                line-height: 20px;
+                font-size: 16px;
+                font-weight: bold;
+                color: @color-base-black;
+                vertical-align: middle;
+
+            }
+        }
+        .set-inp{
+            .clearfix();
+            margin-top: 20px;
+            padding-left: 34px;
+            li{
+                &:first-child{
+                    float: left;
+                    color: @color-base-black;
+                    line-height: 36px;
+                    em{
+                        color: @color-danger;
+                    }
+                }
+                &:last-child{
+                    float: left;
+                    margin-left: 20px;
+                    .zs-input{
+                        width: 280px;
+                        height: 36px;
+
+                    }
+                    .hit{
+                        line-height: 30px;
+                        font-size: 12px;
+                        color: @select-group-color;
+                    }
+                }
+            }
+        }
+        .save-button{
+            margin-top: 20px;
+            margin-left: 186px;
+        }
+    }
+}

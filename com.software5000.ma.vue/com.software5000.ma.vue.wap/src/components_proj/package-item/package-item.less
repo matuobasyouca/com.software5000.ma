@@ -1,0 +1,67 @@
+@import '../../assets/css/src/var';
+
+.package-item{
+    position: relative;
+    margin: 10px 15px;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0px 5px 10px #eeeded;
+    &:before,
+    &:after{
+        position: absolute;
+        content: '';
+        top:40px;
+        background-color: @color-extra-light-gray;
+        width: 9px;
+        height: 9px;
+    }
+    &:before{
+        left: -1px;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    &:after{
+        right: -1px;
+        -webkit-transform: translateX(50%);
+        transform: translateX(50%);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .package-item__top{
+        border-top: 6px solid #f46c5e;
+        border-radius: 3px;
+        font-size: 12px;
+        line-height: 1;
+        color: @color-light-black;
+        padding: 16px 15px 10px;
+    }
+    .package-item__bottom{
+        position: relative;
+        padding-top: 15px;
+        margin: 0 15px 0 10px;
+        border-top: 1px dotted @border-color-base;
+        .bottom__name{
+            line-height: 1;
+            padding-bottom: 10px;
+        }
+        .bottom__price{
+            font-weight: bold;
+            color: #f46c5e;
+            padding-bottom: 15px;
+            line-height: 1;
+        }
+        .bottom__check-box{
+            position: absolute;
+            top:15px;
+            right:10px;
+        }
+    }
+
+
+
+}
+
+
+

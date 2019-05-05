@@ -1,0 +1,83 @@
+/* Transition
+ -------------------------- */
+/* gradient
+ -------------------------- */
+/* Colors
+ -------------------------- */
+/* Link
+ -------------------------- */
+/* Border
+-------------------------- */
+/* Box-shadow
+-------------------------- */
+/* Font
+-------------------------- */
+/* Disable base
+-------------------------- */
+/* Icon
+ -------------------------- */
+/* Checkbox
+-------------------------- */
+/* Radio
+-------------------------- */
+/* Select
+-------------------------- */
+/* Input
+-------------------------- */
+/* Button
+-------------------------- */
+/* Table
+-------------------------- */
+/* Pagination
+-------------------------- */
+/* Loading
+ --------------------------*/
+/* Modal
+ --------------------------*/
+/* Message
+-------------------------- */
+/* Message Box
+ -------------------------- */
+/* Dialog
+-------------------------- */
+/* Switch
+-------------------------- */
+/* ellisps
+----------------------------*/
+.binding-page {
+  padding-top: calc(54px);
+}
+.binding-page .binding-wrap {
+  position: relative;
+  padding-left: 6em;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fff;
+}
+.binding-page .binding-wrap.mobile-wrap {
+  border-top: 1px solid #f2f2f2;
+}
+.binding-page .binding-wrap .binding-title {
+  position: absolute;
+  left: 10px;
+  top: 0;
+}
+.binding-page .binding-wrap .car-number {
+  border-bottom: none;
+}
+.binding-page .binding-mobile .zs-input__inner {
+  height: 50px;
+  line-height: 50px;
+}
+.binding-page .binding-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  background-color: #4b8dde;
+}

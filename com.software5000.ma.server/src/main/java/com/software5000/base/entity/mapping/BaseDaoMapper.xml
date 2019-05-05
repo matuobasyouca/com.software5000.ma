@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="BaseDao">
+
+	<insert id="insertEntityList" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="id">
+		${baseSql}
+	</insert>
+
+	<insert id="insertEntity" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="id">
+		${baseSql}
+	</insert>
+
+	<update id="updateEntity" parameterType="java.util.Map">
+		${baseSql}
+	</update>
+
+	<delete id="deleteEntity" parameterType="java.util.Map">
+		${baseSql}
+	</delete>
+
+	<delete id="deleteEntitys" parameterType="java.util.Map">
+		${baseSql}
+	</delete>
+
+	<select id="selectByPrimaryKey" parameterType="java.util.Map">
+		${baseSql}
+	</select>
+
+	<select id="selectEntity" parameterType="java.util.Map"
+		resultType="hashmap">
+		${baseSql}
+	</select>
+
+	<!-- <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String"
+		> -->
+	<!-- select -->
+	<!-- <include refid="Base_Column_List" /> -->
+	<!-- from SystemCode -->
+	<!-- where codeValue = #{codeValue,jdbcType=CHAR} -->
+	<!-- </select> -->
+</mapper>

@@ -1,0 +1,85 @@
+@import '../../assets/css/src/var';
+
+.upload-photo__wrap {
+    margin: 0 -5px;
+}
+
+.upload-photo__wrap li {
+    position: relative;
+    float: left;
+    width: 33.3%;
+    padding-bottom: 33.3%;
+    height: 0px;
+
+    .delete-icon-mark {
+        display: block;
+    }
+}
+
+.image-label {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .image-del-icon {
+        position: absolute !important;
+        top: 0;
+        right: 0;
+        .size(15px);
+        background: rgba(0, 0, 0, .3);
+        .side() {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            background-color: @color-white;
+        }
+        &:before {
+            .side();
+            width: 80%;
+            height: 1px;
+        }
+        &:after {
+            .side();
+            width: 1px;
+            height: 80%;
+        }
+    }
+
+    &.add-label {
+        border: 1px dashed #dadada;
+        background-color: @color-white;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 2px;
+            background-color: #dadada;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2px;
+            height: 40px;
+            background-color: #dadada;
+        }
+        input {
+            position: absolute;
+            left: -9999em;
+        }
+    }
+
+}
+
+

@@ -1,0 +1,243 @@
+@import '../../../../../assets/css/src/var';
+
+.manage-page {
+    padding-bottom: 49px;
+}
+
+.manage-header {
+    background: @color-primary;
+    height: 220px;
+    position: relative;
+    .presonMsg {
+        .header-top {
+            line-height: 44px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 0.8;
+            position: relative;
+            span {
+                position: absolute;
+                right: 10px;
+                color: @color-white;
+            }
+        }
+        .all-money {
+            font-size: 45px;
+            color: @color-white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 45px;
+        }
+        .userName {
+            height: 32px;
+            line-height: 32px;
+            font-size: 10px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+        .btn-get {
+            width: 115px;
+            height: 33px;
+            border: 1px solid @color-white;
+            border-radius: 33px;
+            line-height: 31px;
+            text-align: center;
+            color: @color-white;
+            margin: 0 auto;
+        }
+    }
+    .binding {
+        padding-top: 29px;
+        .bind-title {
+            line-height: 70px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .btn-get {
+            width: 115px;
+            height: 33px;
+            border: 1px solid @color-white;
+            border-radius: 33px;
+            line-height: 31px;
+            text-align: center;
+            color: @color-white;
+            margin: 0 auto;
+        }
+    }
+    .notice-board {
+        position: absolute;
+        bottom: -35px;
+        left: 0;
+        padding: 0 15px;
+        width: 100%;
+        .board {
+            background: @color-white;
+            border-radius: 2px;
+            box-shadow: @box-shadow-base;
+            width: 100%;
+            height: 70px;
+            position: relative;
+            .half {
+                width: 50%;
+                text-align: center;
+                float: left;
+                .mid {
+                    display: inline-block;
+                    padding: 8px 0 10px 0;
+                    div {
+                        line-height: 28px;
+                        font-size: 18px;
+                        color: @color-base-black;
+                        text-align: left;
+                        height: 28px;
+                    }
+                    p {
+                        line-height: 24px;
+                        font-size: 12px;
+                        color: @color-extra-light-black;
+                        text-align: left;
+                    }
+                }
+            }
+            .xian {
+                position: absolute;
+                width: 1px;
+                height: 50px;
+                background: @color-light-gray;
+                top: 50%;
+                left: 50%;
+                margin-top: -25px;
+            }
+        }
+    }
+}
+
+.manage-body {
+    background: @color-extra-light-gray;
+    .enter-list {
+        margin-top: 50px;
+        margin-bottom: 15px;
+        background: @color-white;
+        ul {
+            .clearfix();
+            li {
+                float: left;
+                width: 33.3%;
+                height: 90px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .li-content {
+                    display: inline-block;
+                    .title {
+                        text-align: center;
+                        line-height: 30px;
+                        font-size: 12px;
+                        color: @color-base-black;
+                    }
+                    div {
+                        width: 33px;
+                        height: 33px;
+                        margin: 0 auto;
+                    }
+                    .img1 {
+                        background: url("asset/record.png");
+                        background-size: 100% 100%;
+                    }
+                    .img2 {
+                        background: url("asset/reconciliation.png");
+                        background-size: 100% 100%;
+                    }
+                    .img3 {
+                        background: url("asset/member.png");
+                        background-size: 100% 100%;
+                    }
+                    .img4 {
+                        background: url("asset/serve.png");
+                        background-size: 100% 100%;
+                    }
+                    .img5 {
+                        background: url("asset/record.png");
+                        background-size: 100% 100%;
+                    }
+                    .img6 {
+                        background: url("asset/recharge.png");
+                        background-size: 100% 100%;
+                    }
+                    .img7 {
+                        background: url("asset/set.png");
+                        background-size: 100% 100%;
+                    }
+                    .img8 {
+                        background: url("asset/present.png");
+                        background-size: 100% 100%;
+                    }
+                    .img9 {
+                        background: url("asset/exit.png");
+                        background-size: 100% 100%;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.hit-dialog {
+    .zs-dialog__header {
+        background: @color-white;
+    }
+    .money-img {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+        background: url("asset/gold.png");
+        background-size: 100% 100%;
+
+    }
+    .h3 {
+        font-size: 16px;
+        color: @color-base-black;
+        line-height: 35px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .h4 {
+        font-size: 12px;
+        color: @color-base-silver;
+        line-height: 30px;
+        text-align: center;
+    }
+    .zs-button {
+        width: 100%;
+    }
+}
+
+.exit-dialog {
+    .zs-dialog__header {
+        background: @color-white;
+    }
+    .money-img {
+        width: 60px;
+        height: 60px;
+        margin: 7px auto 0;
+        background: url("asset/quit.png");
+        background-size: 100% 100%;
+    }
+    .h3 {
+        line-height: 55px;
+        font-size: 16px;
+        color: @color-base-black;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .zs-dialog__footer {
+        text-align: center;
+    }
+    .zs-button {
+        width: 116px;
+        height: 44px;
+    }
+}

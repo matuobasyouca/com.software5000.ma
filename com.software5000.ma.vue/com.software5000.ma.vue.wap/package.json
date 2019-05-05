@@ -1,0 +1,29 @@
+{
+  "name": "com.software5000.ma.vue.wap",
+  "version": "1.0.0",
+  "description": "A vue project.",
+  "private": true,
+  "keywords": [],
+  "scripts": {
+    "dev": "cooking watch -p",
+    "dist": "cooking build -p",
+    "deploy": "cooking build --no-color"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.0.1",
+    "babel-polyfill": "*"
+  },
+  "devDependencies": {
+    "cooking-vue2": "*",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "postcss-cssnext": "^2.9.0",
+    "throttle-debounce": "^1.0.1",
+    "vue-loader": "^10.3.0",
+    "vue-resource": "^1.2.0",
+    "vue-router": "^2.5.1",
+    "vue-template-compiler": "^2.5.2"
+  }
+}

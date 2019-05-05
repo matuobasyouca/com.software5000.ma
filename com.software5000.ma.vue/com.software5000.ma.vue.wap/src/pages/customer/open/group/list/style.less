@@ -1,0 +1,127 @@
+@import '../../../../../assets/css/src/var';
+
+.r {
+    float: right;
+}
+
+.pay-page {
+    max-width: 640px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    padding-top: 44px;
+    .tab__wrap{
+        margin-bottom: 15px;
+    }
+    .list-item {
+        background-color: @color-white;
+        margin-bottom: 10px;
+        padding-bottom: 1px;
+    }
+    .store-name {
+        line-height: 40px;
+        height: 40px;
+        padding-left: 15px;
+        border-top: 1px solid @border-color-sep;
+        border-bottom: 1px solid @border-color-sep;
+        .icon_wrap{
+            span{
+                margin-left: -5px;
+            }
+        }
+        .r {
+            color: @color-primary;
+            margin-right: 15px;
+            font-size: 13px;
+        }
+    }
+    .package {
+        position: relative;
+        margin: 15px;
+        padding-left: 85px;
+        .package-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 70px;
+            height: 70px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .package-right {
+            min-height: 70px;
+        }
+        .package-title {
+            font-size: 14px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .package-price {
+            font-size: 12px;
+            line-height: 22px;
+            .del {
+                text-decoration: line-through;
+                color: @color-base-silver;
+            }
+            .gray {
+                color: @color-light-black;
+                margin-right: 4px;
+            }
+            .red {
+                font-size: 16px;
+                color: @color-danger;
+                margin-right: 10px;
+            }
+        }
+        .package-state{
+            .package-state-item{
+                display: inline-block;
+                line-height: 19px;
+                padding: 0 6px;
+                border-radius: 19px;
+                font-size: 12px;
+                text-align: center;
+                &.grouping{
+                    color: @color-primary;
+                    background: #e5f3ff;
+                }
+                &.success{
+                    color: @color-success;
+                    background: #ebf9ee;
+                }
+                &.fail{
+                    color: @color-danger;
+                    background: #ffeaea;
+                }
+            }
+
+        }
+    }
+    .operate {
+        border-top: 1px solid @border-color-sep;
+        line-height: 55px;
+        padding-right: 15px;
+        text-align: right;
+        .zs-button--primary {
+            padding: 0;
+            width: 100px;
+            height: 34px;
+            line-height: 34px;
+        }
+    }
+}
+
+.more-item {
+    .list-more,
+    .list-all {
+        text-align: center;
+    }
+    .list-more {
+    }
+    .list-all {
+        color: @color-base-silver;
+    }
+    .list-empty {
+        .list-empty();
+    }
+}

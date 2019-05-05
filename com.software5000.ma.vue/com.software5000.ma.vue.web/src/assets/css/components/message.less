@@ -1,0 +1,95 @@
+@import "../src/var.less";
+
+.zs {
+    &-message__wrap{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 999999 !important;
+        .icon_wrap span{
+            white-space: normal !important;
+        }
+    }
+    &-message {
+        box-shadow: @message-shadow;
+        //min-width: @message-min-width;
+        padding: @message-padding;
+        box-sizing: border-box;
+        border-radius: 4px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background-color: rgba(0,0,0,.6);
+        transition: opacity 0.3s, transform .4s;
+        overflow: hidden;
+        color: @message-content-color;
+        font-size:15px;
+
+        &__group {
+            margin-left: 38px;
+            position: relative;
+            height: 20px;
+            line-height: 20px;
+
+            &.is-with-icon {
+                margin-left: 0;
+            }
+
+            & p {
+                font-size: @font-size-base;
+                margin: 0 34px 0 0;
+                white-space: nowrap;
+                color: @message-content-color;
+                text-align: justify;
+            }
+        }
+        &__img {
+            size: 40px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        &__icon {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        &__closeBtn {
+            position: absolute;
+            top: 3px;
+            right: 0;
+            cursor: pointer;
+            color: @message-close-color;
+            font-size: @font-size-base;
+
+            &:hover {
+                color: @message-close-hover-color;
+            }
+        }
+
+        & .zs-icon-circle-check {
+            color: @message-success-color;
+        }
+
+        & .zs-icon-circle-cross {
+            color: @message-danger-color;
+        }
+
+        & .zs-icon-information {
+            color: @message-info-color;
+        }
+
+        & .zs-icon-warning {
+            color: @message-warning-color;
+        }
+    }
+
+    &-message-fade-enter,
+    &-message-fade-leave-active {
+        opacity: 0;
+        transform: translate(-50%, -100%);
+    }
+}
+

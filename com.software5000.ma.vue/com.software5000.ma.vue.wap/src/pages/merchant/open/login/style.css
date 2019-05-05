@@ -1,0 +1,89 @@
+/* 设置输入框属性placeholder中值的文件颜色 */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #999999;
+}
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #999999;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #999999;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #999999;
+}
+.page {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+  background-color: #ffffff;
+}
+.loginLogo {
+  background: url(../../../../assets/img/login_logo.jpg);
+  width: 100%;
+  height: 210px;
+  background-size: cover;
+  background-position: center;
+}
+.loginFormWrap {
+  padding: 0 20px;
+  margin-top: 15px;
+}
+.loginFormWrap .formGroup {
+  position: relative;
+  height: 50px;
+  margin-bottom: 5px;
+  padding-left: 61px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+/*登录icon*/
+.loginIcon {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+}
+.loginUser .loginIcon {
+  background-position: 0 0;
+}
+.loginPassword .loginIcon {
+  background-position: -21px 0;
+}
+.loginCode .loginIcon {
+  background-position: -42px 0;
+}
+/*登录输入框*/
+.loginFormWrap .input {
+  width: 100%;
+  height: 50px;
+  background: none;
+  color: #232d3c;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px #f2f2f2 solid;
+}
+@media screen and (max-width: 320px) {
+  .loginFormWrap .input {
+    font-size: 16px;
+  }
+}
+/*登录按钮*/
+.loginBtn {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(75, 141, 222, 0.4);
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 25px;
+  color: #fff;
+  cursor: pointer;
+}
+.loginBtn.is-active {
+  background-color: #4b8dde;
+}

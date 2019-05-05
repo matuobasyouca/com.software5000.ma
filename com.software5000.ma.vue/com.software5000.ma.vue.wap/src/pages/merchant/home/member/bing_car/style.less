@@ -1,0 +1,68 @@
+@import '../../../../../assets/css/src/var';
+
+.workorder-page {
+    position: relative;
+    padding-top: @pt;
+    height: 100%;
+    .arrow-right {
+        position: relative;
+        padding-right: 20px;
+        &:after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            .size(10px);
+            border: solid @color-light-black;
+            border-width: 0 1px 1px 0;
+            transform: rotate(-45deg) translateY(-50%);
+        }
+    }
+    .car-number-show {
+        position: relative;
+        height: 50px;
+        padding-left:130px;
+        line-height: 50px;
+        border-bottom: 1px solid @border-color-sep;
+        background-color: @color-white;
+        font-weight:bold;
+        font-size:15px;
+        .icon_wrap {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color:@color-light-black;
+            font-weight:normal;
+        }
+    }
+}
+
+.save-add{
+    padding: 20px 0;
+    margin-left: 20px;
+    .zs-button--large{
+        margin: 0 20px 0 0;
+    }
+}
+
+.create__item__plate-number{
+    margin-left: 15px;
+    background-color: #4b8dde;
+    color:#ffffff;
+    padding: 3px;
+    line-height: 1;
+    border-radius: 2px;
+    height: 40px;
+    width: 108px;
+    span{
+        display: inline-block;
+        line-height:31px;
+        font-size: 15px;
+        text-align: center;
+        width:103px;
+        border: 1px solid #ffffff;
+        border-radius: 2px;
+    }
+}
+

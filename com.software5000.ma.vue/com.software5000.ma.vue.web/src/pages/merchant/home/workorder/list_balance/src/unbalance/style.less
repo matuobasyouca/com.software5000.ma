@@ -1,0 +1,38 @@
+@import '../../../../../../../assets/css/src/var';
+
+.page-main {
+    .clearfix();
+    .page-base();
+    background-color: @color-white;
+    padding: 10px;
+    text-align: right;
+    .zs-table thead tr {
+        background: none;
+    }
+    .zs-table th .zs-table__cell {
+        border-right-color: #e6e6e6;
+    }
+    .table-empty-data {
+        height: 380px;
+    }
+    .zs-pagination {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .table-control {
+        a {
+            color: @color-primary;
+            cursor: pointer;
+        }
+        a + a{
+            margin-left:10px;
+        }
+    }
+    .item-name {
+        .zs-table__cell {
+            .ellipsis();
+        }
+    }
+}
+
+

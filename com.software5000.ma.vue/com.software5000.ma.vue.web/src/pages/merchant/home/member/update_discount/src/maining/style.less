@@ -1,0 +1,228 @@
+@import '../../../../../../../assets/css/src/var';
+/* ------------------- Page ------------------- */
+.maining{
+  border-radius: 4px;
+  width: 1168px;
+  margin: 20px auto 0;
+}
+.page-base{
+  margin-top: 20px;
+  border-radius: 4px;
+}
+//头部样式
+.maining-part-1{
+  .bg();
+  margin-bottom: 4px;
+  .zs-button__primary{
+    height: 36px;
+    width: 110px;
+  }
+}
+//中间大块
+.maining-part-2{
+  .clearfix();
+  .part2-item{
+    .bg();
+    float: left;
+    margin-right:4px;
+    &:last-child{
+      margin-right:0;
+    }
+  }
+  .item-left,
+  .item-middle{
+    width: 220px;
+    .tableMaxHeight();
+    .item-table{
+      border:1px solid @border-color-sep;
+      text-align: center;
+      font-size: 12px;
+      &>li{
+        border-bottom:1px solid @border-color-sep;
+        line-height: 39px;
+        &:last-child{
+          border-bottom:none;
+        }
+      }
+      .table-title{
+        font-weight:bold;
+      }
+      .table-item{
+        cursor: pointer;
+        transition : all 0.2s;
+        &.selected,
+        &:hover{
+          color: @color-primary;
+          background: #f0f3fa;
+        }
+      }
+    }
+  }
+  .item-right{
+    .tableMaxHeight();
+    width: 720px;
+  }
+}
+.maining{
+  .zs-table__body{
+    .control{
+      span{
+        color: @color-primary;
+        margin-right: 16px;
+        cursor: pointer;
+      }
+      span:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+  .table-empty-data{
+    height: 138px;
+  }
+  .package-item-name{
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+  }
+}
+//表格
+.package-table{
+  tr{
+  }
+  .zs-table thead tr{
+    background-color: @color-white;
+  }
+}
+
+//表格
+.pay_list-pagination {
+  margin: 20px 10px 10px;
+  text-align: right;
+}
+
+
+
+
+
+
+
+/* ------------------- 复用 ------------------- */
+.bg(){
+  background: @color-white;
+  border-radius: 2px;
+  padding: 10px;
+}
+.tableMaxHeight(){
+  max-height: 460px;
+  overflow-y: auto;
+};
+
+
+/* ------------------- 模块 ------------------- */
+.r{
+  float: right;
+}
+.gray{
+  color: @color-light-black;
+}
+//弹窗样式
+.dialog{
+  .zs-dialog{
+    width: 460px;
+  }
+  .zs-dialog__body{
+    padding-right: 0;
+  }
+  .zs-dialog__header{
+    border-bottom-color: @border-color-base;
+  }
+  .list-title{
+    position: relative;
+    margin-left: 20px;
+    .icon_wrap span{
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &:after{
+      position: absolute;
+      content: '';
+      display: block;
+      top:50%;
+      right:0;
+      width: 665px;
+      padding-left: 100px;
+      border-bottom: 1px solid @border-color-sep;
+      transform: translateY(-50%);
+    }
+  }
+  .list-item{
+    position: relative;
+    margin-top: 10px;
+    padding-left:85px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  .list-item-text{
+    position: absolute;
+    text-align: right;
+    left: 0;
+    top:0;
+    width: 68px;
+    line-height: 36px;
+    color: @color-base-light-black;
+  }
+  .list-item-con{
+    .ivu-date-picker{
+      width:280px;
+    }
+    .zs-input__inner{
+      border-radius: 2px;
+    }
+    .zs-select{
+      width: 280px;
+    }
+    .text{
+      line-height: 36px;
+      text-indent: 2em;
+    }
+    .radio{
+      line-height: 36px;
+    }
+    &.hit{
+      font-size: 12px;
+      color: @color-base-silver;
+    }
+  }
+  .list-item-con-input{
+    width: 280px;
+
+  }
+  .list-item-con-input-length{
+    margin-left: 5px;
+    color: @color-light-black;
+  }
+  .zs-dialog__footer{
+    font-size: 0;
+    .zs-button{
+      width: 120px;
+    }
+    .zs-button + .zs-button{
+      margin-left: 30px;
+    }
+  }
+}
+
+.request{
+  position: relative;
+  &:after{
+    position: absolute;
+    content: '*';
+    left: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 3px;
+    line-height: 36px;
+    color: @color-danger;
+  }
+}

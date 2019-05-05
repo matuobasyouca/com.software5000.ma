@@ -1,0 +1,105 @@
+@import "../../../../assets/css/src/var";
+
+.pay-suc-page{
+    padding-top:60px;
+}
+.banner_css {
+    margin:0 20px;
+    height: 10px;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0b0a08), to(#545454));
+    border-radius: 9px;
+}
+
+.body_css {
+    background-color: #ffffff;
+    margin:-3px 30px 0;
+    padding-bottom:20px;
+    text-align: center;
+    .title_css {
+        position: relative;
+        line-height: 54px;
+        height: 54px;
+        font-size: 20px;
+        color: #333333;
+        font-weight: bold;
+        border-bottom: 1px dashed @border-color-sep;
+        .sides(){
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #f6f6f6;
+        }
+        &:before{
+            .sides();
+            left: -8px;
+        }
+        &:after{
+            .sides();
+            right: -8px;
+        }
+    }
+    .icon-bell{
+        margin:22px 0 10px;
+    }
+}
+.hole {
+    position: relative;
+    top: 85px;
+    color: #333333;
+    font-weight: bold;
+    .sides(){
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #f6f6f6;
+    }
+    &:before{
+        .sides();
+        left: -8px;
+    }
+    &:after{
+        .sides();
+        right: -8px;
+    }
+}
+
+.icon_css {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.conent_css {
+    text-align: center;
+    .p1_css {
+        height:28px;
+        line-height: 28px;
+        font-size: 15px;
+        i{
+            font-size: 16px;
+            color:@color-danger;
+            font-weight:bold;
+        }
+    }
+    .p2_css {
+        line-height: 24px;
+        font-size: 12px;
+        color:@color-base-silver;
+    }
+}
+.bar-code {
+    margin: 6px auto;
+    width:145px;
+    height:145px;
+    //background:url("./bar_code.png") center center no-repeat;
+    background-size:cover;
+}
+.cheng{
+    font-size:12px;
+    color: @color-base-silver;
+}

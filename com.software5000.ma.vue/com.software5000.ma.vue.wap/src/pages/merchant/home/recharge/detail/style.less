@@ -1,0 +1,164 @@
+@import '../../../../../assets/css/src/var';
+
+/* ----------------------------------------------------------- Page ----------------------------------------------------------------*/
+.page-recharge {
+    padding-top: 44px;
+    padding-bottom: 54px;
+}
+
+/* ----------------------------------------------------------- 复用 ----------------------------------------------------------------*/
+
+/* ----------------------------------------------------------- 模块 ----------------------------------------------------------------*/
+
+.recharge-sec-1 {
+    padding: 15px 20px;
+    .recharge-card {
+        position: relative;
+        padding: 0 15px;
+        border-radius: 5px;
+        background: linear-gradient(to bottom, #8a91fb, #628cfc);
+        font-size: 10px;
+        color: @color-white;
+        .right {
+            float: right;
+            width: 115px;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            .size(65px);
+            background: url("../update/assets/1.png") no-repeat center center;
+            background-size: 65px 65px;
+        }
+    }
+    .recharge-card-p1 {
+        margin-bottom: 11px;
+        height: 41px;
+        line-height: 41px;
+        .user-name {
+            margin-left: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .user-mobile {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    }
+    .recharge-card-p2 {
+        height: 26px;
+        line-height: 26px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .recharge-card-p3 {
+        margin-bottom: 6px;
+        height: 23px;
+        line-height: 23px;
+    }
+    .recharge-card-p4 {
+        height: 43px;
+        line-height: 43px;
+        .ellipsis();
+        .car-number {
+            margin-left: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+}
+
+.recharge-sec-2 {
+    padding: 14px 15px;
+    background-color: #fff;
+    .order-info-li {
+        height: 33px;
+        line-height: 33px;
+        span {
+            color: #999;
+            margin-right: 20px;
+        }
+    }
+}
+
+.recharge-sec-3 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 49px;
+    color: #fff;
+    font-size: 16px;
+    .clearfix();
+    .cash-pay {
+        float: left;
+        width: 50%;
+        background-color: #71aaef;
+    }
+    .wechat-pay {
+        float: left;
+        width: 50%;
+        background-color: @color-primary;
+    }
+}
+
+.settle-pop {
+    .pay-pop-barcode {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        line-height: 200px;
+        text-align: center;
+        .zs-dialog__body {
+            padding: 10px 20px;
+        }
+        img {
+            width: 100%;
+        }
+        .pay-pop-loading {
+            width: 70%;
+        }
+    }
+    .pay-pop-p1 {
+        height: 48px;
+        line-height: 48px;
+        font-size: 30px;
+        color: @color-base-black;
+        font-weight: bold;
+        text-align: center;
+    }
+    .pay-pop-p2 {
+        height: 35px;
+        line-height: 35px;
+        color: @color-extra-light-black;
+        text-align: center;
+    }
+    .pay-pop-control {
+        .clearfix();
+        li {
+            float: left;
+            width: 50%;
+            .zs-button {
+                padding: 0;
+                width: 100%;
+            }
+        }
+        li:first-child {
+            padding-right: 8px;
+            color: @color-extra-light-black;
+        }
+        li:last-child {
+            padding-left: 8px;
+            .zs-button {
+                border-color: @color-primary;
+                color: @color-primary;
+            }
+        }
+    }
+    .zs-dialog__footer {
+        padding: 0 20px 20px;
+    }
+}
