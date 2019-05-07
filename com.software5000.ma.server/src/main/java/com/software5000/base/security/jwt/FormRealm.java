@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 public class FormRealm extends AuthorizingRealm {
 
     @Resource
-    private UserRepositoryZimpl userRepository;
+    private UserRepositoryZimpl userRepositoryZimpl;
 
     @Override
     public boolean supports(AuthenticationToken token) {
@@ -29,7 +29,7 @@ public class FormRealm extends AuthorizingRealm {
             return null;
         }
 
-        UserDefaultZimpl user = userRepository.findByUserId(upToken);
+        UserDefaultZimpl user = userRepositoryZimpl.findByUserId(upToken);
         if (user != null) {
             SimpleAccount account = new SimpleAccount(user, user.getCredentials(), getName());
             account.addRole(user.getRoles());

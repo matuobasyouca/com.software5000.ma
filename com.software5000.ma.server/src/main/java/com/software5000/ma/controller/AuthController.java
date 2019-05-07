@@ -2,28 +2,24 @@ package com.software5000.ma.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.octo.captcha.service.CaptchaService;
-import com.octo.captcha.service.captchastore.FastHashMapCaptchaStore;
-import com.octo.captcha.service.image.DefaultManageableImageCaptchaService;
 import com.riversoft.weixin.common.util.URLEncoder;
 import com.riversoft.weixin.mp.user.Users;
+import com.software5000.base.BaseController;
+import com.software5000.base.Constant;
+import com.software5000.base.ServiceException;
+import com.software5000.base.entity.ReturnResult;
+import com.software5000.base.security.UserDefaultZimpl;
+import com.software5000.base.security.UserRepositoryZimpl;
+import com.software5000.base.security.jwt.TokenResponse;
 import com.software5000.ma.dto.MerchantLoginDto;
 import com.software5000.ma.entity.Business;
 import com.software5000.ma.entity.BusinessUser;
 import com.software5000.ma.service.BusinessPackageOrderService;
 import com.software5000.ma.service.BusinessService;
 import com.software5000.ma.service.WorkOrderService;
-import com.software5000.base.BaseController;
-import com.software5000.base.Constant;
-import com.software5000.base.ServiceException;
-import com.software5000.base.entity.ReturnResult;
-import com.software5000.base.security.GMailEngine;
-import com.software5000.base.security.UserDefaultZimpl;
-import com.software5000.base.security.UserRepositoryZimpl;
-import com.software5000.base.security.jwt.TokenResponse;
+import com.software5000.util.BatchTagUtil;
 import com.zscp.master.util.DateUtils;
 import com.zscp.master.util.ValidUtil;
-import com.software5000.util.BatchTagUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
@@ -49,9 +45,9 @@ import java.util.Map;
 public class AuthController {
     protected Log log = LogFactory.getLog(this.getClass());
 
-    private static CaptchaService captchaService = new DefaultManageableImageCaptchaService(
-            new FastHashMapCaptchaStore(), new GMailEngine(), 180,
-            100000, 75000);
+//    private static CaptchaService captchaService = new DefaultManageableImageCaptchaService(
+//            new FastHashMapCaptchaStore(), new GMailEngine(), 180,
+//            100000, 75000);
 
     @Resource
     UserRepositoryZimpl shiroBoundary;

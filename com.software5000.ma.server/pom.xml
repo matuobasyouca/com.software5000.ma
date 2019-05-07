@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.zscp</groupId>
+    <groupId>com.software5000</groupId>
     <artifactId>ma</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
@@ -288,17 +288,17 @@
         </dependency>
 
         <!-- 阿里大鱼短信sdk start-->
-        <dependency>
-            <groupId>aliyun</groupId>
-            <artifactId>java-sdk-core</artifactId>
-            <version>2.4.2</version>
-        </dependency>
-        <dependency>
-            <groupId>aliyun</groupId>
-            <artifactId>java-sdk-sms</artifactId>
-            <version>3.0.0</version>
-            <classifier>rc1</classifier>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>aliyun</groupId>-->
+<!--            <artifactId>java-sdk-core</artifactId>-->
+<!--            <version>2.4.2</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>aliyun</groupId>-->
+<!--            <artifactId>java-sdk-sms</artifactId>-->
+<!--            <version>3.0.0</version>-->
+<!--            <classifier>rc1</classifier>-->
+<!--        </dependency>-->
         <!-- 阿里大鱼短信sdk end-->
 
         <!-- 微信支付sdk start-->
@@ -364,11 +364,11 @@
             <artifactId>nimbus-jose-jwt</artifactId>
             <version>4.33</version>
         </dependency>
-        <dependency>
-            <groupId>com.octo.captcha</groupId>
-            <artifactId>jcaptcha</artifactId>
-            <version>1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.octo.captcha</groupId>-->
+<!--            <artifactId>jcaptcha</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>javax.servlet</groupId>

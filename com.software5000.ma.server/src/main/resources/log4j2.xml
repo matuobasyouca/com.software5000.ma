@@ -6,7 +6,7 @@
         <!-- 日志备份目录 -->
         <property name="BACKUP_HOME">{LOG_HOME}/backup</property>
         <property name="STAT_NAME">tech</property>
-        <property name="SERVER_NAME">zscp.ma</property>
+        <property name="SERVER_NAME">software5000.ma</property>
     </properties>
     <appenders>
         <!-- 定义控制台输出 -->

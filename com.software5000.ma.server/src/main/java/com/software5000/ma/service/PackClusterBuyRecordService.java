@@ -24,7 +24,6 @@ import com.software5000.util.WxMsgUtil;
 import com.zscp.master.util.DateUtils;
 import com.zscp.master.util.MathUtil;
 import com.zscp.master.util.ValidUtil;
-import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
@@ -504,7 +503,7 @@ public class PackClusterBuyRecordService {
      * 开团成功发送消息
      */
     public void sendMsgForOpenGroup(Integer packClusterBuyRecordId,String openId){
-        Map param=new HashedMap();
+        Map param=new HashMap();
         param.put("packClusterBuyRecordId",packClusterBuyRecordId);
         param.put("openId",openId);
         try {
@@ -518,7 +517,7 @@ public class PackClusterBuyRecordService {
      * 参团失败发送消息
      */
     public void sendMsgForJoinGroupFail(Integer packClusterBuyRecordId,String openId){
-        Map param=new HashedMap();
+        Map param=new HashMap();
         param.put("packClusterBuyRecordId",packClusterBuyRecordId);
         param.put("openId",openId);
         try {
@@ -537,7 +536,7 @@ public class PackClusterBuyRecordService {
     public void sendMsgForJoinGroup(Integer openRecordId,Integer buyRecordId,String wxOpenId){
         try {
         //参团成功，发送消息提醒
-        Map param=new HashedMap();
+        Map param=new HashMap();
         param.put("packClusterBuyRecordId", buyRecordId);
         param.put("openId", wxOpenId);
         PackClusterBuyRecord packClusterBuyRecord=selectPackClusterBuyRecordDetail(param);
@@ -553,7 +552,7 @@ public class PackClusterBuyRecordService {
      */
     public void sendMsgForSpellGroupSuccess(Integer openRecordId){
         try {
-        Map param=new HashedMap();
+        Map param=new HashMap();
         param.put("openRecordId",openRecordId);
         param.put("payState",Constant.OrderState.PAID.codeName);//拼团购买记录为已支付的
         List<PackClusterBuyRecord> list=  this.selectPackClusterBuyRecordList(param);
@@ -571,7 +570,7 @@ public class PackClusterBuyRecordService {
      * @param packClusterBuyRecords
      */
     public void sendMsgForSpellGroupFail(List<PackClusterBuyRecord> packClusterBuyRecords) {
-        Map param = new HashedMap();
+        Map param = new HashMap();
         for (PackClusterBuyRecord packClusterBuyRecord : packClusterBuyRecords) {
             param.put("packClusterBuyRecordId", packClusterBuyRecord.getId());
             param.put("openId", packClusterBuyRecord.getWxOpenId());

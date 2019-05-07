@@ -3,13 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:websocket="http://www.springframework.org/schema/websocket"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd 
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
-	http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
 	">
 
 	<!-- 引入dbconfig.properties属性文件 -->
@@ -90,8 +87,8 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
 		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="classpath*:com/zscp/**/mapping/*.xml" />
-		<property name="typeAliasesPackage" value="com.zscp.base.entity,com.zscp.ma.entity,com.zscp.ma.dto,com.zscp.bank.entity,com.zscp.bank.dto" />
+		<property name="mapperLocations" value="classpath*:com/software5000/**/mapping/*.xml" />
+		<property name="typeAliasesPackage" value="com.software5000.base.entity,com.software5000.ma.entity,com.software5000.ma.dto,com.software5000.bank.entity,com.software5000.bank.dto" />
 		<property name="plugins">
 			<array>
 				<bean class="com.software5000.base.mybatis.plugins.PermissionHelper">
@@ -136,7 +133,7 @@
 	</tx:advice>
 	<aop:config>
 		<aop:pointcut id="transactionPointcut"
-			expression="execution(* com.zscp..*Service.*(..))" />
+			expression="execution(* com.software5000..*Service.*(..))" />
 		<aop:advisor pointcut-ref="transactionPointcut"
 			advice-ref="transactionAdvice" />
 	</aop:config>

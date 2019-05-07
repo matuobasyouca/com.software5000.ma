@@ -7,14 +7,12 @@ import com.nimbusds.jwt.SignedJWT;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
 import com.software5000.base.mybatis.plugins.PermissionHelper;
-import com.software5000.ma.aliyunSms.SmsRecord;
-import com.software5000.ma.aliyunSms.SmsService;
+import com.software5000.base.security.jwt.MACVerifierExtended;
+import com.software5000.base.security.jwt.TokenResponse;
 import com.software5000.ma.entity.Business;
 import com.software5000.ma.entity.BusinessUser;
 import com.software5000.ma.entity.Operator;
 import com.software5000.ma.entity.User;
-import com.software5000.base.security.jwt.MACVerifierExtended;
-import com.software5000.base.security.jwt.TokenResponse;
 import com.zscp.master.util.DateUtils;
 import com.zscp.master.util.ValidUtil;
 import com.zscp.master.util.encrypt.MD5Builder;
@@ -44,8 +42,8 @@ public class UserRepositoryZimpl {
     @Resource
     private BaseDao baseDao;
 
-    @Resource
-    private SmsService smsService;
+//    @Resource
+//    private SmsService smsService;
 
     /**
      * findByUserId is used by FormRealm to get the user's information using the field userId
@@ -117,11 +115,11 @@ public class UserRepositoryZimpl {
                 u = baseDao.selectEntity(u).get(0);
                 //判断是手机号验证码登陆还是手机号密码登陆
                 if (userToken.getLoginType().equals(Constant.LoginType.CUSTOMER_MOBILE_CODE_LOGIN)) {
-                    SmsRecord smsRecord = smsService.getSmsRecord(u.getMobile(), SmsService.SmsRequestType.USER_USE_MOBILE_LOGIN);
-                    if (smsRecord != null) {
-                        String loginCodePwd = PasswordEncryption.toPasswd(smsRecord.getExpand());
-                        user = new UserDefaultZimpl(u.getMobile(), loginCodePwd, Constant.UserType.CUSTOMER, u);
-                    }
+//                    SmsRecord smsRecord = smsService.getSmsRecord(u.getMobile(), SmsService.SmsRequestType.USER_USE_MOBILE_LOGIN);
+//                    if (smsRecord != null) {
+//                        String loginCodePwd = PasswordEncryption.toPasswd(smsRecord.getExpand());
+//                        user = new UserDefaultZimpl(u.getMobile(), loginCodePwd, Constant.UserType.CUSTOMER, u);
+//                    }
                 } else if (userToken.getLoginType().equals(Constant.LoginType.CUSTOMER_MOBILE_PASSWORD_LOGIN)) {
                     user = new UserDefaultZimpl(u.getMobile(), u.getPwd(), Constant.UserType.CUSTOMER, u);
                 } else if (userToken.getLoginType().equals(Constant.LoginType.CUSTOMER_WXOPENID_LOGIN)) {
