@@ -39,6 +39,7 @@ public class BusinessService {
 
     /**
      * 新增商家信息
+     *
      * @param business
      * @return Business
      * @throws SQLException
@@ -52,7 +53,7 @@ public class BusinessService {
 
     //<editor-fold desc="delete (删)">
     /* ----------------------------------------------------------- delete (删) start ----------------------------------------------------------------*/
-    
+
     /* ----------------------------------------------------------- delete (删) end ----------------------------------------------------- -----------*/
     //</editor-fold>
 
@@ -62,6 +63,7 @@ public class BusinessService {
 
     /**
      * 更新商家信息
+     *
      * @param business
      * @throws SQLException
      */
@@ -76,16 +78,17 @@ public class BusinessService {
      * @throws SQLException
      */
     public void updateBusinessUser(BusinessUser businessUser) throws SQLException {
-        if(ValidUtil.isNotEmpty(businessUser.getMercharType())&&Constant.BusinessUserType.MERCHANT.codeName.equals(businessUser.getMercharType())){
+        if (ValidUtil.isNotEmpty(businessUser.getMercharType()) && Constant.BusinessUserType.MERCHANT.codeName.equals(businessUser.getMercharType())) {
             businessUser.setItemTypes(null);
-            baseDao.updateEntityOnlyHaveValueAndNull(businessUser, Arrays.asList("itemTypes"),true);
-        }else{
+            baseDao.updateEntityOnlyHaveValueAndNull(businessUser, Arrays.asList("itemTypes"), true);
+        } else {
             baseDao.updateEntityNotEmpty(businessUser);
         }
     }
 
     /**
      * 更新商家
+     *
      * @param business
      * @return void
      * @throws SQLException
@@ -103,39 +106,42 @@ public class BusinessService {
 
     /**
      * 根据商家ID查询信息
+     *
      * @param id
      * @return
      * @throws SQLException
      */
     public Business selectBusinessById(Integer id) throws SQLException {
         Business business = baseDao.selectEntityById(id, Business.class);
-        if(business!=null && ValidUtil.isNotEmpty(business.getWxOpenId())){
-            User user = Users.defaultUsers().get(business.getWxOpenId());
-            if(user!=null) {
-                business.setBossNickName(user.getNickName());
-            }
-        }
+//        if (business != null && ValidUtil.isNotEmpty(business.getWxOpenId())) {
+//            User user = Users.defaultUsers().get(business.getWxOpenId());
+//            if (user != null) {
+//            }
+//        }
+        business.setBossNickName("联盟商家");
         return business;
     }
 
     /**
      * 根据ID查询商家的顾问ID
+     *
      * @param id
      * @return
      * @throws SQLException
      */
-    public Business selectBusinessByIdForConsultantId(Integer id) throws SQLException{
-        Business business=baseDao.selectEntityById(id,Business.class);
-        return  business;
+    public Business selectBusinessByIdForConsultantId(Integer id) throws SQLException {
+        Business business = baseDao.selectEntityById(id, Business.class);
+        return business;
     }
 
     /**
      * 根据手机号查询商家用户
+     *
      * @param mobile
      * @return
      */
-    public BusinessUser selectBusinessUserByMobile(String mobile){
-        if(ValidUtil.isEmpty(mobile)) return null;
+    public BusinessUser selectBusinessUserByMobile(String mobile) {
+        if (ValidUtil.isEmpty(mobile)) return null;
         BusinessUser businessUser = new BusinessUser();
         businessUser.setMobile(mobile);
         return selectBusinessUserByEntity(businessUser);
@@ -143,6 +149,7 @@ public class BusinessService {
 
     /**
      * 根据商家账号查询对应的商家信息
+     *
      * @param map
      * @return
      */
@@ -152,11 +159,12 @@ public class BusinessService {
 
     /**
      * 根据商家用户名查询商家用户
+     *
      * @param userName
      * @return
      */
-    public BusinessUser selectBusinessUserByUserName(String userName){
-        if(ValidUtil.isEmpty(userName)) return null;
+    public BusinessUser selectBusinessUserByUserName(String userName) {
+        if (ValidUtil.isEmpty(userName)) return null;
         BusinessUser businessUser = new BusinessUser();
         businessUser.setUserName(userName);
         return selectBusinessUserByEntity(businessUser);
@@ -164,10 +172,11 @@ public class BusinessService {
 
     /**
      * 根据实体查询商家用户
+     *
      * @param businessUser
      * @return
      */
-    public BusinessUser selectBusinessUserByEntity(BusinessUser businessUser){
+    public BusinessUser selectBusinessUserByEntity(BusinessUser businessUser) {
         return baseDao.selectSingleEntity(businessUser);
     }
 
@@ -180,7 +189,7 @@ public class BusinessService {
      */
     public PageInfo selectPageOperatorBusinessUser(Map<String, Object> param) throws SQLException {
         String orderBy = param.getOrDefault("orderBy", "id desc").toString();
-        if(ValidUtil.isEmpty(orderBy)){
+        if (ValidUtil.isEmpty(orderBy)) {
             orderBy = "id desc";
         }
         Integer startPage = (Integer) param.getOrDefault("startPage", 1);
@@ -189,7 +198,7 @@ public class BusinessService {
         Object stateObj = param.get("state");
         BusinessUser bu = new BusinessUser();
         bu.setBossType(bossType);
-        bu.setState(stateObj==null?null:(Integer)stateObj);
+        bu.setState(stateObj == null ? null : (Integer) stateObj);
         PageInfo pageInfo = baseDao.selectEntityByPage(bu, startPage, pageSize, orderBy);
         ((List<BusinessUser>) pageInfo.getList()).forEach(businessUser -> businessUser.setPwd(null));
         return pageInfo;
@@ -197,19 +206,20 @@ public class BusinessService {
 
     /**
      * 更分页查询商家列表
+     *
      * @param paramMap
      * @return PageInfo
      * @throws SQLException
      */
-    public  PageInfo selectBusinessInfoPage(Map paramMap) throws SQLException {
+    public PageInfo selectBusinessInfoPage(Map paramMap) throws SQLException {
         //分页查询合作套餐信息
-        String orderByStr = paramMap.getOrDefault("orderBy","id desc").toString();
-        if(ValidUtil.isEmpty(orderByStr)){
+        String orderByStr = paramMap.getOrDefault("orderBy", "id desc").toString();
+        if (ValidUtil.isEmpty(orderByStr)) {
             orderByStr = "id desc";
         }
-        PageInfo pageInfo =baseDao.selectListByPage(Business.Daos.selectBusinessListPageByParam.sqlMapname,paramMap,
-                (Integer)paramMap.getOrDefault("startPage",1),
-                (Integer)paramMap.getOrDefault("pageSize",10),
+        PageInfo pageInfo = baseDao.selectListByPage(Business.Daos.selectBusinessListPageByParam.sqlMapname, paramMap,
+                (Integer) paramMap.getOrDefault("startPage", 1),
+                (Integer) paramMap.getOrDefault("pageSize", 10),
                 orderByStr
         );
         return pageInfo;
@@ -217,6 +227,7 @@ public class BusinessService {
 
     /**
      * 分页查询所有可用商家列表（用户端）
+     *
      * @param param
      * @return
      * @throws SQLException
@@ -225,47 +236,49 @@ public class BusinessService {
 
         //设置排序条件
         String orderByStr = "";
-        if(ValidUtil.isEmpty(param.get("orderByStr"))) {
+        if (ValidUtil.isEmpty(param.get("orderByStr"))) {
             orderByStr = ValidUtil.isEmpty(param.get("wxOpenId")) ? "" : "packageCount DESC";
             if (param.get("lng") != null && !"".equals(param.get("lng")) && param.get("lat") != null && !"".equals(param.get("lat"))) {
                 orderByStr += ValidUtil.isEmpty(param.get("wxOpenId")) ? "" : ",";
                 orderByStr += "distance ASC";
             }
-        }else {
+        } else {
             orderByStr = param.get("orderByStr").toString();
         }
 
-        return baseDao.selectListByPage(Business.Daos.selectBusinessForOpen.sqlMapname,param,
-                Integer.valueOf(param.getOrDefault("startPage",1).toString()),
-                Integer.valueOf(param.getOrDefault("pageSize",10).toString()),
+        return baseDao.selectListByPage(Business.Daos.selectBusinessForOpen.sqlMapname, param,
+                Integer.valueOf(param.getOrDefault("startPage", 1).toString()),
+                Integer.valueOf(param.getOrDefault("pageSize", 10).toString()),
                 orderByStr
         );
     }
 
     /**
      * 获取商家信息（用户端）
+     *
      * @param param
      * @return
      * @throws SQLException
      */
     public Business selectBusinessForOpen(Map param) throws SQLException {
-        return (Business)baseDao.selectObject(Business.Daos.selectBusinessForOpen.sqlMapname, param);
+        return (Business) baseDao.selectObject(Business.Daos.selectBusinessForOpen.sqlMapname, param);
     }
 
     /**
      * 获取商家名称（emkt）
+     *
      * @param param
      * @return
      * @throws SQLException
      */
-    public Map<String,Business> selectEnableBusinessNameList(Map param) throws SQLException {
-        List<Business> businessList=(List<Business>)baseDao.selectList(Business.Daos.selectEnableBusinessNameList.sqlMapname, param);
+    public Map<String, Business> selectEnableBusinessNameList(Map param) throws SQLException {
+        List<Business> businessList = (List<Business>) baseDao.selectList(Business.Daos.selectEnableBusinessNameList.sqlMapname, param);
         String[] ids = param.get("businessIds").toString().split(",");
         Map map = new HashMap();
-        for (Business business : businessList){
-            for (String id : ids){
-                if (business.getId().equals(Integer.valueOf(id))){
-                    map.put(id,business);
+        for (Business business : businessList) {
+            for (String id : ids) {
+                if (business.getId().equals(Integer.valueOf(id))) {
+                    map.put(id, business);
                 }
             }
         }
@@ -274,12 +287,13 @@ public class BusinessService {
 
     /**
      * 根据商家ids获取商家信息（多个）
+     *
      * @param param
      * @return
      * @throws ServiceException
      */
     public List<Business> selectEnableBusinessListByIds(Map<String, Object> param) throws SQLException {
-        return (List<Business>) baseDao.selectList(Business.Daos.selectEnableBusinessListByIds.sqlMapname,param);
+        return (List<Business>) baseDao.selectList(Business.Daos.selectEnableBusinessListByIds.sqlMapname, param);
     }
 
     public List<Business> selectBusinessByEntity(Business business) throws SQLException {

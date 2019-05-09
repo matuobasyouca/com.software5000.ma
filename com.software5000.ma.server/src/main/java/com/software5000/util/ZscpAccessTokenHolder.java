@@ -21,23 +21,23 @@ public class ZscpAccessTokenHolder extends AccessTokenHolder {
 
     @Override
     public AccessToken getAccessToken() {
-        if (accessToken == null || accessToken.expired()) {
-            this.setTokenUrl(Constant.emktUrl + "/open/wx/selectAccessToken");
-            String content = fetchAccessToken();
-            AccessToken accessToken = AccessToken.fromJson(content);
-            this.accessToken = accessToken;
-        }
+//        if (accessToken == null || accessToken.expired()) {
+//            this.setTokenUrl(Constant.emktUrl + "/open/wx/selectAccessToken");
+//            String content = fetchAccessToken();
+//            AccessToken accessToken = AccessToken.fromJson(content);
+//            this.accessToken = accessToken;
+//        }
         return this.accessToken;
     }
 
     @Override
     public void refreshToken() {
-        if (accessToken == null || accessToken.expired()) {
-            this.setTokenUrl(Constant.emktUrl + "/open/wx/selectNewAccessToken");
-            String content = fetchAccessToken();
-            AccessToken accessToken = AccessToken.fromJson(content);
-            this.accessToken = accessToken;
-        }
+//        if (accessToken == null || accessToken.expired()) {
+//            this.setTokenUrl(Constant.emktUrl + "/open/wx/selectNewAccessToken");
+//            String content = fetchAccessToken();
+//            AccessToken accessToken = AccessToken.fromJson(content);
+//            this.accessToken = accessToken;
+//        }
     }
 
     @Override

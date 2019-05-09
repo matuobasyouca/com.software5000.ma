@@ -28,17 +28,17 @@
 </template>
 <script>
     import base64 from '../../../../assets/js/base64.min';
-    import { turnToNextPage, getDataFromParam } from '../../../../assets/js/utils';
-    import { insertDefaultInfo } from '../../../../assets/js/defaultInfo';
-    import { filterAgent } from '../../../../assets/js/turnToHostPage';
-    import { selectWxCode, selectOpenId } from '../../../../assets/js/wxUtils';
+    import {turnToNextPage, getDataFromParam} from '../../../../assets/js/utils';
+    import {insertDefaultInfo} from '../../../../assets/js/defaultInfo';
+    import {filterAgent} from '../../../../assets/js/turnToHostPage';
+    // import { selectWxCode, selectOpenId } from '../../../../assets/js/wxUtils';
     export default {
         data() {
             return {
                 isLoading: true,
                 form: {
-                    name: '',
-                    password: '',
+                    name: 'lc12345',
+                    password: '18859288891',
                     userType: 'merchant'
                 },
                 info: {
@@ -52,7 +52,7 @@
         },
         methods: {
             //显示错误信息
-            showError (isError){
+            showError(isError) {
                 const errorMsg = {
                     name: '请输入用户名',
                     password: '请输入密码'
@@ -64,7 +64,7 @@
                     duration: '1200'
                 });
             },
-            isDataEmpty (){
+            isDataEmpty() {
                 for (let key in this.form) {
                     if (key !== 'code' && this.form[key].trim() === '') {
                         return key;
@@ -72,7 +72,7 @@
                 }
                 return false;
             },
-            loginCheck(){
+            loginCheck() {
                 let isError = this.isDataEmpty();
 
                 if (isError) {
@@ -81,7 +81,7 @@
                 }
                 this.login();
             },
-            login(){
+            login() {
                 const postData = {
                     userId: this.form.name,
                     password: base64.encode(this.form.password),
@@ -116,16 +116,18 @@
             }
         },
         created() {
+            console.log('000');
             this.type = getDataFromParam('type');
-            this.form.name = window.localStorage.userId || '';
-            filterAgent(() => {
-                selectWxCode((code) => {
-                    selectOpenId(code, (openId) => {
-                        this.openId = openId;
-                        this.isLoading = false;
-                    });
-                });
-            });
+            // this.form.name = window.localStorage.userId || '';
+            this.isLoading = false;
+            // filterAgent(() => {
+            //     selectWxCode((code) => {
+            //         selectOpenId(code, (openId) => {
+            //             this.openId = openId;
+            //             this.isLoading = false;
+            //         });
+            //     });
+            // });
         }
     };
 </script>
