@@ -7,6 +7,7 @@ package com.software5000.ma.service;
 import com.github.pagehelper.PageInfo;
 import com.riversoft.weixin.mp.user.Users;
 import com.riversoft.weixin.mp.user.bean.User;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.Business;
 import com.software5000.ma.entity.BusinessUser;
 import com.software5000.base.BaseDao;
@@ -29,12 +30,12 @@ public class BusinessService {
     private Log log = LogFactory.getLog(BusinessService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
     public BusinessUser insertBusinessUser(BusinessUser businessUser) throws SQLException {
-        return baseDao.insertEntity(businessUser);
+        return (BusinessUser) baseDao.insertEntity(businessUser);
     }
 
     /**
@@ -45,7 +46,7 @@ public class BusinessService {
      * @throws SQLException
      */
     public Business insertBusiness(Business business) throws SQLException {
-        return baseDao.insertEntity(business);
+        return (Business) baseDao.insertEntity(business);
     }
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
     //</editor-fold>
@@ -68,7 +69,7 @@ public class BusinessService {
      * @throws SQLException
      */
     public void updateBusiness(Business business) throws SQLException {
-        baseDao.updateEntityNotEmpty(business);
+        baseDao.updateEntity(business);
     }
 
     /**
@@ -80,9 +81,9 @@ public class BusinessService {
     public void updateBusinessUser(BusinessUser businessUser) throws SQLException {
         if (ValidUtil.isNotEmpty(businessUser.getMercharType()) && Constant.BusinessUserType.MERCHANT.codeName.equals(businessUser.getMercharType())) {
             businessUser.setItemTypes(null);
-            baseDao.updateEntityOnlyHaveValueAndNull(businessUser, Arrays.asList("itemTypes"), true);
+//            baseDao.updateEntityOnlyHaveValueAndNull(businessUser, Arrays.asList("itemTypes"), true);
         } else {
-            baseDao.updateEntityNotEmpty(businessUser);
+            baseDao.updateEntity(businessUser);
         }
     }
 
@@ -94,7 +95,7 @@ public class BusinessService {
      * @throws SQLException
      */
     public void updateBusinessNotEmpty(Business business) throws SQLException, ServiceException {
-        baseDao.updateEntityNotEmpty(business);
+        baseDao.updateEntity(business);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/
@@ -199,7 +200,7 @@ public class BusinessService {
         BusinessUser bu = new BusinessUser();
         bu.setBossType(bossType);
         bu.setState(stateObj == null ? null : (Integer) stateObj);
-        PageInfo pageInfo = baseDao.selectEntityByPage(bu, startPage, pageSize, orderBy);
+        PageInfo pageInfo = baseDao.selectEntitiesByPage( startPage, pageSize,bu, orderBy);
         ((List<BusinessUser>) pageInfo.getList()).forEach(businessUser -> businessUser.setPwd(null));
         return pageInfo;
     }
@@ -217,7 +218,7 @@ public class BusinessService {
         if (ValidUtil.isEmpty(orderByStr)) {
             orderByStr = "id desc";
         }
-        PageInfo pageInfo = baseDao.selectListByPage(Business.Daos.selectBusinessListPageByParam.sqlMapname, paramMap,
+        PageInfo pageInfo = baseDao.selectEntitiesByPage(Business.Daos.selectBusinessListPageByParam.sqlMapname, paramMap,
                 (Integer) paramMap.getOrDefault("startPage", 1),
                 (Integer) paramMap.getOrDefault("pageSize", 10),
                 orderByStr
@@ -246,7 +247,7 @@ public class BusinessService {
             orderByStr = param.get("orderByStr").toString();
         }
 
-        return baseDao.selectListByPage(Business.Daos.selectBusinessForOpen.sqlMapname, param,
+        return baseDao.selectEntitiesByPage(Business.Daos.selectBusinessForOpen.sqlMapname, param,
                 Integer.valueOf(param.getOrDefault("startPage", 1).toString()),
                 Integer.valueOf(param.getOrDefault("pageSize", 10).toString()),
                 orderByStr

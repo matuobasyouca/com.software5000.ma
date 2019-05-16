@@ -7,6 +7,7 @@ import com.riversoft.weixin.mp.user.bean.User;
 import com.riversoft.weixin.pay.transfer.Transfers;
 import com.riversoft.weixin.pay.transfer.bean.TransferRequest;
 import com.riversoft.weixin.pay.transfer.bean.TransferResponse;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.dto.CheckMoneyDto;
 import com.software5000.ma.dto.FinanceInOrOutComeDto;
 import com.software5000.ma.dto.PaymentDto;
@@ -42,7 +43,7 @@ public class WeChatPayOrderService {
     protected Log log = LogFactory.getLog(this.getClass());
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private BusinessService businessService;
@@ -63,7 +64,7 @@ public class WeChatPayOrderService {
      * @throws ServiceException
      */
     public WeChatPayOrder insertWeChatPayOrder(WeChatPayOrder weChatPayOrder) throws SQLException {
-        return baseDao.insertEntity(weChatPayOrder);
+        return (WeChatPayOrder) baseDao.insertEntity(weChatPayOrder);
     }
 
     /**
@@ -109,7 +110,7 @@ public class WeChatPayOrderService {
             wco.setRealTimeMoneyFee(bck.getCanCheckMoney()-payTotalFee);
             wco.setPrepayId(transfer.getPaymentNo());
             wco.setShowName("商家核销订单");
-            wco.setTradingTime(new Timestamp(new Date().getTime()));
+            wco.setTradingTime(new Timestamp(System.currentTimeMillis()));
             insertWeChatPayOrder(wco);
             //更新提现信息
             bck.setCanCheckMoney(bck.getCanCheckMoney()-payTotalFee);
@@ -140,7 +141,7 @@ public class WeChatPayOrderService {
      * 跟新微信订单
      */
     public void updateWeChatPayOrder(WeChatPayOrder weChatPayOrder) throws SQLException {
-        baseDao.updateEntityNotEmpty(weChatPayOrder);
+        baseDao.updateEntity(weChatPayOrder);
     }
 
 
@@ -149,7 +150,7 @@ public class WeChatPayOrderService {
      * @param checkMoney
      */
     public synchronized  void updateBusinessCheckMoney(BusinessCheckMoney checkMoney) throws SQLException {
-        baseDao.updateEntityNotEmpty(checkMoney);
+        baseDao.updateEntity(checkMoney);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/
@@ -180,7 +181,7 @@ public class WeChatPayOrderService {
             businessCheckMoney.setBusinessId(businessId);
             businessCheckMoney.setCanCheckMoney(0);
             businessCheckMoney.setHaveCheckMoney(0);
-            bcm = baseDao.insertEntity(businessCheckMoney);
+            bcm = (BusinessCheckMoney) baseDao.insertEntity(businessCheckMoney);
         }else{
             bcm = (BusinessCheckMoney)o;
         }
@@ -198,7 +199,7 @@ public class WeChatPayOrderService {
         if(ValidUtil.isEmpty(orderBy)) orderBy = "id desc";
         Integer startPage = (Integer)paramMap.getOrDefault("startPage", 1);
         Integer pageSize = (Integer)paramMap.getOrDefault("pageSize", 10);
-        return baseDao.selectListByPage(WeChatPayOrder.Daos.selectPageWechatPayOrder.sqlMapname,paramMap,startPage, pageSize, orderBy);
+        return baseDao.selectEntitiesByPage(WeChatPayOrder.Daos.selectPageWechatPayOrder.sqlMapname,paramMap,startPage, pageSize, orderBy);
     }
 
     /**
@@ -260,7 +261,7 @@ public class WeChatPayOrderService {
         Integer pageSize = (Integer)paramMap.getOrDefault("pageSize", 10);
         String orderBy = paramMap.getOrDefault("orderBy", "b.id asc").toString();
 
-        return baseDao.selectListByPage(WeChatPayOrder.Daos.selectPaymentPage.sqlMapname,paramMap, startPage, pageSize, orderBy);
+        return baseDao.selectEntitiesByPage(WeChatPayOrder.Daos.selectPaymentPage.sqlMapname,paramMap, startPage, pageSize, orderBy);
     }
 
     /**

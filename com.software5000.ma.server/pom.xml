@@ -402,5 +402,10 @@
             <artifactId>poi-ooxml</artifactId>
             <version>3.9</version>
         </dependency>
+        <dependency>
+            <groupId>com.software5000</groupId>
+            <artifactId>simple-orm-mybatis</artifactId>
+            <version>1.0.1</version>
+        </dependency>
     </dependencies>
 </project>

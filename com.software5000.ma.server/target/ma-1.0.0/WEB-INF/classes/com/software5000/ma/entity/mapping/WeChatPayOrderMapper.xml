@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="WeChatPayOrder">
+
+    <select id="selectBusinessCheckMoney"  resultType="BusinessCheckMoney" parameterType="java.lang.Integer">
+    SELECT * FROM BusinessCheckMoney WHERE businessId=#{businessId}
+    </select>
+
+    <select id="selectPageWechatPayOrder" parameterType="java.util.Map" resultType="WeChatPayOrder">
+        select * from WeChatPayOrder WHERE 1=1 AND status=2 AND realTimeMoneyFee is NOT NULL
+        <if test="orderType != null and orderType != ''">
+            and orderType = #{orderType}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            and tradingTime &gt;= #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and tradingTime &lt;= #{endTime}
+        </if>;
+    </select>
+
+    <select id="selectWeChatPayOrderByIds" parameterType="java.util.HashMap" resultType="WeChatPayOrder">
+        SELECT
+        wpo.id,wpo.packageOrderId,wpo.workOrderId,wpo.tradeFee,wpo.confirmState,wpo.tradeNo,wpo.status,wpo.businessId
+        FROM WeChatPayOrder wpo
+        WHERE 1=1
+        <if test="weChatPayOrderIds !=null and weChatPayOrderIds.size >0">AND wpo.id in
+            <foreach collection="weChatPayOrderIds" item="weChatPayOrderId" index="index" open="(" separator=","
+                     close=")">
+                #{weChatPayOrderId}
+            </foreach>
+        </if>
+    </select>
+    <update id="updateStateToSettlement" parameterType="java.util.HashMap">
+        UPDATE WeChatPayOrder SET confirmState = #{confirmState} WHERE id IN
+        <foreach collection="weChatPayOrderIds" item="weChatPayOrderId" index="index" open="(" separator="," close=")">
+            #{weChatPayOrderId}
+        </foreach>
+    </update>
+
+    <select id="selecPaymentBusiness" resultType="Business">
+        SELECT DISTINCT bus.businessId as id,b.businessName FROM (
+        SELECT wpo.businessId FROM WeChatPayOrder wpo where  wpo.status=2 AND wpo.businessId is not null
+        UNION ALL
+        SELECT cpb.businessId FROM CouponsPackBuyRecord cpb where cpb.state=2) bus
+        INNER JOIN Business b ON b.id=bus.businessId
+    </select>
+
+    <select id="selectPaymentPage" resultType="PaymentDto"  parameterType="java.util.Map">
+        select a.businessId as id,b.businessName,sum(case x when 0 then fee else 0 END) as incomeSum,sum(case x when 1 then fee else 0 END) as costSum from (
+        select w1.businessId,SUM(w1.tradeFee) as fee,0 as x  from WeChatPayOrder w1 where w1.orderType!=2 AND w1.orderType!=3 AND w1.status=2
+        <if test="startTime != null and startTime != ''">
+            AND w1.tradingTime &gt;=#{startTime}
+        </if>
+        <if test="endTime!= null and endTime != ''">
+            AND w1.tradingTime &lt;=#{endTime}
+        </if>
+        GROUP BY w1.businessId
+        union all
+        select w2.businessId,SUM(w2.userPayMoney) as fee,0 as x from Finance w2 where w2.financeType=4 and inOrOutCome=1
+        <if test="startTime != null and startTime != ''">
+            AND w2.updateTime &gt;=#{startTime}
+        </if>
+        <if test="endTime!= null and endTime != ''">
+            AND w2.updateTime &lt;=#{endTime}
+        </if>
+        GROUP BY w2.businessId
+        union all
+        select w3.businessId,SUM(w3.tradeFee) as fee,1 as x from WeChatPayOrder w3 where w3.orderType=2 AND w3.status=2
+        <if test="startTime != null and startTime != ''">
+            AND w3.tradingTime &gt;=#{startTime}
+        </if>
+        <if test="endTime!= null and endTime != ''">
+            AND w3.tradingTime &lt;=#{endTime}
+        </if>
+        GROUP BY w3.businessId
+        ) a
+        INNER JOIN Business b ON b.id=a.businessId
+        <if test="businessId !=null and businessId gt 0">
+            where b.id = #{businessId}
+        </if>
+        group BY a.businessId;
+    </select>
+
+    <select id="selectTotalSum"  parameterType="java.util.Map" resultType="PaymentDto">
+        SELECT SUM(incomeSum) AS incomeSum ,SUM(costSum) as costSum FROM (
+        select a.businessId as id,b.businessName,sum(case x when 0 then fee else 0 END) as incomeSum,sum(case x when 1 then fee else 0 END) as costSum from (
+        select w1.businessId,SUM(w1.tradeFee) as fee,0 as x  from WeChatPayOrder w1 where w1.orderType!=2 AND w1.orderType!=3 AND w1.status=2
+        <if test="startTime != null and startTime != ''">
+            AND w1.tradingTime &gt;=#{startTime}
+        </if>
+        <if test="endTime!= null and endTime != ''">
+            AND w1.tradingTime &lt;=#{endTime}
+        </if>
+        GROUP BY w1.businessId
+        union all
+        select w2.businessId,SUM(w2.userPayMoney) as fee,0 as x from Finance w2 where w2.financeType in (4,6) and inOrOutCome=1
+        <if test="startTime != null and startTime != ''">
+            AND w2.updateTime &gt;=#{startTime}
+        </if>
+        <if test="endTime!= null and endTime != ''">
+            AND w2.updateTime &lt;=#{endTime}
+        </if>
+        GROUP BY w2.businessId
+        union all
+        select w3.businessId,SUM(w3.tradeFee) as fee,1 as x from WeChatPayOrder w3 where w3.orderType=2 AND w3.status=2
+        <if test="startTime != null and startTime != ''">
+            AND w3.tradingTime &gt;=#{startTime}
+        </if>
+        <if test="endTime!= null and endTime != ''">
+            AND w3.tradingTime &lt;=#{endTime}
+        </if>
+        GROUP BY w3.businessId
+        ) a
+        INNER JOIN Business b ON b.id=a.businessId
+        <if test="businessId !=null and businessId gt 0">
+            where b.id = #{businessId}
+        </if>
+        group BY a.businessId) t1;
+    </select>
+</mapper>

@@ -5,6 +5,7 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.dto.PayPackageOrderDto;
 import com.software5000.ma.entity.BusinessPackageOrder;
 import com.software5000.ma.entity.Car;
@@ -29,7 +30,7 @@ public class BusinessPackageOrderService {
     private Log log = LogFactory.getLog(BusinessPackageOrderService.class);
 
     @Autowired
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private MemberPackageRecordService memberPackageRecordService;
@@ -57,9 +58,9 @@ public class BusinessPackageOrderService {
      */
     public BusinessPackageOrder insertBusinessPackageOrder(BusinessPackageOrder businessPackageOrder) throws ServiceException{
         try {
-            businessPackageOrder=baseDao.insertEntity(businessPackageOrder);
+            businessPackageOrder= (BusinessPackageOrder) baseDao.insertEntity(businessPackageOrder);
             return businessPackageOrder;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             log.error("保存packCard失败，packCard=" + businessPackageOrder,e);
             throw new ServiceException(Constant.StateCode.SAVE_ERROR.codeName);
         }
@@ -87,8 +88,8 @@ public class BusinessPackageOrderService {
      */
     public void updateBusinessPackageOrder(BusinessPackageOrder businessPackageOrder) throws ServiceException{
         try {
-            baseDao.updateEntityOnlyHaveValue(businessPackageOrder,false);
-        } catch (SQLException e) {
+            baseDao.updateEntity(businessPackageOrder,"id",false);
+        } catch (Exception e) {
             log.error("修改packOrder失败，packOrder=" + businessPackageOrder,e);
             throw new ServiceException(Constant.StateCode.UPDATE_ERROR.codeName);
         }
@@ -126,7 +127,7 @@ public class BusinessPackageOrderService {
         orderInfoMap.put("date", DateUtils.formatDateTime(DateUtils.addDay(DateUtils.now(), -2)));
         try {
             this.baseDao.update(BusinessPackageOrder.Daos.updatePackageOrderByDate.sqlMapname,orderInfoMap);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             log.error("未支付订单数据更新失败", e);
             throw new ServiceException(Constant.StateCode.UPDATE_ERROR.codeName);
         }
@@ -148,8 +149,8 @@ public class BusinessPackageOrderService {
      */
     public PageInfo<PayPackageOrderDto> selectUnPayPackageOrderPage (Map param) throws ServiceException {
         try {
-            return baseDao.selectListByPage(BusinessPackageOrder.Daos.selectPayPackageOrderByState.sqlMapname,param,Integer.parseInt(param.get("starPage").toString()),Integer.parseInt(param.get("pageSize").toString()),null);
-        } catch (SQLException e) {
+            return baseDao.selectEntitiesByPage(BusinessPackageOrder.Daos.selectPayPackageOrderByState.sqlMapname,param,Integer.parseInt(param.get("starPage").toString()),Integer.parseInt(param.get("pageSize").toString()));
+        } catch (Exception e) {
             log.error("查询数据失败", e);
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }
@@ -162,8 +163,8 @@ public class BusinessPackageOrderService {
      */
     public PageInfo<PayPackageOrderDto> selectPayPackageOrderPage (Map param) throws ServiceException {
         try {
-            return baseDao.selectListByPage(BusinessPackageOrder.Daos.selectPayPackageOrderByState.sqlMapname,param,Integer.parseInt(param.get("starPage").toString()),Integer.parseInt(param.get("pageSize").toString()),null);
-        } catch (SQLException e) {
+            return baseDao.selectEntitiesByPage(BusinessPackageOrder.Daos.selectPayPackageOrderByState.sqlMapname,param,Integer.parseInt(param.get("starPage").toString()),Integer.parseInt(param.get("pageSize").toString()));
+        } catch (Exception e) {
             log.error("查询数据失败", e);
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }
@@ -208,7 +209,7 @@ public class BusinessPackageOrderService {
     public List<Map> selectCountByState(Map param) throws ServiceException{
         try{
             return (List<Map>)baseDao.selectList(BusinessPackageOrder.Daos.selectCountByState.sqlMapname,param);
-        }catch (SQLException e) {
+        }catch (Exception e) {
             log.error("查询失败，param="+param,e);
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }
@@ -220,7 +221,7 @@ public class BusinessPackageOrderService {
     public Map selectInitialByOpenId(Map param) throws ServiceException{
         try{
             return (Map)baseDao.selectObject(BusinessPackageOrder.Daos.selectInitialByOpenId.sqlMapname,param);
-        }catch (SQLException e) {
+        }catch (Exception e) {
             log.error("查询失败，param="+param,e);
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }

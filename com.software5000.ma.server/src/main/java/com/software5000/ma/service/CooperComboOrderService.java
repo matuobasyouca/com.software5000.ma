@@ -1,6 +1,7 @@
 package com.software5000.ma.service;
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.CooperComboOrder;
 import com.software5000.ma.entity.User;
 import com.software5000.base.BaseDao;
@@ -28,7 +29,7 @@ public class CooperComboOrderService {
     protected Log log = LogFactory.getLog(this.getClass());
 
     @Autowired
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Autowired
     private CooperComboService cooperComboService;
@@ -50,7 +51,7 @@ public class CooperComboOrderService {
      * @throws SQLException
      */
     public CooperComboOrder insertCooperComboOrder(CooperComboOrder cooperComboOrder) throws SQLException {
-        return baseDao.insertEntity(cooperComboOrder);
+        return (CooperComboOrder) baseDao.insertEntity(cooperComboOrder);
     }
 
     /**
@@ -84,7 +85,7 @@ public class CooperComboOrderService {
      * @throws SQLException
      */
     public void updateCooperComboOrder(CooperComboOrder cooperComboOrder) throws SQLException {
-        baseDao.updateEntityNotEmpty(cooperComboOrder);
+        baseDao.updateEntity(cooperComboOrder);
     }
 
     /**
@@ -101,7 +102,7 @@ public class CooperComboOrderService {
             orderByStr = paramMap.get("orderBy").toString();
         }
 
-        PageInfo pageInfo = baseDao.selectListByPage(CooperComboOrder.Daos.selectCooperComboOrderPageByParam.sqlMapname, paramMap,
+        PageInfo pageInfo = baseDao.selectEntitiesByPage(CooperComboOrder.Daos.selectCooperComboOrderPageByParam.sqlMapname, paramMap,
                 (Integer) paramMap.getOrDefault("startPage", 1),
                 (Integer) paramMap.getOrDefault("pageSize", 1),
                 orderByStr

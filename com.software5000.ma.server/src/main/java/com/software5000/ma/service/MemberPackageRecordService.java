@@ -7,6 +7,7 @@ package com.software5000.ma.service;
 import com.github.pagehelper.PageInfo;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
+import com.software5000.base.MyBaseDao;
 import com.software5000.base.ServiceException;
 import com.software5000.ma.dto.MemberPackageRecordDto;
 import com.software5000.ma.dto.PackClusterBuyRecordDto;
@@ -27,7 +28,7 @@ public class MemberPackageRecordService {
     private Log log = LogFactory.getLog(MemberPackageRecordService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private BusinessPackageService businessPackageService;
@@ -42,7 +43,7 @@ public class MemberPackageRecordService {
      * @throws SQLException
      */
     public MemberPackageRecord insertMemberPackageRecord(MemberPackageRecord memberPackageRecord) throws SQLException {
-        return baseDao.insertEntity(memberPackageRecord);
+        return (MemberPackageRecord) baseDao.insertEntity(memberPackageRecord);
     }
 
     /**
@@ -103,7 +104,7 @@ public class MemberPackageRecordService {
                 memberItemUseRecords.add(memberItemUseRecord);
             }
         }
-        baseDao.insertEntityList(memberItemUseRecords);
+        baseDao.insertEntities(memberItemUseRecords);
     }
 
 
@@ -147,13 +148,13 @@ public class MemberPackageRecordService {
                         if(remainTimes-itemTimes>=0){
                             serviceItems.remove(memberItemUseRecord.getServiceItemId());
                             memberItemUseRecord.setRemainTimes(remainTimes - itemTimes);
-                            baseDao.updateEntityNotEmpty(memberItemUseRecord);
+                            baseDao.updateEntity(memberItemUseRecord);
                             workItemUserRecord.setTimes(itemTimes);
                             baseDao.insertEntity(workItemUserRecord);
                         }else{//需要多个套餐和起来进行扣减
                             memberItemUseRecord.setRemainTimes(0);
                             serviceItems.put(memberItemUseRecord.getServiceItemId(),itemTimes-remainTimes);
-                            baseDao.updateEntityNotEmpty(memberItemUseRecord);
+                            baseDao.updateEntity(memberItemUseRecord);
                             workItemUserRecord.setTimes(remainTimes);
                             baseDao.insertEntity(workItemUserRecord);
                         }
@@ -177,7 +178,7 @@ public class MemberPackageRecordService {
             memberItemUseRecord.setId(workItemUseRecord.getMemberItemUseRecordId());
             memberItemUseRecord=baseDao.selectSingleEntity(memberItemUseRecord);
             memberItemUseRecord.setRemainTimes(memberItemUseRecord.getRemainTimes()+workItemUseRecord.getTimes());
-            baseDao.updateEntityNotEmpty(memberItemUseRecord);
+            baseDao.updateEntity(memberItemUseRecord);
             baseDao.deleteEntity(workItemUseRecord);
         }
     }
@@ -226,13 +227,13 @@ public class MemberPackageRecordService {
      */
     public PageInfo selectMemberPackageRecordByOpenId(Map param) throws ServiceException{
         try {
-            PageInfo pageInfo=baseDao.selectListByPage(MemberPackageRecord.Daos.selectMemberPackageRecordIds.sqlMapname,param,Integer.parseInt(param.getOrDefault("startPage",1).toString()),Integer.parseInt(param.getOrDefault("pageSize",10).toString()),null);
+            PageInfo pageInfo=baseDao.selectEntitiesByPage(MemberPackageRecord.Daos.selectMemberPackageRecordIds.sqlMapname,param,Integer.parseInt(param.getOrDefault("startPage",1).toString()),Integer.parseInt(param.getOrDefault("pageSize",10).toString()),null);
             if(pageInfo.getList().size()>0) {
                 param.put("ids", pageInfo.getList());
                 pageInfo.setList((List<MemberPackageRecordDto>) baseDao.selectList(MemberPackageRecord.Daos.selectMemberPackageRecordByOpenId.sqlMapname, param));
             }
             return pageInfo;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             log.error("查询失败，param="+param,e);
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }
@@ -244,7 +245,7 @@ public class MemberPackageRecordService {
     public List<Map> selectMemberPackageRecordCount(Map param) throws ServiceException{
         try{
             return (List<Map>)baseDao.selectList(MemberPackageRecord.Daos.selectMemberPackageRecordCount.sqlMapname,param);
-        }catch (SQLException e) {
+        }catch (Exception e) {
             log.error("查询失败，param="+param,e);
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }

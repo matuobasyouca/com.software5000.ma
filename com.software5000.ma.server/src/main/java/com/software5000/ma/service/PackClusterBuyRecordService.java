@@ -15,6 +15,7 @@ import com.software5000.bank.entity.PayOrder;
 import com.software5000.bank.service.PayOrderService;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
+import com.software5000.base.MyBaseDao;
 import com.software5000.base.entity.ReturnResult;
 import com.software5000.ma.dto.PackClusterBuyRecordInfoDto;
 import com.software5000.ma.dto.PackClusterPerDto;
@@ -38,7 +39,7 @@ public class PackClusterBuyRecordService {
     private Log log = LogFactory.getLog(PackClusterBuyRecordService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private PackClusterService packClusterService;
@@ -120,7 +121,7 @@ public class PackClusterBuyRecordService {
 
 
     public PackClusterBuyRecord insertPackClusterBuyRecord(PackClusterBuyRecord buyRecord) throws SQLException {
-        return baseDao.insertEntity(buyRecord);
+        return (PackClusterBuyRecord) baseDao.insertEntity(buyRecord);
     }
 
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
@@ -174,7 +175,7 @@ public class PackClusterBuyRecordService {
             sendMsgForJoinGroupFail(recordId,buyRecord.getWxOpenId());
             return;
         }
-        buyRecord.setPayTime(new Timestamp(new Date().getTime()));
+        buyRecord.setPayTime(new Timestamp(System.currentTimeMillis()));
         buyRecord.setPayState(Constant.OrderState.PAID.codeName);
         updatePackClusterBuyRecord(buyRecord);
         //1.判断是否已经成团
@@ -250,7 +251,7 @@ public class PackClusterBuyRecordService {
 
 
     public void updatePackClusterBuyRecord(PackClusterBuyRecord packClusterBuyRecord) throws SQLException {
-        baseDao.updateEntityNotEmpty(packClusterBuyRecord);
+        baseDao.updateEntity(packClusterBuyRecord);
     }
 
     /**
@@ -270,7 +271,7 @@ public class PackClusterBuyRecordService {
             //参团失败，发送消息提醒
             sendMsgForSpellGroupFail(packClusterBuyRecords);
         }
-        baseDao.insertEntityList(refundPackClusters);
+        baseDao.insertEntities(refundPackClusters);
 
     }
 
@@ -424,7 +425,7 @@ public class PackClusterBuyRecordService {
      * @throws SQLException
      */
     public PageInfo selectPagePackClusterBuyRecordByOpenId(Map param) throws SQLException {
-        return baseDao.selectListByPage(PackClusterBuyRecord.Daos.selectPagePackClusterBuyRecord.sqlMapname,
+        return baseDao.selectEntitiesByPage(PackClusterBuyRecord.Daos.selectPagePackClusterBuyRecord.sqlMapname,
                 param,
                 (Integer) param.getOrDefault("startPage", 1),
                 (Integer) param.getOrDefault("pageSize", 10),
@@ -439,7 +440,7 @@ public class PackClusterBuyRecordService {
      * @throws SQLException
      */
     public PageInfo selectPagePackClusterBuyRecordByPage(Map param) throws SQLException {
-        return baseDao.selectListByPage(PackClusterBuyRecord.Daos.selectPagePackClusterBuyRecordByPage.sqlMapname,
+        return baseDao.selectEntitiesByPage(PackClusterBuyRecord.Daos.selectPagePackClusterBuyRecordByPage.sqlMapname,
                 param,
                 (Integer) param.getOrDefault("startPage", 1),
                 (Integer) param.getOrDefault("pageSize", 10),

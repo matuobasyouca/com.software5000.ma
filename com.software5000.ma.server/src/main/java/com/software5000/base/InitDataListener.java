@@ -20,15 +20,15 @@ public class InitDataListener{
     private Log log = LogFactory.getLog(this.getClass());
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     public void initDate() throws Exception {
         try {
-            Constant.initCodes(baseDao.selectEntity(new SystemCode()).stream().collect(toMap(SystemCode::getCodeName , (p)->p)));
+//            Constant.initCodes(baseDao.selectEntity(new SystemCode()).stream().collect(toMap(SystemCode::getCodeName , (p)->p)));
             //将地区信息放到内存中
             Constant.initAreaCode(baseDao.selectEntity(new AreaCode()));
             log.info("初始化缓存数据成功！");
-        } catch (SQLException e) {
+        } catch (Exception e) {
             log.error("初始化缓存数据错误！",e);
         }
     }

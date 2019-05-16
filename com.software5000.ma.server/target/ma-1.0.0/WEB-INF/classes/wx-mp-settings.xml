@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<AppSetting>
+    <appId>wx70df58c1daf8629d</appId>
+    <secret>27794d4ef37fba4d0f47ceb19315c7af</secret>
+    <token>mmgoodcar4009945888</token>
+    <aesKey>PVUiOBoDctZxzScWD0I1DRsO8gk70uXynx5zq238KKg</aesKey>
+    <tokenHolderClass>com.software5000.util.ZscpAccessTokenHolder</tokenHolderClass>
+</AppSetting>

@@ -5,6 +5,7 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.MemberItemUseRecord;
 import com.software5000.ma.entity.ServiceItem;
 import com.software5000.base.BaseDao;
@@ -24,7 +25,7 @@ public class ServiceItemService {
     private Log log = LogFactory.getLog(ServiceItemService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
@@ -36,7 +37,7 @@ public class ServiceItemService {
      * @throws SQLException
      */
     public MemberItemUseRecord insertMemberItemUseRecord(MemberItemUseRecord memberItemUseRecord) throws SQLException {
-        return baseDao.insertEntity(memberItemUseRecord);
+        return (MemberItemUseRecord) baseDao.insertEntity(memberItemUseRecord);
     }
 
     /**
@@ -46,7 +47,7 @@ public class ServiceItemService {
      * @throws SQLException
      */
     public List<ServiceItem> insertServiceItems(List<ServiceItem> serviceItems) throws SQLException {
-        return baseDao.insertEntityList(serviceItems);
+        return baseDao.insertEntities(serviceItems);
     }
 
     /**
@@ -56,7 +57,7 @@ public class ServiceItemService {
      * @return 保存是否成功
      */
     public ServiceItem insertServiceItem(ServiceItem serviceItem) throws SQLException {
-        return baseDao.insertEntity(serviceItem);
+        return (ServiceItem) baseDao.insertEntity(serviceItem);
     }
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
     //</editor-fold>
@@ -72,7 +73,9 @@ public class ServiceItemService {
      * @param serviceItemId
      */
     public void deleteServiceItem(Integer serviceItemId) throws SQLException {
-        baseDao.deleteEntityById(serviceItemId, ServiceItem.class);
+        ServiceItem serviceItem = new ServiceItem();
+        serviceItem.setId(serviceItemId);
+        baseDao.deleteEntity(serviceItem);
     }
 
     /* ----------------------------------------------------------- delete (删) end ----------------------------------------------------- -----------*/
@@ -89,7 +92,7 @@ public class ServiceItemService {
      * @throws ServiceException
      */
     public void updateServiceItem(ServiceItem serviceItem) throws SQLException {
-        baseDao.updateEntityNotEmpty(serviceItem);
+        baseDao.updateEntity(serviceItem);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/
@@ -125,7 +128,7 @@ public class ServiceItemService {
         if(ValidUtil.isNotEmpty(paramMap.get("orderBy"))){
             orderBy = paramMap.get("orderBy").toString();
         }
-        return baseDao.selectListByPage(ServiceItem.Daos.selectPageServiceItem.sqlMapname,paramMap,startPage,pageSize,orderBy);
+        return baseDao.selectEntitiesByPage(ServiceItem.Daos.selectPageServiceItem.sqlMapname,paramMap,startPage,pageSize,orderBy);
     }
 
     /**
@@ -197,7 +200,7 @@ public class ServiceItemService {
     public PageInfo selectPageServiceItemForWorkOrder(Map paramMap) throws SQLException {
         Integer startPage = Integer.valueOf(paramMap.getOrDefault("startPage","1").toString());
         Integer pageSize = Integer.valueOf(paramMap.getOrDefault("pageSize","10").toString());
-        return baseDao.selectListByPage(ServiceItem.Daos.selectPageServiceItemForWorkOrder.sqlMapname,paramMap,startPage,pageSize,"");
+        return baseDao.selectEntitiesByPage(ServiceItem.Daos.selectPageServiceItemForWorkOrder.sqlMapname,paramMap,startPage,pageSize,"");
     }
 
     /* ----------------------------------------------------------- select (查) end ----------------------------------------------------- -----------*/

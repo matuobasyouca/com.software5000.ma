@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	">
+
+	<!--<context:annotation-config />-->
+	<context:component-scan  base-package="com.software5000" />
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+<!-- 	<tx:annotation-driven transaction-manager="transactionManager" /> -->
+
+	<!--注入变量-->
+	<bean id="constant" class="com.software5000.base.Constant">
+		<constructor-arg name="imgUrl" value="http://image.zhongshengchengpin.com" />
+		<constructor-arg name="maUrl" value="http://localhost:82" />
+		<constructor-arg name="emktUrl" value="http://localhost:83" />
+		<constructor-arg name="crmUrl" value="http://localhost:81" />
+		<constructor-arg name="doMain" value="localhost" />
+		<constructor-arg name="redirectUrl" value="http://pay.zhongshengchengpin.com/cmrd.jsp?a=t&amp;r=" />
+		<constructor-arg name="settleOrderTmpl" value="l7BbcYD9TznCX4J5evlJw2Kd8r20fZPBkt6FaO-9rKI" />
+		<constructor-arg name="consumePackageTmpl" value="aRIuZMZQfQsdmRbhwso93kw9cK_X-NmtL80dNkQpXpo" />
+		<constructor-arg name="expirePackageTmpl" value="59SMX2XRMGm2Bt8YOq0le2eqRqixqfANhEZEvxdIUvc" />
+		<constructor-arg name="openGroupTmpl" value="2CjWvJqZYlpgs8Jf8FG-4k153AvxIlAvQe3pZicfjVo"/>
+		<constructor-arg name="joinGroupTmpl" value="3TeZAl2yb9QvlvaEjR5dsJxbjRyV6ZXbKROvTJXXzhU"/>
+		<constructor-arg name="spellGroupSuccessTmpl" value="GIqGZEe01eeon0bzq03l4lUGvbVdEj9MmD77QsAIrS0"/>
+		<constructor-arg name="spellGroupFailTmpl" value="f889CnZwpDH5nEEjmUs0V7al1zIITQd_W-sVqqV_K9c"/>
+		<constructor-arg name="joinGroupFailTmpl" value="j3ns-rwQXAd8Zglfu5h_AezmeL1ML19E37CJw9nG4bg"/>
+	</bean>
+
+</beans>

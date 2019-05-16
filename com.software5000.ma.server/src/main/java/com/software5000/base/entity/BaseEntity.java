@@ -20,7 +20,12 @@ public class BaseEntity implements Serializable {
     @NotDatabaseField
     private static final long serialVersionUID = 1L;
 
-    Integer id;
+    public BaseEntity setBaseId(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+      Integer id;
 
     Timestamp createTime =null;
 
@@ -30,7 +35,7 @@ public class BaseEntity implements Serializable {
     Timestamp serviceTime;//服务器时间
 
     public Timestamp getServiceTime() {
-        return new Timestamp(new Date().getTime());
+        return new Timestamp(System.currentTimeMillis());
     }
 
     public Integer getId() {

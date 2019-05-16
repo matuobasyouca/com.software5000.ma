@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="CooperCombo">
+
+    <select id="selectCooperComboPageByParam" parameterType="java.util.Map" resultType="CooperCombo">
+        SELECT
+            c.id,c.comboName,c.comboSalePrice,c.comboBackPrice,c.comboState,c.instructions,
+            c.businessId,c.couponUUID,c.saleComboNum,c.createTime,c.updateTime,b.businessName
+        FROM CooperCombo c
+        LEFT JOIN Business b ON c.businessId = b.id
+        WHERE 1=1
+        <if test="comboState !=null and comboState gt 0">
+            AND c.comboState=#{comboState}
+        </if>
+        <if test="businessId !=null and businessId gt 0">
+            AND c.businessId = #{businessId}
+        </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="CooperComboOrder">
+
+    <resultMap id="CooperComboOrderResult" type="CooperComboOrder">
+        <id property="id" column="id"/>
+        <result property="id" column="id"/>
+        <result property="orderNumber" column="orderNumber"/>
+        <result property="businessId" column="businessId"/>
+        <result property="userId" column="userId"/>
+        <result property="mobile" column="mobile"/>
+        <result property="carNumber" column="carNumber"/>
+        <result property="cooperComboId" column="cooperComboId"/>
+        <result property="state" column="state"/>
+        <result property="quantity" column="quantity"/>
+        <result property="totalAmount" column="totalAmount"/>
+        <result property="backAmount" column="backAmount"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
+        <result property="confirmState" column="confirmState"/>
+        <association property="cooperCombo" javaType="cooperCombo">
+            <result property="comboName" column="comboName"/>
+            <result property="comboBackPrice" column="comboBackPrice"/>
+            <result property="comboSalePrice" column="comboSalePrice"/>
+            <result property="comboState" column="comboState"/>
+            <result property="couponUUID" column="couponUUID"/>
+            <result property="businessName" column="businessName"/>
+        </association>
+        <association property="user" javaType="user">
+            <result property="wxOpenId" column="wxOpenId"/>
+        </association>
+    </resultMap>
+    <select id="selectCooperComboDetailById" parameterType="int" resultMap="CooperComboOrderResult">
+        select a.id,a.orderNumber,a.businessId,a.mobile,a.carNumber,a.cooperComboId,
+        a.state,a.quantity, a.totalAmount,a.backAmount,a.createTime,a.updateTime,
+        c.comboName,c.comboSalePrice,c.comboBackPrice,c.comboState,c.couponUUID
+        FROM CooperComboOrder a
+        INNER JOIN CooperCombo c ON a.cooperComboId =c.id
+        WHERE  1=1
+        <if test="_parameter !=null and _parameter gt 0">
+            AND a.id=#{_parameter}
+        </if>
+    </select>
+
+    <select id="selectCooperComboOrderPageByParam" parameterType="java.util.Map" resultMap="CooperComboOrderResult">
+        SELECT a.id, a.orderNumber, a.businessId, a.userId, a.mobile, a.carNumber, a.cooperComboId, a.state, a.quantity, a.totalAmount,a.backAmount, a.createTime,
+        a.updateTime, c.comboName, c.comboSalePrice, c.comboBackPrice, c.comboState, c.couponUUID, b.businessName, cm.state as confirmState
+        FROM CooperComboOrder a
+        LEFT JOIN CooperCombo c ON a.cooperComboId = c.id
+        LEFT JOIN Business b ON a.businessId = b.id
+        LEFT JOIN WeChatPayOrder o ON a.id = o.packageOrderId AND o.orderType=4
+        LEFT JOIN CheckMoneyOrder cm ON o.checkMoneyOrderId = cm.id
+        WHERE  1=1
+        <if test="id !=null and id gt 0">
+            AND a.id=#{id}
+        </if>
+        <if test="businessId !=null and businessId gt 0">
+            AND a.businessId = #{businessId}
+        </if>
+        <if test="payState !=null and payState gt 0">
+            AND a.state = #{payState}
+        </if>
+        <if test="comboState !=null and comboState gt 0">
+            AND c.comboState = #{comboState}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            AND a.createTime &gt;=#{startTime}
+        </if>
+        <if test="endTime!= null and endTime != ''">
+            AND a.createTime &lt;=#{endTime}
+        </if>
+    </select>
+
+</mapper>

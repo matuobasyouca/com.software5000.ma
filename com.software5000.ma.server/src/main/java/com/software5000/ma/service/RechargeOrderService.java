@@ -5,6 +5,7 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.RechargeOrder;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
@@ -25,7 +26,7 @@ public class RechargeOrderService {
     private Log log = LogFactory.getLog(RechargeOrderService.class);
 
     @Autowired
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private FinanceService financeService;
@@ -47,9 +48,9 @@ public class RechargeOrderService {
      */
     public RechargeOrder insertRechargeOrder(RechargeOrder rechargeOrder) throws ServiceException{
         try {
-            rechargeOrder=baseDao.insertEntity(rechargeOrder);
+            rechargeOrder= (RechargeOrder) baseDao.insertEntity(rechargeOrder);
             return rechargeOrder;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             log.error("保存rechargeOrder失败，rechargeOrder=" + rechargeOrder,e);
             throw new ServiceException(Constant.StateCode.SAVE_ERROR.codeName);
         }
@@ -77,8 +78,8 @@ public class RechargeOrderService {
      */
     public void updateRechargeOrder(RechargeOrder rechargeOrder) throws ServiceException{
         try {
-            baseDao.updateEntityOnlyHaveValue(rechargeOrder,false);
-        } catch (SQLException e) {
+            baseDao.updateEntity(rechargeOrder,null,false);
+        } catch (Exception e) {
             log.error("修改rechargeOrder失败，rechargeOrder=" + rechargeOrder,e);
             throw new ServiceException(Constant.StateCode.UPDATE_ERROR.codeName);
         }
@@ -117,7 +118,7 @@ public class RechargeOrderService {
      */
     public PageInfo<RechargeOrder> selectPayPackageOrderPage(Map param)throws ServiceException{
         try {
-            PageInfo pageInfo=baseDao.selectListByPage(RechargeOrder.Daos.selectPayRechargeOrderByState.sqlMapname,param,Integer.parseInt(param.get("startPage").toString()),Integer.parseInt(param.get("pageSize").toString()),"o.updateTime DESC");
+            PageInfo pageInfo=baseDao.selectEntitiesByPage(RechargeOrder.Daos.selectPayRechargeOrderByState.sqlMapname,param,Integer.parseInt(param.get("startPage").toString()),Integer.parseInt(param.get("pageSize").toString()),"o.updateTime DESC");
             if(null!=pageInfo.getList()&&pageInfo.getList().size()>0){
                 param.put("id",pageInfo.getList());
                 pageInfo.setList(selectRechargeOrderById(param));

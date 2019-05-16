@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="BusinessPackage">
+
+    <resultMap id="BusinessPackageResult" type="BusinessPackage">
+        <id property="id" column="id"/>
+        <result property="packageName" column="packageName"/>
+        <result property="validTerm" column="validTerm"/>
+        <result property="originalPrice" column="originalPrice"/>
+        <result property="salePrice" column="salePrice"/>
+        <result property="businessId" column="businessId"/>
+        <result property="packageType" column="packageType"/>
+        <result property="packageState" column="packageState"/>
+        <result property="updateTime" column="updateTime"/>
+        <result property="createTime" column="createTime"/>
+        <result property="instructions" column="instructions"/>
+        <collection property="packageAndItems" ofType="PackageAndItem">
+            <result property="id" column="packageAndItemId"/>
+            <result property="serviceItemId" column="serviceItemId"/>
+            <result property="useTimes" column="useTimes"/>
+            <association property="serviceItem" javaType="ServiceItem">
+                <result property="itemName" column="itemName"/>
+                <result property="salePrice" column="itemsalePrice"/>
+                <result property="originalPrice" column="itemoriginalPrice"/>
+                <result property="id" column="itemId"/>
+            </association>
+        </collection>
+    </resultMap>
+
+
+    <!--查看套餐卡-->
+    <select id="selectBusinessPackageByPage" parameterType="java.util.HashMap" resultMap="BusinessPackageResult">
+        SELECT
+        bp.packageName,bp.validTerm,bp.originalPrice,bp.salePrice,bp.businessId,bp.packageType,bp.id,bp.packageState,bp.updateTime,bp.createTime,bp.instructions,
+        pai.serviceItemId,pai.useTimes,pai.id AS packageAndItemId,
+        si.itemName,si.id AS itemId,si.salePrice AS itemsalePrice,si.originalPrice AS itemoriginalPrice
+        FROM BusinessPackage bp
+        LEFT JOIN PackageAndItem pai ON bp.id=pai.businessPackageId
+        LEFT JOIN ServiceItem si ON si.id=pai.serviceItemId
+        WHERE 1=1
+        <if test="businessId !=null and businessId gt 0">
+            and bp.businessId=#{businessId}
+        </if>
+        <if test="packageState !=null and packageState gt 0">
+            and bp.packageState=#{packageState}
+        </if>
+        <if test="packageIds !=null and packageIds.size >0">
+            AND bp.id in
+            <foreach collection="packageIds" item="packageId" index="index" open="(" separator="," close=")">
+                #{packageId}
+            </foreach>
+        </if>
+        and bp.packageState!=3
+        ORDER BY bp.packageState ASC ,bp.updateTime DESC
+    </select>
+    <!--获取套餐卡的id-->
+    <select id="selectBusinessPackageIdsByPage" parameterType="java.util.HashMap" resultType="BusinessPackage">
+        SELECT bp.id
+        FROM BusinessPackage bp
+        where 1=1
+        <if test="businessId !=null and businessId gt 0">
+            and bp.businessId=#{businessId}
+        </if>
+        <if test="packageState !=null and packageState gt 0">
+            and bp.packageState=#{packageState}
+        </if>
+        and bp.packageState!=3
+        ORDER BY bp.packageState ASC ,bp.updateTime DESC
+    </select>
+
+    <!--查看套餐卡-->
+    <select id="selectBusinessPackageList" parameterType="java.util.HashMap" resultType="BusinessPackage">
+        SELECT
+        b.id,b.packageName,b.validTerm,b.originalPrice,b.salePrice,b.businessId,packageType,b.packageState,b.instructions,
+        b.createTime,b.updateTime
+        FROM BusinessPackage b
+        WHERE 1=1
+        <if test="packageName !=null and packageName!=''">
+            and b.packageName=#{packageName}
+        </if>
+        and b.packageState=1
+    </select>
+
+    <!--查看套餐卡详情-->
+    <select id="selectBusinessPackageById" parameterType="java.util.HashMap" resultMap="BusinessPackageResult">
+        SELECT bp.packageName,bp.validTerm,bp.originalPrice,bp.salePrice,bp.businessId,bp.packageType,bp.id,bp.packageState,bp.updateTime,bp.createTime,bp.instructions,
+        pai.serviceItemId,pai.useTimes,pai.id AS packageAndItemId,
+        si.itemName,si.id AS itemId,si.salePrice AS itemsalePrice,si.originalPrice AS itemoriginalPrice
+        FROM BusinessPackage bp
+        LEFT JOIN PackageAndItem pai ON bp.id=pai.businessPackageId
+        LEFT JOIN ServiceItem si ON si.id=pai.serviceItemId
+        WHERE 1=1
+            and bp.id=#{businessPackageId}
+    </select>
+
+    <delete id="deletePackageAndItem" parameterType="java.lang.Integer">
+        DELETE FROM  PackageAndItem WHERE businessPackageId = #{id};
+    </delete>
+
+    <select id="selectBusinessPackageCount" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        select count(id) from BusinessPackage where businessId=#{businessId} and packageState!=3
+    </select>
+
+
+    <resultMap id="BusinessPackageEmkt" type="BusinessPackage">
+        <id property="id" column="id"/>
+        <result property="packageName" column="packageName"/>
+        <result property="validTerm" column="validTerm"/>
+        <result property="salePrice" column="bpsalePrice"/>
+        <collection property="packageAndItems" ofType="PackageAndItem">
+            <result property="id" column="packageAndItemId"/>
+            <result property="useTimes" column="useTimes"/>
+            <association property="serviceItem" javaType="ServiceItem">
+                <result property="id" column="itemId"/>
+                <result property="itemName" column="itemName"/>
+            </association>
+        </collection>
+    </resultMap>
+    <!--根据商家的id和套餐的id查询商家名称及套餐信息-->
+    <select id="selectBusinessPackageForOpenEmkt" parameterType="java.util.Map" resultMap="BusinessPackageEmkt">
+        SELECT bp.id as id,
+          bp.packageName as packageName,bp.validTerm as validTerm,bp.salePrice as bpsalePrice,
+          pai.id as packageAndItemId,pai.useTimes as useTimes,
+          si.id as itemId,si.itemName as itemName
+        FROM BusinessPackage bp
+        LEFT JOIN PackageAndItem pai ON bp.id=pai.businessPackageId
+        LEFT JOIN ServiceItem si ON si.id=pai.serviceItemId
+        where bp.id IN (${packIds})
+    </select>
+
+</mapper>

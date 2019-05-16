@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="PackClusterOpenRecord">
+    <select id="selectSuccessNum" parameterType="java.util.HashMap" resultType="java.lang.Integer">
+        select count(*)  from PackClusterOpenRecord
+        where 1=1
+        <if test="id != null and id != ''">
+            and packClusterId=#{id}
+        </if>
+        <if test="state != null and state != ''">
+            and state=#{state}
+        </if>
+    </select>
+
+    <resultMap id="timeOutPackClusterResult" type="PackClusterOpenRecord">
+        <id property="id" column="id"/>
+        <result property="packClusterId" column="packClusterId"/>
+        <result property="packClusterNo" column="packClusterNo"/>
+        <result property="colonelOpenId" column="colonelOpenId"/>
+        <result property="endDay" column="endDay"/>
+        <result property="createTime" column="createTime"/>
+        <result property="state" column="state"/>
+        <collection  property="packClusterBuyRecords" ofType="PackClusterBuyRecord">
+            <result property="id" column="pcbrId"/>
+            <result property="orderNo" column="orderNo"/>
+            <result property="wxOpenId" column="wxOpenId"/>
+            <result property="payMoney" column="payMoney"/>
+            <result property="userId" column="userId"/>
+            <result property="openRecordId" column="openRecordId"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectTimeOutPackCluster" resultMap="timeOutPackClusterResult">
+        SELECT pcor.*,pcbr.id as pcbrId,pcbr.orderNo,pcbr.wxOpenId,pcbr.payMoney,pcbr.userId,pcbr.openRecordId FROM PackClusterOpenRecord pcor
+        INNER JOIN PackClusterBuyRecord pcbr ON pcor.id=pcbr.openRecordId AND pcbr.payState=2
+        WHERE pcor.endDay &lt; now() AND pcor.state=1
+    </select>
+
+</mapper>

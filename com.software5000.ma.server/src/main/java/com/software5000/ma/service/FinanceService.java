@@ -7,6 +7,7 @@ package com.software5000.ma.service;
 import com.github.pagehelper.PageInfo;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
+import com.software5000.base.MyBaseDao;
 import com.software5000.base.entity.BaseEntity;
 import com.software5000.ma.dto.FinanceInOrOutComeDto;
 import com.software5000.ma.entity.*;
@@ -27,7 +28,7 @@ public class FinanceService {
     private Log log = LogFactory.getLog(FinanceService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
 
     @Resource
@@ -43,7 +44,7 @@ public class FinanceService {
      * @throws SQLException
      */
     public Finance insertFinanceRecord(Finance finance) throws SQLException {
-        return baseDao.insertEntity(finance);
+        return (Finance) baseDao.insertEntity(finance);
     }
 
     /**
@@ -54,7 +55,7 @@ public class FinanceService {
      * @throws SQLException
      */
     public List<Finance> insertFinanceRecordList(List<Finance> finance) throws SQLException {
-        return baseDao.insertEntityList(finance);
+        return baseDao.insertEntities(finance);
     }
 
     /**
@@ -270,7 +271,7 @@ public class FinanceService {
         if(ValidUtil.isEmpty(orderBy)) orderBy = "id desc";
         Integer startPage = (Integer) map.getOrDefault("startPage", 1);
         Integer pageSize = (Integer) map.getOrDefault("pageSize", 10);
-        return baseDao.selectListByPage(Finance.Daos.selectPageFinance.sqlMapname, map, startPage, pageSize, orderBy);
+        return baseDao.selectEntitiesByPage(Finance.Daos.selectPageFinance.sqlMapname, map, startPage, pageSize, orderBy);
     }
 
     /**
@@ -299,7 +300,7 @@ public class FinanceService {
      * @throws SQLException
      */
     public Finance InsertFinaceOtherPay(Finance finance) throws SQLException {
-        return baseDao.insertEntity(finance);
+        return (Finance) baseDao.insertEntity(finance);
     }
     /* ----------------------------------------------------------- select (查) end ----------------------------------------------------- -----------*/
     //</editor-fold>

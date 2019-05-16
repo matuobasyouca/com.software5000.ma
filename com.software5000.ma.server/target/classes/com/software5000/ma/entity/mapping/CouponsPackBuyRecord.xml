@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="CouponsPackBuyRecord">
+
+    <update id="updateBuyRecordForInsert" parameterType="CouponsPackBuyRecord">
+        update CouponsPackBuyRecord
+        set state = 3
+        where (wxOpenId = #{wxOpenId} or carNumber = #{carNumber}) and state = 1
+    </update>
+
+    <select id="selectBuyRecordForCheck" parameterType="java.util.Map" resultType="CouponsPackBuyRecord">
+        select *
+        from CouponsPackBuyRecord
+        where state = 2
+        and (
+        <if test="wxOpenId != null and wxOpenId!=''">
+            wxOpenId = #{wxOpenId}
+        </if>
+        <if test="wxOpenId != null and wxOpenId!='' and carNumber != null and carNumber!=''">
+            or
+        </if>
+        <if test="carNumber != null and carNumber!=''">
+            carNumber = #{carNumber}
+        </if>)
+    </select>
+
+    <select id="selectPageBuyRecord" parameterType="java.util.Map" resultType="CouponsPackBuyRecord">
+        select r.*,b.businessName,po.id AS payOrderId,po.notifyUrl AS prize
+        from CouponsPackBuyRecord r
+        INNER join Business b ON  r.businessId=b.id
+        LEFT JOIN PayOrder po ON r.orderNo=po.orderNo AND po.payState=2
+        where 1=1
+        <if test="businessId != null and businessId !=''">
+            and r.businessId = #{businessId}
+        </if>
+        <if test="stateList !=null and stateList.size >0">AND r.state in
+            <foreach collection="stateList" item="state" index="index" open="(" separator="," close=")">
+                #{state}
+            </foreach>
+        </if>
+        <if test="createTimeStart != null and createTimeStart!=''">
+            AND r.createTime &gt;= #{createTimeStart}
+        </if>
+        <if test="createTimeEnd != null and createTimeEnd !=''">
+            AND r.createTime &lt;= #{createTimeEnd}
+        </if>
+    </select>
+
+    <select id="selectCooperBusiness" resultType="Business">
+        SELECT c.businessId as id,b.businessName FROM `CouponsPackBuyRecord` c
+        INNER JOIN Business b on b.id=c.businessId GROUP BY c.businessId;
+    </select>
+
+</mapper>

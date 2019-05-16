@@ -1,6 +1,7 @@
 package com.software5000.ma.service;
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.Car;
 import com.software5000.ma.entity.MemberLvl;
 import com.software5000.ma.entity.MemberLvlRecord;
@@ -26,7 +27,7 @@ public class MemberLvlRecordService {
     private Log log = LogFactory.getLog(MemberLvlRecordService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private CarService carService;
@@ -34,7 +35,7 @@ public class MemberLvlRecordService {
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
     public MemberLvlRecord insertMemberLvlRecord(MemberLvlRecord memberLvlRecord) throws SQLException {
-        return baseDao.insertEntity(memberLvlRecord);
+        return (MemberLvlRecord) baseDao.insertEntity(memberLvlRecord);
     }
 
     /**
@@ -115,7 +116,7 @@ public class MemberLvlRecordService {
             if (memberLvlRecord.getTotalTimes() == null) memberLvlRecord.setTotalTimes(0);
             memberLvlRecord.setTotalTimes(monetary >= 0 ? memberLvlRecord.getTotalTimes() + 1 : memberLvlRecord.getTotalTimes() - 1);
             if (memberLvlRecord.getTotalTimes() < 0) memberLvlRecord.setTotalTimes(0);
-            baseDao.updateEntityOnlyHaveValueAndNull(memberLvlRecord, Arrays.asList(new String[]{""}), true);
+            baseDao.updateEntity(memberLvlRecord, "id", true);
         } else {
             if (carService.selectUserCarById(userId).size() != 0) {
                 memberLvlRecord = new MemberLvlRecord();
@@ -136,7 +137,7 @@ public class MemberLvlRecordService {
      * @throws SQLException
      */
     public void updateMemberLvlRecord(MemberLvlRecord memberLvlRecord) throws SQLException {
-        baseDao.updateEntityOnlyHaveValueAndNull(memberLvlRecord, Arrays.asList("remarks"), true);
+        baseDao.updateEntity(memberLvlRecord, "remarks", true);
     }
 
     /**
@@ -144,7 +145,7 @@ public class MemberLvlRecordService {
      */
 
     public void updateMemberBalance(MemberLvlRecord memberLvlRecord) throws SQLException {
-        baseDao.updateEntityOnlyHaveValueAndNull(memberLvlRecord, Arrays.asList("memberBalance"), true);
+        baseDao.updateEntity(memberLvlRecord, "memberBalance", true);
 
     }
 
@@ -191,7 +192,7 @@ public class MemberLvlRecordService {
     public PageInfo selectByPage(Map<String, Object> paramMap) throws SQLException {
 
         //因为车辆导致分页异常，先查询出会员记录ID
-        PageInfo pageInfo = baseDao.selectListByPage(MemberLvlRecord.Daos.selectPageMemberLvlRecordIdByParam.sqlMapname, paramMap,
+        PageInfo pageInfo = baseDao.selectEntitiesByPage(MemberLvlRecord.Daos.selectPageMemberLvlRecordIdByParam.sqlMapname, paramMap,
                 Integer.valueOf(paramMap.getOrDefault("startPage", 1).toString()),
                 Integer.valueOf(paramMap.getOrDefault("pageSize", 10).toString()), "id desc");
         //如果有数据的时候，就去获取详细信息

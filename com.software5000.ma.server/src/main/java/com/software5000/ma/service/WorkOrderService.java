@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
+import com.software5000.base.MyBaseDao;
 import com.software5000.base.ServiceException;
 import com.software5000.base.entity.ReturnResult;
 import com.software5000.base.mybatis.plugins.PermissionHelper;
@@ -35,7 +36,7 @@ public class WorkOrderService {
     private Log log = LogFactory.getLog(WorkOrderService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private UserService userService;
@@ -81,19 +82,19 @@ public class WorkOrderService {
                 User nameUser = new User();
                 nameUser.setId(workOrder.getUserId());
                 nameUser.setRealName(workOrder.getUser().getRealName());
-                baseDao.updateEntityNotEmpty(nameUser);
+                baseDao.updateEntity(nameUser);
             }
         }
 
         //新增工单信息
-        WorkOrder order = baseDao.insertEntity(workOrder);
+        WorkOrder order = (WorkOrder) baseDao.insertEntity(workOrder);
         List<WorkOrderDetail> workOrderDetails = workOrder.getWorkOrderDetails();
         List<WorkOrderDetail> orderDetails = workOrderDetails.stream().peek(detail -> {
             detail.setWorkOrderId(order.getId());
         }).collect(Collectors.toList());
 
         //新增工单项目
-        order.setWorkOrderDetails(baseDao.insertEntityList(orderDetails));
+        order.setWorkOrderDetails(baseDao.insertEntities(orderDetails));
 
         return order;
     }
@@ -105,7 +106,7 @@ public class WorkOrderService {
      * @throws SQLException
      */
     public WorkOrderImg insertWorkOrderImg(WorkOrderImg workOrderImg) throws SQLException {
-        return baseDao.insertEntity(workOrderImg);
+        return (WorkOrderImg) baseDao.insertEntity(workOrderImg);
     }
 
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
@@ -122,7 +123,7 @@ public class WorkOrderService {
      */
     public void deleteWorkOrderById(Integer id) throws SQLException {
         //删除
-        baseDao.deleteEntityById(id, WorkOrder.class);
+        baseDao.deleteEntity(new WorkOrder().setBaseId(id));
     }
 
     /**
@@ -139,12 +140,12 @@ public class WorkOrderService {
             WorkOrder workOrder = baseDao.selectEntityById(detail.getWorkOrderId(), WorkOrder.class);
             if(Constant.WorkOrderState.SERVICE_ING.codeName.equals(workOrder.getState())) {
                 //删除工单项目
-                baseDao.deleteEntityById(detailId, WorkOrderDetail.class);
+                baseDao.deleteEntity(new WorkOrderDetail().setBaseId(detailId));
 
                 List<WorkOrderDetail> list = selectWorkOrderDetailByOrderId(detail.getWorkOrderId());
                 if(list == null || list.size() == 0) {
                     //删除
-                    baseDao.deleteEntityById(detail.getWorkOrderId(), WorkOrder.class);
+                    baseDao.deleteEntity(new WorkOrder().setBaseId(detail.getWorkOrderId()));
                 }
             }
         }
@@ -156,7 +157,7 @@ public class WorkOrderService {
      * @throws SQLException
      */
     public void deleteWorkOrderImgById(Integer id) throws SQLException {
-        baseDao.deleteEntityById(id, WorkOrderImg.class);
+        baseDao.deleteEntity(new WorkOrderImg().setBaseId(id));
     }
 
     /* ----------------------------------------------------------- delete (删) end ----------------------------------------------------- -----------*/
@@ -173,7 +174,7 @@ public class WorkOrderService {
      * @throws SQLException
      */
     public void updateWorkOrder(WorkOrder workOrder) throws SQLException {
-        baseDao.updateEntityNotEmpty(workOrder);
+        baseDao.updateEntity(workOrder);
     }
 
     /**
@@ -196,22 +197,22 @@ public class WorkOrderService {
             //过滤出新增->新增到数据库中
             List<WorkOrderDetail> insertCollect = workOrderDetails.stream().filter(workOrderDetail -> !originalWorkDetails.contains(workOrderDetail)).collect(Collectors.toList());
             insertCollect.forEach(insert -> insert.setWorkOrderId(workOrder.getId()));
-            List list = baseDao.insertEntityList(insertCollect);
+            List list = baseDao.insertEntities(insertCollect);
             if (list != null && list.size() > 0) {
                 newWorkOrderDetails.addAll(list);
             }
 
             //过滤出删除->删除原有存在库了的数据
             List<WorkOrderDetail> deleteCollect = originalWorkDetails.stream().filter(originalWorkDetail -> !workOrderDetails.contains(originalWorkDetail)).collect(Collectors.toList());
-            baseDao.deleteEntitys(deleteCollect);
+//            baseDao.deleteEntitys(deleteCollect);
 
             //过滤出不变的->更新内容到数据库
             List<WorkOrderDetail> updateCollect = workOrderDetails.stream().filter(workOrderDetail -> originalWorkDetails.contains(workOrderDetail)).collect(Collectors.toList());
             newWorkOrderDetails.addAll(updateCollect);
             updateCollect.forEach(u -> {
                 try {
-                    baseDao.updateEntityOnlyHaveValueAndNull(u, Arrays.asList(new String[]{"discountPrice","discountNumber","couponUuid","couponName","couponDeduct","workerId","salerId"}), true);
-                } catch (SQLException e) {
+                    baseDao.updateEntity(u, "discountPrice,discountNumber,couponUuid,couponName,couponDeduct,workerId,salerId", true);
+                } catch (Exception e) {
                     return;
                 }
             });
@@ -219,14 +220,14 @@ public class WorkOrderService {
         }
 
         //判断使用的卡券是否有更新
-        baseDao.updateEntityOnlyHaveValueAndNull(workOrder, Arrays.asList(new String[]{"couponUuid"}), true);
+        baseDao.updateEntity(workOrder, "couponUuid", true);
 
         //更新会员名称
         if(workOrder.getUser() != null && !ValidUtil.isEmpty(workOrder.getUser().getRealName())) {
             User user = new User();
             user.setId(workOrder.getUserId());
             user.setRealName(workOrder.getUser().getRealName());
-            baseDao.updateEntityNotEmpty(user);
+            baseDao.updateEntity(user);
         }
     }
 
@@ -303,7 +304,7 @@ public class WorkOrderService {
             //更新工单中的信息
             workOrder.setState(Constant.WorkOrderState.COMPLETE.codeName);
             workOrder.setPayTime(new Timestamp(System.currentTimeMillis()));
-            baseDao.updateEntityOnlyHaveValue(workOrder, false);
+            baseDao.updateEntity(workOrder,null, false);
 
             //更新会员及套餐信息
             updateMemberInfoByWorkOrder(workOrder, true);
@@ -416,7 +417,7 @@ public class WorkOrderService {
         workOrder.setId(orderId);
         workOrder.setState(Constant.WorkOrderState.NO_PAY.codeName);
         workOrder.setPayTime(null);
-        baseDao.updateEntityOnlyHaveValueAndNull(workOrder, Arrays.asList(new String[]{"payTime"}), true);
+        baseDao.updateEntity(workOrder, "payTime", true);
 
         //查询工单信息
         WorkOrder order = selectWorkOrderById(orderId);
@@ -507,7 +508,7 @@ public class WorkOrderService {
      * @throws SQLException
      */
     public PageInfo<WorkOrder> selectWorkOrderPage(Map<String, Object> param) throws SQLException {
-        PageInfo<WorkOrder> pageInfo = baseDao.selectListByPage(WorkOrder.Daos.selectWorkOrderPage.sqlMapname
+        PageInfo<WorkOrder> pageInfo = baseDao.selectEntitiesByPage(WorkOrder.Daos.selectWorkOrderPage.sqlMapname
                 ,param
                 ,Integer.valueOf(param.getOrDefault("startPage",1).toString())
                 ,Integer.valueOf(param.getOrDefault("pageSize",10).toString())
@@ -619,7 +620,7 @@ public class WorkOrderService {
     public PageInfo<WorkOrder> selectWorkOrderPageForWap(Map<String, Object> param) throws SQLException {
 
         //获取满足条件的工单信息
-        PageInfo<WorkOrder> pageInfo = baseDao.selectListByPage(WorkOrder.Daos.selectWorkOrderPage.sqlMapname
+        PageInfo<WorkOrder> pageInfo = baseDao.selectEntitiesByPage(WorkOrder.Daos.selectWorkOrderPage.sqlMapname
                                                                ,param
                                                                ,Integer.valueOf(param.getOrDefault("startPage",1).toString())
                                                                ,Integer.valueOf(param.getOrDefault("pageSize",10).toString())
@@ -673,7 +674,7 @@ public class WorkOrderService {
         String orderBy = param.getOrDefault("orderBy","workOrderNum desc").toString();
         Integer startPage = Integer.valueOf(param.getOrDefault("startPage", 1).toString());
         Integer pageSize = Integer.valueOf(param.getOrDefault("pageSize", 10).toString());
-        return baseDao.selectListByPage(WorkOrder.Daos.selectPagePaymentRateDto.sqlMapname, param, startPage, pageSize,orderBy);
+        return baseDao.selectEntitiesByPage(WorkOrder.Daos.selectPagePaymentRateDto.sqlMapname, param, startPage, pageSize,orderBy);
     }
 
     /**
@@ -715,7 +716,7 @@ public class WorkOrderService {
         PageInfo pageInfo = null;
         String orderByStr = "updateTime desc";
         if (paramMap.get("orderBy")!= null) orderByStr = paramMap.get("orderBy").toString();
-        pageInfo = baseDao.selectListByPage(WorkOrder.Daos.selectWorkOrderByParam.sqlMapname, paramMap,Integer.parseInt( paramMap.get("startPage").toString()), Integer.parseInt( paramMap.get("pageSize").toString()), orderByStr);
+        pageInfo = baseDao.selectEntitiesByPage(WorkOrder.Daos.selectWorkOrderByParam.sqlMapname, paramMap,Integer.parseInt( paramMap.get("startPage").toString()), Integer.parseInt( paramMap.get("pageSize").toString()), orderByStr);
         if (pageInfo.getList().size() > 0) {
             Map workIdsMap = new HashMap();
             List<Integer> workOrderIds = new ArrayList<>();
@@ -733,7 +734,7 @@ public class WorkOrderService {
     public Map selectInitialByOpenId(Map param) throws ServiceException {
         try{
             return (Map)baseDao.selectObject(WorkOrder.Daos.selectInitialByOpenId.sqlMapname,param);
-        }catch (SQLException e) {
+        }catch (Exception e) {
             log.error("查询失败，param="+param,e);
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }

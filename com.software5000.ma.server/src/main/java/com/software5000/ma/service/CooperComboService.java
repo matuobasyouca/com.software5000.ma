@@ -5,6 +5,7 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.CooperCombo;
 import com.software5000.base.BaseDao;
 import com.zscp.master.util.ValidUtil;
@@ -23,7 +24,7 @@ public class CooperComboService {
     private Log log = LogFactory.getLog(CooperComboService.class);
 
     @Autowired
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
@@ -72,7 +73,7 @@ public class CooperComboService {
         if(!ValidUtil.isEmpty(paramMap.get("orderBy"))){
             orderByStr = paramMap.get("orderBy").toString();
         }
-        PageInfo pageInfo =baseDao.selectListByPage(CooperCombo.Daos.selectCooperComboPageByParam.sqlMapname,paramMap,
+        PageInfo pageInfo =baseDao.selectEntitiesByPage(CooperCombo.Daos.selectCooperComboPageByParam.sqlMapname,paramMap,
                 (Integer)paramMap.getOrDefault("startPage",1),
                 (Integer)paramMap.getOrDefault("pageSize",10),
                 orderByStr

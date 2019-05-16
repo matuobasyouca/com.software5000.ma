@@ -4,6 +4,7 @@ package com.software5000.ma.service;
  * Created by Administrator on 2017/7/24.
  */
 
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.Car;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
@@ -21,7 +22,7 @@ public class CarService {
     private Log log = LogFactory.getLog(CarService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private UserService userService;
@@ -41,7 +42,7 @@ public class CarService {
         car.setUserId(Integer.valueOf(paramMap.get("userId").toString()));
         car.setCarNumber(paramMap.get("carNumber").toString());
         car.setCarState(Constant.CarState.NORMAL.codeName);
-        return baseDao.insertEntity(car);
+        return (Car) baseDao.insertEntity(car);
     }
 
     /**
@@ -52,7 +53,7 @@ public class CarService {
      * @throws SQLException
      */
     public Car insertCarNumberByCar(Car car) throws SQLException {
-        return baseDao.insertEntity(car);
+        return (Car) baseDao.insertEntity(car);
     }
 
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
@@ -69,7 +70,7 @@ public class CarService {
      * @throws SQLException
      */
     public void deleteCar(Car car) throws SQLException {
-        baseDao.deleteEntity(car);
+        baseDao.deleteEntity(car,"id");
     }
 
     /* ----------------------------------------------------------- delete (删) end ----------------------------------------------------- -----------*/
@@ -86,7 +87,7 @@ public class CarService {
      * @throws SQLException
      */
     public void updateCarChangeUserId(Car car) throws SQLException {
-        baseDao.updateEntityNotEmpty(car);
+        baseDao.updateEntity(car);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/

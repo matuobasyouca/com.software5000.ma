@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="User">
+
+    <select id="selectUserByCarNo" parameterType="java.lang.String" resultType="User">
+        SELECT u.* FROM User u
+        INNER JOIN Car c ON u.id=c.userId WHERE c.carNumber = #{carNumber} AND c.carState IN (1);
+    </select>
+
+    <!-- 查询商家会员信息中的所有车牌号 -->
+    <select id="selectBusinessCarByParam" parameterType="java.util.Map" resultType="BusinessCarDto">
+        select u.id as userId
+              ,u.realName as realName
+              ,u.mobile as mobile
+              ,c.carNumber as carNumber
+              ,ml.lvlName as lvlName
+              ,m.id as recordId
+              ,u.wxOpenId as wxOpenId
+        from Car c
+        left join User u on u.id = c.userId
+        left join MemberLvlRecord m on m.userId = u.id
+        left join MemberLvl ml on ml.id = m.memberLvlId
+        where c.carState = 1
+        <if test="carNumber != null and carNumber != ''">
+            and c.carNumber like upper(CONCAT('%',#{carNumber},'%' ))
+        </if>
+        <if test="realName != null and realName != ''">
+            and u.realName like upper(CONCAT('%',#{realName},'%' ))
+        </if>
+        <if test="keyWord != null and keyWord != ''">
+            and (c.carNumber like upper(CONCAT('%',#{keyWord},'%' )) or u.mobile like upper(CONCAT('%',#{keyWord},'%' )) or u.realName like upper(CONCAT('%',#{keyWord},'%' )))
+        </if>
+        order by
+        <if test="businessId!= null and businessId!=''">
+            LOCATE(CONCAT(',',#{businessId},','),CONCAT(',',m.businessId,',')) desc,
+        </if>
+        <if test="carSelect!= null and carSelect!=''">
+            LOCATE(#{carSelect},c.carNumber) desc,
+        </if>
+        u.id desc
+    </select>
+
+    <!-- 根据车牌号获取会员信息（包含到店信息） -->
+    <select id="selectUserByCarNumberForBusiness" parameterType="java.lang.String" resultType="BusinessCarDto">
+        select u.id as userId
+              ,u.realName as realName
+              ,u.mobile as mobile
+              ,c.carNumber as carNumber
+              ,ml.lvlName as lvlName
+              ,m.id as recordId
+              ,ml.discount as discount
+              ,m.remarks
+              ,m.memberBalance
+              ,(select count(wo.id) from WorkOrder wo where wo.userId = c.userId and wo.state != '1' and wo.businessId = #{businessId}) as visitCount
+              ,(select max(wo.createTime) from WorkOrder wo where wo.userId = c.userId and wo.state != '1' and wo.businessId = #{businessId} group by wo.userId) as lastVisitTime
+        from Car c
+        left join User u on u.id = c.userId
+        left join MemberLvlRecord m on m.userId = u.id
+        left join MemberLvl ml on ml.id = m.memberLvlId
+        where c.carState = 1
+        <if test="carNumber != null and carNumber != ''">
+            and c.carNumber = upper(#{carNumber})
+        </if>
+        order by c.id desc limit 1
+    </select>
+
+    <!-- 根据openId获取用户信息 -->
+    <select id="selectUserByOpenId" parameterType="java.lang.String" resultType="User">
+        select *
+        from User
+        where wxOpenId = #{value}
+        order by id desc limit 1
+    </select>
+
+    <select id="selectUserByOpenIdOrMobileOrCar" parameterType="java.util.HashMap" resultType="User">
+        SELECT u.* FROM `User` u
+        LEFT JOIN Car c ON u.id = c.userId
+        where u.wxOpenId=#{wxOpenId} OR u.mobile=#{mobile} OR c.carNumber=#{carNumber}
+        order by u.id desc limit 1
+    </select>
+
+    <update id="updateCarChangeUserId" parameterType="java.util.HashMap">
+        update Car set userId=#{userId} where userId in (${ids})
+    </update>
+
+    <!-- 查询商家会员信息中的所有车牌号 -->
+    <select id="selectBusinessUserByParam" parameterType="java.util.Map" resultType="BusinessCarDto">
+        select u.id as userId
+        ,u.realName as realName
+        ,u.mobile as mobile
+        ,ml.lvlName as lvlName
+        ,m.id as recordId
+        ,u.wxOpenId as wxOpenId
+        ,group_concat(c.carNumber) as carNumber
+        from  User u
+        left join Car c on u.id = c.userId and c.carState = 1
+        left join MemberLvlRecord m on m.userId = u.id
+        left join MemberLvl ml on ml.id = m.memberLvlId
+        where 1=1
+        <if test="carNumber != null and carNumber != ''">
+            and c.carNumber like upper(CONCAT('%',#{carNumber},'%' ))
+        </if>
+        <if test="keyWord != null and keyWord != ''">
+            and (c.carNumber like upper(CONCAT('%',#{keyWord},'%' )) or u.mobile like upper(CONCAT('%',#{keyWord},'%' )))
+        </if>
+        GROUP  BY u.id
+        ,u.realName
+        ,u.mobile
+        ,ml.lvlName
+        ,m.id
+        ,u.wxOpenId
+        order by u.id desc
+    </select>
+
+</mapper>

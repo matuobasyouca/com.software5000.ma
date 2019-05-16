@@ -5,6 +5,7 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.BusinessPackage;
 import com.software5000.ma.entity.PackCluster;
 import com.software5000.ma.entity.PackClusterImg;
@@ -27,7 +28,7 @@ public class PackClusterService {
     private Log log = LogFactory.getLog(PackClusterService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private BusinessPackageService businessPackageService;
@@ -44,7 +45,7 @@ public class PackClusterService {
      * @return
      */
     public void insertPackCluster(PackCluster packCluster) throws SQLException {
-        PackCluster p=baseDao.insertEntity(packCluster);
+        PackCluster p= (PackCluster) baseDao.insertEntity(packCluster);
         insertPackClusterImgs(packCluster.getPackClusterImgs(),p.getId());
     }
 
@@ -57,7 +58,7 @@ public class PackClusterService {
     private void insertPackClusterImgs(List<PackClusterImg> packClusterImgs, Integer id)throws SQLException{
         if(null!=packClusterImgs&&packClusterImgs.size()>0){
             List<PackClusterImg> collect =packClusterImgs.stream().peek(packClusterImg ->packClusterImg.setPackClusterId(id)).collect(Collectors.toList());
-            baseDao.insertEntityList(collect);
+            baseDao.insertEntities(collect);
         }
     }
 
@@ -74,7 +75,9 @@ public class PackClusterService {
      * @return
      */
     public void  deletePackCluster(Integer id) throws SQLException {
-        baseDao.deleteEntityById(id,PackCluster.class);
+        PackCluster packCluster = new PackCluster();
+        packCluster.setId(id);
+        baseDao.deleteEntity(packCluster);
         deletePackClusterImg(id);
     }
 
@@ -86,8 +89,7 @@ public class PackClusterService {
     private void deletePackClusterImg(Integer id)throws SQLException{
         PackClusterImg packClusterImg=new PackClusterImg();
         packClusterImg.setPackClusterId(id);
-        List<PackClusterImg> packClusterImgs=baseDao.selectEntity(packClusterImg);
-        baseDao.deleteEntitys(packClusterImgs);
+        baseDao.deleteEntity(packClusterImg);
     }
     /* ----------------------------------------------------------- delete (删) end ----------------------------------------------------- -----------*/
     //</editor-fold>
@@ -103,7 +105,7 @@ public class PackClusterService {
      */
     public void updatePackCluster(PackCluster packCluster)throws SQLException{
         List<String> fileNames=new ArrayList<String>();
-        baseDao.updateEntityOnlyHaveValueAndNull(packCluster,fileNames,true);
+        baseDao.updateEntity(packCluster,null,true);
         deletePackClusterImg(packCluster.getId());
         insertPackClusterImgs(packCluster.getPackClusterImgs(),packCluster.getId());
     }
@@ -114,7 +116,7 @@ public class PackClusterService {
      * @return
      */
     public void updatePackClusterNotEmpty(PackCluster packCluster)throws SQLException{
-        baseDao.updateEntityNotEmpty(packCluster);
+        baseDao.updateEntity(packCluster);
     }
 
     /**
@@ -169,7 +171,7 @@ public class PackClusterService {
      * 查询拼团活动列表
      */
     public PageInfo<PackCluster> selectPackClusterByPage(Map param) throws SQLException{
-        PageInfo pageInfo=baseDao.selectListByPage(PackCluster.Daos.selectPackClusterByPage.sqlMapname,param,Integer.valueOf(param.getOrDefault("startPage",1).toString()),Integer.valueOf(param.getOrDefault("pageSize",10).toString()),null);
+        PageInfo pageInfo=baseDao.selectEntitiesByPage(PackCluster.Daos.selectPackClusterByPage.sqlMapname,param,Integer.valueOf(param.getOrDefault("startPage",1).toString()),Integer.valueOf(param.getOrDefault("pageSize",10).toString()),null);
         List<PackCluster> packClusters=pageInfo.getList();
         for(PackCluster packCluster:packClusters){
             packCluster.setSuccessNum(packClusterOpenRecordService.selectSuccessNum(Constant.PackClusterOpenRecordState.SUCCESS.codeName,packCluster.getId()));

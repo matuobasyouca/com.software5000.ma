@@ -4,6 +4,7 @@ package com.software5000.ma.service;
  * Created by jiye on 2017/8/23.
  */
 
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.PackCluster;
 import com.software5000.ma.entity.PackClusterOpenRecord;
 import com.software5000.base.BaseDao;
@@ -23,7 +24,7 @@ public class PackClusterOpenRecordService {
     private Log log = LogFactory.getLog(PackClusterOpenRecordService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private PackClusterService packClusterService;
@@ -41,7 +42,7 @@ public class PackClusterOpenRecordService {
         packCluster.setId(packClusterOpenRecord.getPackClusterId());
         packCluster.setCanEdit(Constant.canEdit.CANTEDIT.codeName);
         packClusterService.updatePackClusterNotEmpty(packCluster);
-        return baseDao.insertEntity(packClusterOpenRecord);
+        return (PackClusterOpenRecord) baseDao.insertEntity(packClusterOpenRecord);
     }
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
     //</editor-fold>
@@ -57,7 +58,7 @@ public class PackClusterOpenRecordService {
     //<editor-fold desc="update (改)">
     /* ----------------------------------------------------------- update (改) start ----------------------------------------------------------------*/
     public void updatePackClusterOpenRecord(PackClusterOpenRecord packClusterOpenRecord) throws SQLException {
-         baseDao.updateEntityNotEmpty(packClusterOpenRecord);
+         baseDao.updateEntity(packClusterOpenRecord);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/

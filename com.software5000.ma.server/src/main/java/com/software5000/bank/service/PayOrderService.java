@@ -7,6 +7,7 @@ package com.software5000.bank.service;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
 import com.software5000.bank.entity.PayOrder;
+import com.software5000.base.MyBaseDao;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
@@ -19,12 +20,12 @@ public class PayOrderService {
     private Log log = LogFactory.getLog(PayOrderService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
     public PayOrder insertPayOrder(PayOrder payOrder) throws SQLException {
-        return baseDao.insertEntity(payOrder);
+        return (PayOrder) baseDao.insertEntity(payOrder);
     }
 
     /**
@@ -58,7 +59,7 @@ public class PayOrderService {
     /* ----------------------------------------------------------- update (改) start ----------------------------------------------------------------*/
 
     public void updatePayOrder(PayOrder payOrder) throws SQLException {
-        baseDao.updateEntityOnlyHaveValue(payOrder, false);
+        baseDao.updateEntity(payOrder,null, false);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/

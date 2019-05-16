@@ -4,6 +4,7 @@ package com.software5000.ma.service;
  * Created by jiye on 2017/8/7.
  */
 
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.LotteryAward;
 import com.software5000.base.BaseDao;
 import org.apache.commons.logging.Log;
@@ -18,12 +19,12 @@ public class LotteryAwardService {
     private Log log = LogFactory.getLog(LotteryAwardService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
     public LotteryAward insertLotteryAward(LotteryAward lotteryAward) throws SQLException {
-        return baseDao.insertEntity(lotteryAward);
+        return (LotteryAward) baseDao.insertEntity(lotteryAward);
     }
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
     //</editor-fold>
@@ -40,7 +41,7 @@ public class LotteryAwardService {
     /* ----------------------------------------------------------- update (改) start ----------------------------------------------------------------*/
 
     public void updateLotteryAward(LotteryAward lotteryAward) throws SQLException {
-        baseDao.updateEntityNotEmpty(lotteryAward);
+        baseDao.updateEntity(lotteryAward);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/

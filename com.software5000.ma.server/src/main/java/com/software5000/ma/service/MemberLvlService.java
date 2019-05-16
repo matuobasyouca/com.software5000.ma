@@ -5,6 +5,7 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.MemberLvl;
 import com.software5000.base.BaseDao;
 import org.apache.commons.logging.Log;
@@ -20,7 +21,7 @@ public class MemberLvlService {
     private Log log = LogFactory.getLog(MemberLvlService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
@@ -32,7 +33,7 @@ public class MemberLvlService {
      * @throws SQLException
      */
     public MemberLvl insertMemberLvl(MemberLvl memberLvl) throws SQLException {
-        return baseDao.insertEntity(memberLvl);
+        return (MemberLvl) baseDao.insertEntity(memberLvl);
     }
 
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
@@ -55,7 +56,7 @@ public class MemberLvlService {
      * @throws SQLException
      */
     public void updateMemberLvl(MemberLvl memberLvl) throws SQLException {
-        baseDao.updateEntityNotEmpty(memberLvl);
+        baseDao.updateEntity(memberLvl);
     }
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/
     //</editor-fold>
@@ -80,7 +81,7 @@ public class MemberLvlService {
      * @throws SQLException
      */
     public PageInfo<MemberLvl> selectMemberLvlPage(Map<String, Object> param) throws SQLException {
-        return baseDao.selectListByPage(MemberLvl.Daos.selectMemberLvlPage.sqlMapname
+        return baseDao.selectEntitiesByPage(MemberLvl.Daos.selectMemberLvlPage.sqlMapname
                                         ,param
                                         ,Integer.valueOf(param.getOrDefault("startPage", "1").toString())
                                         ,Integer.valueOf(param.getOrDefault("pageSize", "10").toString())

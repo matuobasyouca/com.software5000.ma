@@ -48,7 +48,7 @@ public class BaseController {
     protected ServletContext servletContext;
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private WorkOrderService workOrderService;
@@ -138,7 +138,7 @@ public class BaseController {
     public String refreshMem(HttpServletRequest request) {
 
         try {
-            Constant.initCodes(baseDao.selectEntity(new SystemCode()).stream().collect(toMap(SystemCode::getCodeName, (p) -> p)));
+            Constant.initCodes(((List<SystemCode>)baseDao.selectEntity(new SystemCode())).stream().collect(toMap(SystemCode::getCodeName, (p) -> p)));
             log.info("刷新缓存数据成功！");
             return " refresh memory successful . ";
         } catch (Exception e) {

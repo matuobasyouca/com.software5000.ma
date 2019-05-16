@@ -4,6 +4,7 @@ package com.software5000.ma.service;
  * Created by jiye on 2017/7/19.
  */
 
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.ServiceItemExcelData;
 import com.software5000.ma.entity.UserExcelData;
 import com.software5000.base.BaseDao;
@@ -20,17 +21,17 @@ public class ExcelDataService {
     private Log log = LogFactory.getLog(ExcelDataService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
 
     public List insertUserExcelData(List<UserExcelData> userExcelDatas) throws SQLException {
-        return baseDao.insertEntityList(userExcelDatas);
+        return baseDao.insertEntities(userExcelDatas);
     }
 
     public List insertServiceItemExcelData(List<ServiceItemExcelData> itemExcelDatas) throws SQLException {
-        return baseDao.insertEntityList(itemExcelDatas);
+        return baseDao.insertEntities(itemExcelDatas);
     }
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/
     //</editor-fold>
@@ -75,7 +76,7 @@ public class ExcelDataService {
      */
     public void updateServiceItemExcelData(List<ServiceItemExcelData> itemExcelDatas) throws SQLException {
         for (ServiceItemExcelData itemExcelData : itemExcelDatas) {
-            baseDao.updateEntityNotEmpty(itemExcelData);
+            baseDao.updateEntity(itemExcelData);
         }
     }
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/

@@ -5,6 +5,7 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.dto.BusinessCarDto;
 import com.software5000.ma.entity.Car;
 import com.software5000.ma.entity.MemberLvlRecord;
@@ -27,7 +28,7 @@ public class UserService {
     private Log log = LogFactory.getLog(UserService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private MemberPackageRecordService memberPackageRecordService;
@@ -148,7 +149,7 @@ public class UserService {
      * @throws SQLException
      */
     public void updateUser(User user) throws SQLException {
-        baseDao.updateEntityNotEmpty(user);
+        baseDao.updateEntity(user);
     }
 
     /**
@@ -183,7 +184,7 @@ public class UserService {
             param.put("businessIds",null==businessIds||"".equals(businessIds)?"0":businessIds);
             baseDao.update(MemberLvlRecord.Daos.updateMemberLvlRecordChangeUserId.sqlMapname,param);
             List<MemberLvlRecord> memberLvlRecords= (List<MemberLvlRecord>) baseDao.selectList(MemberLvlRecord.Daos.selectMemberLvlRecord.sqlMapname,null);
-            baseDao.deleteEntitys(memberLvlRecords);
+//            baseDao.deleteEntitys(memberLvlRecords);
         }
     }
 
@@ -258,7 +259,7 @@ public class UserService {
      * @throws SQLException
      */
     public PageInfo selectCarForMemberLv(Map<String, Object> param) throws SQLException {
-        return baseDao.selectListByPage(User.Daos.selectBusinessCarByParam.sqlMapname
+        return baseDao.selectEntitiesByPage(User.Daos.selectBusinessCarByParam.sqlMapname
                 , param
                 , Integer.valueOf(param.getOrDefault("startPage", 1).toString())
                 , Integer.valueOf(param.getOrDefault("pageSize", 10).toString())
@@ -273,7 +274,7 @@ public class UserService {
      * @throws SQLException
      */
     public PageInfo selectBusinessUserByParam(Map<String, Object> param) throws SQLException {
-        return baseDao.selectListByPage(User.Daos.selectBusinessUserByParam.sqlMapname
+        return baseDao.selectEntitiesByPage(User.Daos.selectBusinessUserByParam.sqlMapname
                 , param
                 , Integer.valueOf(param.getOrDefault("startPage", 1).toString())
                 , Integer.valueOf(param.getOrDefault("pageSize", 10).toString())
@@ -425,7 +426,7 @@ public class UserService {
             }
             //合并后删除掉carUser
             if(carUser!=null) {
-                baseDao.deleteEntityById(carUser.getId(),User.class);
+                baseDao.deleteEntity(carUser);
             }
         }
         return null;
@@ -463,7 +464,7 @@ public class UserService {
         User user = new User();
         user.setWxOpenId(wxopenId);
         user.setMobile(mobile);
-        user = baseDao.insertEntity(user);
+        user = (User) baseDao.insertEntity(user);
         createCar(carNumber, user.getId());
         return user;
     }

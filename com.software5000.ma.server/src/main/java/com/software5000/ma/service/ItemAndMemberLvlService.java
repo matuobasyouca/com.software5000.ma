@@ -1,6 +1,7 @@
 package com.software5000.ma.service;
 
 
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.ItemAndMemberLvl;
 import com.software5000.base.BaseDao;
 import org.apache.commons.logging.Log;
@@ -17,7 +18,7 @@ public class ItemAndMemberLvlService {
     private Log log = LogFactory.getLog(ItemAndMemberLvlService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
@@ -30,7 +31,7 @@ public class ItemAndMemberLvlService {
      * @throws SQLException
      */
     public ItemAndMemberLvl insertItemAndMemberLvl(ItemAndMemberLvl itemAndMemberLvl) throws SQLException {
-        return baseDao.insertEntity(itemAndMemberLvl);
+        return (ItemAndMemberLvl) baseDao.insertEntity(itemAndMemberLvl);
     }
 
     /* ----------------------------------------------------------- insert (增) end ----------------------------------------------------- -----------*/

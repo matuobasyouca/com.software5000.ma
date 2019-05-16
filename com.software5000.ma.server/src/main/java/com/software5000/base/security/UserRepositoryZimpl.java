@@ -6,6 +6,7 @@ import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import com.software5000.base.BaseDao;
 import com.software5000.base.Constant;
+import com.software5000.base.MyBaseDao;
 import com.software5000.base.mybatis.plugins.PermissionHelper;
 import com.software5000.base.security.jwt.MACVerifierExtended;
 import com.software5000.base.security.jwt.TokenResponse;
@@ -40,7 +41,7 @@ public class UserRepositoryZimpl {
     private String issUsertype;
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
 //    @Resource
 //    private SmsService smsService;
@@ -112,7 +113,7 @@ public class UserRepositoryZimpl {
             User u = new User();
             u.setMobile(userToken.getUserId());
             try {
-                u = baseDao.selectEntity(u).get(0);
+                u = baseDao.selectSingleEntity(u);
                 //判断是手机号验证码登陆还是手机号密码登陆
                 if (userToken.getLoginType().equals(Constant.LoginType.CUSTOMER_MOBILE_CODE_LOGIN)) {
 //                    SmsRecord smsRecord = smsService.getSmsRecord(u.getMobile(), SmsService.SmsRequestType.USER_USE_MOBILE_LOGIN);
@@ -126,7 +127,7 @@ public class UserRepositoryZimpl {
                     user = new UserDefaultZimpl(u.getMobile(), PasswordEncryption.toPasswd(u.getWxOpenId()), Constant.UserType.CUSTOMER, u);
                 }
 //                user = new UserDefaultZimpl(u.getMobile(), u.get.getPwd(), Constant.UserType.MERCHANT, b);
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 log.error("select CUSTOMER user error! ", e);
             }
 
@@ -173,7 +174,7 @@ public class UserRepositoryZimpl {
             builder.subject(user.getUserId());
             builder.issueTime(new Date());
             builder.notBeforeTime(new Date());
-            builder.expirationTime(new Date(new Date().getTime() + getExpirationDate()));
+            builder.expirationTime(new Date(System.currentTimeMillis() + getExpirationDate()));
             builder.jwtID(UUID.randomUUID().toString());
 
             JWTClaimsSet claimsSet = builder.build();

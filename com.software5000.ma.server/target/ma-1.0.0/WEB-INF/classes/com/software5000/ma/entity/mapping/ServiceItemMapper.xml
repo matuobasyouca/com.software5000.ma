@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
+<mapper namespace="ServiceItem">
+
+	<select id="countServiceItemUseInPackage" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT COUNT(id) FROM PackageAndItem WHERE serviceItemId= #{serviceItemId};
+	</select>
+
+	<select id="selectPageServiceItem" parameterType="java.util.Map" resultType="ServiceItem">
+		select * from ServiceItem where 1=1
+		<if test="searchValue !=null and searchValue != ''">
+			and itemName LIKE CONCAT('%',#{searchValue},'%')
+		</if>
+		<if test="itemType !=null and itemType != ''">
+			and itemType = #{itemType}
+		</if>
+		<if test="businessId != null and businessId != ''">
+			and businessId = #{businessId}
+		</if>
+		ORDER BY topState desc,sort asc,updateTime desc
+	</select>
+
+	<select id="selectItemCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(id) from ServiceItem where businessId=#{businessId}
+	</select>
+
+    <resultMap id="ServiceItemDiscountNumberDto" type="ServiceItem">
+        <id property="id" column="id"/>
+        <result property="businessId" column="businessId"/>
+        <result property="itemName" column="itemName"/>
+        <result property="salePrice" column="salePrice"/>
+        <result property="discountNumber" column="discountNumber"/>
+        <result property="discountNumber" column="discountNumber"/>
+        <result property="discountType" column="discountType"/>
+		<result property="itemAndMemberLvlId" column="imlId"/>
+    </resultMap>
+
+    <!--根据项目分类展示服务项-->
+    <select id="selectServiceItemDiscountNumber" parameterType="java.util.Map" resultMap="ServiceItemDiscountNumberDto">
+		SELECT si.id,si.itemName,si.salePrice,si.businessId,
+		IFNULL((SELECT iml.discountNumber
+				FROM ItemAndMemberLvl iml
+				WHERE iml.memberLvlId=#{memberLvlId}
+				AND iml.serviceItemId=si.id),
+				IFNULL((SELECT iml.discountNumber
+						FROM ItemAndMemberLvl iml
+						WHERE iml.memberLvlId = #{memberLvlId}
+						AND iml.itemType = #{itemType}
+						AND iml.serviceItemId IS NULL),
+						(SELECT iml.discountNumber
+						FROM ItemAndMemberLvl iml
+						WHERE iml.memberLvlId = #{memberLvlId}
+						AND iml.itemType IS NULL
+						AND iml.serviceItemId IS NULL
+		)))AS discountNumber,
+		IFNULL((SELECT iml.discountType
+				FROM ItemAndMemberLvl iml
+				WHERE iml.memberLvlId=#{memberLvlId}
+				AND iml.serviceItemId=si.id),
+				IFNULL((SELECT iml.discountType
+						FROM ItemAndMemberLvl iml
+						WHERE iml.memberLvlId = #{memberLvlId}
+						AND iml.itemType = #{itemType}
+						AND iml.serviceItemId IS NULL),
+						(SELECT iml.discountType
+						FROM ItemAndMemberLvl iml
+						WHERE iml.memberLvlId = #{memberLvlId}
+						AND iml.itemType IS NULL
+						AND iml.serviceItemId IS NULL
+		)))AS discountType,
+		IFNULL((SELECT iml.id
+				FROM ItemAndMemberLvl iml
+				WHERE iml.memberLvlId=#{memberLvlId}
+				AND iml.serviceItemId=si.id),
+				IFNULL((SELECT iml.id
+						FROM ItemAndMemberLvl iml
+						WHERE iml.memberLvlId = #{memberLvlId}
+						AND iml.itemType = #{itemType}
+						AND iml.serviceItemId IS NULL),
+						(SELECT iml.id
+						FROM ItemAndMemberLvl iml
+						WHERE iml.memberLvlId = #{memberLvlId}
+						AND iml.itemType IS NULL
+						AND iml.serviceItemId IS NULL
+		)))AS imlId
+		FROM ServiceItem si
+		WHERE 1=1
+		<if test="itemType != null and itemType gt 0">
+			AND si.itemType = #{itemType}
+		</if>
+	</select>
+
+	<select id="selectPageServiceItemForWorkOrder" parameterType="java.util.Map" resultType="ServiceItem">
+		select s.*
+			<if test="memberLvlId != null and memberLvlId != ''">
+				,(SELECT i.discountType
+				  FROM `ItemAndMemberLvl` i
+				  WHERE i.memberLvlId = #{memberLvlId}
+				  AND (i.serviceItemId = s.id
+					  OR (s.itemType IS NOT NULL AND i.itemType = s.itemType AND i.serviceItemId IS NULL)
+					  OR (i.itemType IS NULL AND i.serviceItemId IS NULL))
+				  ORDER BY i.serviceItemId DESC, itemType DESC LIMIT 1) as discountType
+				,(SELECT i.discountNumber
+				  FROM `ItemAndMemberLvl` i
+				  WHERE i.memberLvlId = #{memberLvlId}
+				  AND (i.serviceItemId = s.id
+				  OR (s.itemType IS NOT NULL AND i.itemType = s.itemType AND i.serviceItemId IS NULL)
+				  OR (i.itemType IS NULL AND i.serviceItemId IS NULL))
+				  ORDER BY i.serviceItemId DESC, itemType DESC LIMIT 1) as discountNumber
+			</if>
+		from ServiceItem s
+		where 1=1
+		<if test="searchValue !=null and searchValue != ''">
+			and s.itemName LIKE CONCAT('%',#{searchValue},'%')
+		</if>
+		<if test="itemType !=null and itemType != ''">
+			and s.itemType = #{itemType}
+		</if>
+		<if test="businessId != null and businessId != ''">
+			and s.businessId = #{businessId}
+		</if>
+		ORDER BY s.topState desc,s.sort asc,s.updateTime desc
+	</select>
+
+</mapper>

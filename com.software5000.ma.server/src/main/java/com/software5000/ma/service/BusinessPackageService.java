@@ -5,6 +5,7 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.BusinessPackage;
 import com.software5000.ma.entity.PackageAndItem;
 import com.software5000.base.BaseDao;
@@ -27,7 +28,7 @@ public class BusinessPackageService {
     private Log log = LogFactory.getLog(BusinessPackageService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     //<editor-fold desc="insert (增)">
     /* ----------------------------------------------------------- insert (增) start ----------------------------------------------------------------*/
@@ -37,13 +38,13 @@ public class BusinessPackageService {
      */
     public BusinessPackage insertBusinessPackage(BusinessPackage businessPackage) throws ServiceException {
         try {
-            BusinessPackage b = baseDao.insertEntity(businessPackage);
+            BusinessPackage b = (BusinessPackage) baseDao.insertEntity(businessPackage);
             List<PackageAndItem> items = businessPackage.getPackageAndItems();
             List<PackageAndItem> collect = items.stream().peek(packageAndItem -> packageAndItem.setBusinessPackageId(b.getId())).collect(Collectors.toList());
-            List packageAndItems = baseDao.insertEntityList(collect);
+            List packageAndItems = baseDao.insertEntities(collect);
             b.setPackageAndItems(packageAndItems);
             businessPackage = b;
-        } catch (SQLException e) {
+        } catch (Exception e) {
             log.error("保存businessPackage失败，businessPackage=" + businessPackage);
             throw new ServiceException(Constant.StateCode.SAVE_ERROR.codeName);
         }
@@ -67,8 +68,8 @@ public class BusinessPackageService {
             //先删除套餐下的套餐集
             baseDao.delete(BusinessPackage.Daos.deletePackageAndItem.toString(), businessPackage.getId());
             //再删除套餐
-            baseDao.deleteEntityById(businessPackage.getId(), BusinessPackage.class);
-        } catch (SQLException e) {
+            baseDao.deleteEntity(businessPackage, "id");
+        } catch (Exception e) {
             log.error("删除服务项失败，businessPackageId=" + businessPackage.getId());
             throw new ServiceException(Constant.StateCode.DELETE_ERROR.codeName);
         }
@@ -92,14 +93,15 @@ public class BusinessPackageService {
         try {
             if (packageAndItems != null && packageAndItems.size() > 0) {
                 //因套餐项没有在使用可以直接删除旧的套餐项
-                List<PackageAndItem> originalList = (List<PackageAndItem>) baseDao.selectList(PackageAndItem.Daos.selectByPackageId.sqlMapname, businessPackage.getId());
-                baseDao.deleteEntitys(originalList);
+                PackageAndItem packageAndItem = new PackageAndItem();
+                packageAndItem.setBusinessPackageId(businessPackage.getId());
+                baseDao.deleteEntity(packageAndItem,"id");
                 //将要更改的套餐项新增
                 List<PackageAndItem> collect = packageAndItems.stream().peek(item -> item.setBusinessPackageId(businessPackage.getId())).collect(Collectors.toList());
-                baseDao.insertEntityList(collect);
+                baseDao.insertEntities(collect);
             }
-            baseDao.updateEntityOnlyHaveValue(businessPackage,true);
-        } catch (SQLException e) {
+            baseDao.updateEntity(businessPackage,"id",true);
+        } catch (Exception e) {
             log.error("更新商家套餐失败，businessPackage=" + businessPackage.toString());
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }
@@ -114,8 +116,8 @@ public class BusinessPackageService {
      */
     public BusinessPackage updateBusinessPackageState(BusinessPackage businessPackage) throws ServiceException {
         try {
-            baseDao.updateEntityOnlyHaveValue(businessPackage,true);
-        } catch (SQLException e) {
+            baseDao.updateEntity(businessPackage,"id",true);
+        } catch (Exception e) {
             log.error("更新商家套餐失败，businessPackage=" + businessPackage.toString());
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
         }
@@ -148,7 +150,7 @@ public class BusinessPackageService {
      * @throws SQLException
      */
     public PageInfo<BusinessPackage> selectBusinessPackageByPage(Map param) throws SQLException {
-        PageInfo<BusinessPackage> pageInfo=baseDao.selectListByPage(BusinessPackage.Daos.selectBusinessPackageIdsByPage.sqlMapname,param,Integer.parseInt(param.get("starPage").toString()),Integer.parseInt(param.get("pageSize").toString()),null);
+        PageInfo<BusinessPackage> pageInfo=baseDao.selectEntitiesByPage(BusinessPackage.Daos.selectBusinessPackageIdsByPage.sqlMapname,param,Integer.parseInt(param.get("starPage").toString()),Integer.parseInt(param.get("pageSize").toString()));
         if (pageInfo.getList().size() > 0) {
             List ids = new ArrayList();
             pageInfo.getList().forEach(
@@ -196,11 +198,11 @@ public class BusinessPackageService {
      * @throws SQLException
      */
     public PageInfo<BusinessPackage> selectBusinessPackageForOpen(Map<String, Object> param) throws SQLException {
-        PageInfo<BusinessPackage> pageInfo = baseDao.selectListByPage(BusinessPackage.Daos.selectBusinessPackageIdsByPage.sqlMapname
+        PageInfo<BusinessPackage> pageInfo = baseDao.selectEntitiesByPage(BusinessPackage.Daos.selectBusinessPackageIdsByPage.sqlMapname
                                                                      ,param
                                                                      ,Integer.valueOf(param.getOrDefault("startPage", 1).toString())
                                                                      ,Integer.valueOf(param.getOrDefault("pageSize", 10).toString())
-                                                                     ,null);
+                                                                     );
         if (pageInfo.getList().size() > 0) {
             List<Integer> ids = new ArrayList<Integer>();
             pageInfo.getList().forEach(businessPackage -> ids.add(businessPackage.getId()));

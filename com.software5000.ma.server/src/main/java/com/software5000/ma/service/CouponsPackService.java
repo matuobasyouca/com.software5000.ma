@@ -6,6 +6,7 @@ package com.software5000.ma.service;
 
 import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.PageInfo;
+import com.software5000.base.MyBaseDao;
 import com.software5000.ma.entity.Business;
 import com.software5000.ma.entity.CouponsPack;
 import com.software5000.ma.entity.CouponsPackBuyRecord;
@@ -31,7 +32,7 @@ public class CouponsPackService {
     private Log log = LogFactory.getLog(CouponsPackService.class);
 
     @Resource
-    private BaseDao baseDao;
+    private MyBaseDao baseDao;
 
     @Resource
     private CouponsPackService couponsPackService;
@@ -58,7 +59,7 @@ public class CouponsPackService {
         CouponsPack couponsPack = couponsPackService.selectCouponsPackById(packId);
         record.setTradeFee(MathUtil.mul(couponsPack.getBuyAmouont(), 100).intValue()*record.getBuyCount());
         //新增购买记录
-        record = baseDao.insertEntity(record);
+        record = (CouponsPackBuyRecord) baseDao.insertEntity(record);
 
         //根据packId，获取卡券礼包信息
         CouponsPack pack = couponsPackService.selectCouponsPackById(record.getPackId());
@@ -109,7 +110,7 @@ public class CouponsPackService {
      * @throws SQLException
      */
     public void updateBuyRecord(CouponsPackBuyRecord buyRecord) throws SQLException {
-        baseDao.updateEntityOnlyHaveValue(buyRecord, false);
+        baseDao.updateEntity(buyRecord);
     }
 
     /**
@@ -121,7 +122,7 @@ public class CouponsPackService {
         CouponsPackBuyRecord buyRecord = new CouponsPackBuyRecord();
         buyRecord.setId(recordId);
         buyRecord.setState(Constant.CouponsPackBuyRecordState.CANCEL);
-        baseDao.updateEntityOnlyHaveValue(buyRecord, false);
+        baseDao.updateEntity(buyRecord);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/
@@ -215,7 +216,7 @@ public class CouponsPackService {
             });
             paramMap.put("stateList", stateList);
         }
-        return baseDao.selectListByPage(CouponsPackBuyRecord.Daos.selectPageBuyRecord.sqlMapname,paramMap, startPage, pageSize, orderBy);
+        return baseDao.selectEntitiesByPage(CouponsPackBuyRecord.Daos.selectPageBuyRecord.sqlMapname,paramMap, startPage, pageSize, orderBy);
     }
 
     /**
