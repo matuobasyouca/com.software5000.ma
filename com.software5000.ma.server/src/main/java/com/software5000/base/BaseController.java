@@ -39,7 +39,7 @@ import java.util.*;
 
 import static java.util.stream.Collectors.toMap;
 
-@Controller
+//@Controller
 public class BaseController {
 
     protected Log log = LogFactory.getLog(BaseController.class);

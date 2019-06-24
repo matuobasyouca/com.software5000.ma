@@ -6,6 +6,7 @@ package com.software5000.ma.service;
 
 import com.github.pagehelper.PageInfo;
 import com.software5000.base.MyBaseDao;
+import com.software5000.base.ValueUpdatePolicy;
 import com.software5000.ma.entity.BusinessPackage;
 import com.software5000.ma.entity.PackCluster;
 import com.software5000.ma.entity.PackClusterImg;
@@ -105,7 +106,7 @@ public class PackClusterService {
      */
     public void updatePackCluster(PackCluster packCluster)throws SQLException{
         List<String> fileNames=new ArrayList<String>();
-        baseDao.updateEntity(packCluster,null,true);
+        baseDao.updateEntity(packCluster,null, ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
         deletePackClusterImg(packCluster.getId());
         insertPackClusterImgs(packCluster.getPackClusterImgs(),packCluster.getId());
     }

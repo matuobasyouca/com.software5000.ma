@@ -96,10 +96,11 @@ public class Class2TableConverter {
 
             for (String classFile :
                     classFiles) {
+                if(classFile.indexOf("DataLog")==-1) continue;
 //                System.out.println(classFile);
 //                System.out.println(classFile.replace(baseProject.getAbsolutePath()+"\\", "").replace(".class", "").replace("\\", "."));
                 try {
-                    String className = classFile.replace(baseProject.getAbsolutePath() + "\\", "").replace(".class", "").replace("\\", ".");
+                    String className = classFile.replace(baseProject.getAbsolutePath() + "/", "").replace(".class", "").replace("/", ".");
 
                     if(className.toLowerCase().indexOf("util")>=0) continue;
                     if (Class.forName(className).getGenericSuperclass() == BaseEntity.class) {
@@ -126,10 +127,11 @@ public class Class2TableConverter {
 
                     }
                 } catch (Exception e) {
-                    log.error(e);
+                    log.error("test",e);
                 }
             }
-            writeFile(allSql.toString(), "d:\\projects.sql", "utf-8");
+            System.out.println(allSql.toString());
+//            writeFile(allSql.toString(), "d:\\projects.sql", "utf-8");
 //            System.out.println("生成 x:\\projects.sql 完成，请确认。");
             log.debug("生成 x:\\projects.sql 完成，请确认。");
         } catch (Exception e) {

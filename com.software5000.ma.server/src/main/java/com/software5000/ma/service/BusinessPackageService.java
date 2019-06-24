@@ -5,12 +5,9 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
-import com.software5000.base.MyBaseDao;
+import com.software5000.base.*;
 import com.software5000.ma.entity.BusinessPackage;
 import com.software5000.ma.entity.PackageAndItem;
-import com.software5000.base.BaseDao;
-import com.software5000.base.Constant;
-import com.software5000.base.ServiceException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
@@ -100,7 +97,7 @@ public class BusinessPackageService {
                 List<PackageAndItem> collect = packageAndItems.stream().peek(item -> item.setBusinessPackageId(businessPackage.getId())).collect(Collectors.toList());
                 baseDao.insertEntities(collect);
             }
-            baseDao.updateEntity(businessPackage,"id",true);
+            baseDao.updateEntity(businessPackage,"id", ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
         } catch (Exception e) {
             log.error("更新商家套餐失败，businessPackage=" + businessPackage.toString());
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);
@@ -116,7 +113,7 @@ public class BusinessPackageService {
      */
     public BusinessPackage updateBusinessPackageState(BusinessPackage businessPackage) throws ServiceException {
         try {
-            baseDao.updateEntity(businessPackage,"id",true);
+            baseDao.updateEntity(businessPackage,"id",ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
         } catch (Exception e) {
             log.error("更新商家套餐失败，businessPackage=" + businessPackage.toString());
             throw new ServiceException(Constant.StateCode.SELECT_ERROR.codeName);

@@ -1,14 +1,11 @@
 package com.software5000.ma.service;
 
 import com.github.pagehelper.PageInfo;
-import com.software5000.base.MyBaseDao;
+import com.software5000.base.*;
 import com.software5000.ma.entity.Car;
 import com.software5000.ma.entity.MemberLvl;
 import com.software5000.ma.entity.MemberLvlRecord;
 import com.software5000.ma.entity.RechargeOrder;
-import com.software5000.base.BaseDao;
-import com.software5000.base.Constant;
-import com.software5000.base.ServiceException;
 import com.software5000.base.mybatis.plugins.PermissionHelper;
 import com.zscp.master.util.MathUtil;
 import org.apache.commons.logging.Log;
@@ -116,7 +113,7 @@ public class MemberLvlRecordService {
             if (memberLvlRecord.getTotalTimes() == null) memberLvlRecord.setTotalTimes(0);
             memberLvlRecord.setTotalTimes(monetary >= 0 ? memberLvlRecord.getTotalTimes() + 1 : memberLvlRecord.getTotalTimes() - 1);
             if (memberLvlRecord.getTotalTimes() < 0) memberLvlRecord.setTotalTimes(0);
-            baseDao.updateEntity(memberLvlRecord, "id", true);
+            baseDao.updateEntity(memberLvlRecord, "id", ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
         } else {
             if (carService.selectUserCarById(userId).size() != 0) {
                 memberLvlRecord = new MemberLvlRecord();
@@ -137,7 +134,7 @@ public class MemberLvlRecordService {
      * @throws SQLException
      */
     public void updateMemberLvlRecord(MemberLvlRecord memberLvlRecord) throws SQLException {
-        baseDao.updateEntity(memberLvlRecord, "remarks", true);
+        baseDao.updateEntity(memberLvlRecord, "remarks", ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
     }
 
     /**
@@ -145,7 +142,7 @@ public class MemberLvlRecordService {
      */
 
     public void updateMemberBalance(MemberLvlRecord memberLvlRecord) throws SQLException {
-        baseDao.updateEntity(memberLvlRecord, "memberBalance", true);
+        baseDao.updateEntity(memberLvlRecord, "memberBalance", ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
 
     }
 

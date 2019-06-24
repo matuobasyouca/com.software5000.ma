@@ -5,11 +5,8 @@ package com.software5000.ma.service;
  */
 
 import com.github.pagehelper.PageInfo;
-import com.software5000.base.MyBaseDao;
+import com.software5000.base.*;
 import com.software5000.ma.entity.RechargeOrder;
-import com.software5000.base.BaseDao;
-import com.software5000.base.Constant;
-import com.software5000.base.ServiceException;
 import com.software5000.base.entity.ReturnResult;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -78,7 +75,7 @@ public class RechargeOrderService {
      */
     public void updateRechargeOrder(RechargeOrder rechargeOrder) throws ServiceException{
         try {
-            baseDao.updateEntity(rechargeOrder,null,false);
+            baseDao.updateEntity(rechargeOrder,null, ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
         } catch (Exception e) {
             log.error("修改rechargeOrder失败，rechargeOrder=" + rechargeOrder,e);
             throw new ServiceException(Constant.StateCode.UPDATE_ERROR.codeName);

@@ -95,6 +95,8 @@
 				</bean>
 				<bean class="com.software5000.base.mybatis.plugins.CommonDataInterceptor">
 				</bean>
+				<bean class="com.software5000.base.mybatis.plugins.DataLogHelper">
+				</bean>
 				<bean class="com.github.pagehelper.PageHelper">
 					<property name="properties">
 						<value>

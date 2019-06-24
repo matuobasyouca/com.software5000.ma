@@ -58,7 +58,7 @@ public class BusinessPackageOrderService {
      */
     public BusinessPackageOrder insertBusinessPackageOrder(BusinessPackageOrder businessPackageOrder) throws ServiceException{
         try {
-            businessPackageOrder= (BusinessPackageOrder) baseDao.insertEntity(businessPackageOrder);
+            businessPackageOrder= baseDao.insertEntity(businessPackageOrder);
             return businessPackageOrder;
         } catch (Exception e) {
             log.error("保存packCard失败，packCard=" + businessPackageOrder,e);
@@ -88,7 +88,7 @@ public class BusinessPackageOrderService {
      */
     public void updateBusinessPackageOrder(BusinessPackageOrder businessPackageOrder) throws ServiceException{
         try {
-            baseDao.updateEntity(businessPackageOrder,"id",false);
+            baseDao.updateEntity(businessPackageOrder,"id");
         } catch (Exception e) {
             log.error("修改packOrder失败，packOrder=" + businessPackageOrder,e);
             throw new ServiceException(Constant.StateCode.UPDATE_ERROR.codeName);

@@ -59,7 +59,7 @@ public class PayOrderService {
     /* ----------------------------------------------------------- update (改) start ----------------------------------------------------------------*/
 
     public void updatePayOrder(PayOrder payOrder) throws SQLException {
-        baseDao.updateEntity(payOrder,null, false);
+        baseDao.updateEntity(payOrder,null);
     }
 
     /* ----------------------------------------------------------- update (改) end ----------------------------------------------------- -----------*/

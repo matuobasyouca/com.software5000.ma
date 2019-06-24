@@ -6,10 +6,7 @@ package com.software5000.ma.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
-import com.software5000.base.BaseDao;
-import com.software5000.base.Constant;
-import com.software5000.base.MyBaseDao;
-import com.software5000.base.ServiceException;
+import com.software5000.base.*;
 import com.software5000.base.entity.ReturnResult;
 import com.software5000.base.mybatis.plugins.PermissionHelper;
 import com.software5000.base.security.UserDefaultUtil;
@@ -211,7 +208,7 @@ public class WorkOrderService {
             newWorkOrderDetails.addAll(updateCollect);
             updateCollect.forEach(u -> {
                 try {
-                    baseDao.updateEntity(u, "discountPrice,discountNumber,couponUuid,couponName,couponDeduct,workerId,salerId", true);
+                    baseDao.updateEntity(u, "discountPrice,discountNumber,couponUuid,couponName,couponDeduct,workerId,salerId", ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
                 } catch (Exception e) {
                     return;
                 }
@@ -220,7 +217,7 @@ public class WorkOrderService {
         }
 
         //判断使用的卡券是否有更新
-        baseDao.updateEntity(workOrder, "couponUuid", true);
+        baseDao.updateEntity(workOrder, "couponUuid", ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
 
         //更新会员名称
         if(workOrder.getUser() != null && !ValidUtil.isEmpty(workOrder.getUser().getRealName())) {
@@ -304,7 +301,7 @@ public class WorkOrderService {
             //更新工单中的信息
             workOrder.setState(Constant.WorkOrderState.COMPLETE.codeName);
             workOrder.setPayTime(new Timestamp(System.currentTimeMillis()));
-            baseDao.updateEntity(workOrder,null, false);
+            baseDao.updateEntity(workOrder,null);
 
             //更新会员及套餐信息
             updateMemberInfoByWorkOrder(workOrder, true);
@@ -417,7 +414,7 @@ public class WorkOrderService {
         workOrder.setId(orderId);
         workOrder.setState(Constant.WorkOrderState.NO_PAY.codeName);
         workOrder.setPayTime(null);
-        baseDao.updateEntity(workOrder, "payTime", true);
+        baseDao.updateEntity(workOrder, "payTime", ValueUpdatePolicy.WITH_EMPTY_WITH_NULL);
 
         //查询工单信息
         WorkOrder order = selectWorkOrderById(orderId);

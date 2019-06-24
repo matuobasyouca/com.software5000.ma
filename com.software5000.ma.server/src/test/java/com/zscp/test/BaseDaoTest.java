@@ -2,6 +2,7 @@ package com.zscp.test;
 
 
 import com.software5000.base.BaseDao;
+import com.software5000.base.mybatis.plugins.PermissionHelper;
 import com.software5000.ma.entity.Car;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,7 @@ public class BaseDaoTest {
 
         try {
 
+            PermissionHelper.ignorePermissionThisTime();
             Car car = new Car();
             car.setId(1);
             List cars = baseDao.selectEntities(car);
