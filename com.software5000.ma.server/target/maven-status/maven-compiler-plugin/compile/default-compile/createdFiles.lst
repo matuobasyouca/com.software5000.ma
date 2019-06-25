@@ -82,6 +82,7 @@ com/software5000/ma/entity/ServiceItem.class
 com/software5000/ma/entity/MemberLvlRecord.class
 com/software5000/ma/entity/ItemAndMemberLvl.class
 com/software5000/ma/aliyunSms/LimitQueue.class
+com/software5000/wx/ReadExcel.class
 com/software5000/ma/entity/MemberPackageRecord.class
 com/software5000/base/Constant$DomainName.class
 com/software5000/ma/service/CooperComboOrderService.class
@@ -149,6 +150,7 @@ com/software5000/ma/controller/BusinessController.class
 com/software5000/ma/service/MemberPackageRecordService.class
 com/software5000/base/Constant$BusinessUserBossType.class
 com/software5000/base/Constant$canEdit.class
+com/software5000/wx/ExcelObjectOne.class
 com/software5000/ma/entity/BusinessCheckMoney.class
 com/software5000/base/Constant$OrderState.class
 com/software5000/ma/entity/RechargeOrder.class
@@ -162,6 +164,7 @@ com/software5000/ma/controller/CooperComboController.class
 com/software5000/util/UploadFileUtil.class
 com/software5000/ma/task/dto/WeChatPayOrderTaskDto.class
 com/software5000/ma/dto/MerchantLoginDto.class
+com/software5000/wx/ExcelListener.class
 com/software5000/base/security/jwt/TokenResponse.class
 com/software5000/ma/dto/ServiceItemRemain.class
 com/software5000/base/Constant$ServiceItemTopState.class
@@ -170,7 +173,6 @@ com/software5000/base/NotDatabaseField.class
 com/software5000/base/entity/SystemCode.class
 com/software5000/ma/service/PackClusterBuyRecordService.class
 com/software5000/ma/entity/UserExcelData.class
-com/software5000/base/BaseDao.class
 com/software5000/ma/entity/Operator$Daos.class
 com/software5000/base/mybatis/plugins/PluginUtil.class
 com/software5000/ma/entity/Operator.class
@@ -202,6 +204,7 @@ com/software5000/ma/service/BusinessService.class
 com/software5000/ma/entity/CooperCombo.class
 com/software5000/ma/service/CouponsPackService.class
 com/software5000/base/security/UserDefaultUtil.class
+com/software5000/base/MyBaseDao.class
 com/software5000/base/Constant$WorkOrderState.class
 com/software5000/ma/service/ServiceItemService.class
 com/software5000/bank/service/PayOrderService.class

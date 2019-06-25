@@ -24,6 +24,12 @@ public class BaseDaoTest {
     @Autowired
     BaseDao baseDao;
 
+    @Test
+    public void patch(){
+        this.testSelectRecChannel();
+        this.testAddCar();
+        this.testUpdateCar();
+    }
 
     @Test
     public void testSelectRecChannel() {
@@ -41,5 +47,21 @@ public class BaseDaoTest {
         } catch (Exception e) {
             logger.error("query error!", e);
         }
+    }
+
+    @Test
+    public void testAddCar(){
+        Car car = new Car();
+        car.setCarNumber("MM520");
+        car.setUserId(1);
+        baseDao.insertEntity(car);
+    }
+
+    @Test
+    public void testUpdateCar(){
+        Car car = new Car();
+        car.setId(1);
+        car.setCarNumber("闽D0913N");
+        baseDao.updateEntity(car, "id");
     }
 }

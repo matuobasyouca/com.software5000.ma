@@ -1,1 +1,0 @@
-UPDATE SystemCode SET codeName = ",merchant,operator," WHERE codeType="PermissionRule" AND codeName=",merchant,";

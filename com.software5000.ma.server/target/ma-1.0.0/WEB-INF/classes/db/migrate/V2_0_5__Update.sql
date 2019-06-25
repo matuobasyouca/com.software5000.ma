@@ -1,1 +1,0 @@
-INSERT INTO SystemCode (codeType, codeName, codeValue, codeShowName, codeFiter) VALUES ('StateCode', 'ZS012031', 3, '最多添加3辆车！', '0');

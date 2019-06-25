@@ -1,1 +1,0 @@
-UPDATE WorkOrderDetail SET salePrice =(SELECT si.salePrice FROM ServiceItem si WHERE WorkOrderDetail.serviceItemId=si.id)  WHERE salePrice is NULL;

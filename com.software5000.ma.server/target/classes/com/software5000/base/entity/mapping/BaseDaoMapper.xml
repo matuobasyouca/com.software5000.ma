@@ -4,15 +4,15 @@
 <!-- 基础封装数据库操作类，通过映射直接处理相应对象的简单读写操作 -->
 <mapper namespace="BaseDao">
 
-	<insert id="insertEntityList" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertEntityList" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="list.id">
 		${baseSql}
 	</insert>
 
-	<insert id="insertEntity" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertEntity" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="entity.id">
 		${baseSql}
 	</insert>
 
-	<update id="updateEntity" parameterType="java.util.Map">
+	<update id="updateEntities" parameterType="java.util.Map">
 		${baseSql}
 	</update>
 
@@ -20,7 +20,7 @@
 		${baseSql}
 	</delete>
 
-	<delete id="deleteEntitys" parameterType="java.util.Map">
+	<delete id="deleteEntities" parameterType="java.util.Map">
 		${baseSql}
 	</delete>
 
@@ -28,16 +28,8 @@
 		${baseSql}
 	</select>
 
-	<select id="selectEntity" parameterType="java.util.Map"
-		resultType="hashmap">
+	<select id="selectEntities" parameterType="java.util.Map"
+			resultType="hashmap">
 		${baseSql}
 	</select>
-
-	<!-- <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String"
-		> -->
-	<!-- select -->
-	<!-- <include refid="Base_Column_List" /> -->
-	<!-- from SystemCode -->
-	<!-- where codeValue = #{codeValue,jdbcType=CHAR} -->
-	<!-- </select> -->
 </mapper>

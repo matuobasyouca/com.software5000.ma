@@ -1,2 +1,0 @@
-INSERT INTO SystemCode (codeType, codeName, codeValue, codeShowName, codeFiter) VALUES ('SecuritySetting', 'm.dfUrl', '/html/merchant/index.html', '商家默认首页', '0');
-INSERT INTO SystemCode (codeType, codeName, codeValue, codeShowName, codeFiter) VALUES ('SecuritySetting', 'o.dfUrl', '/html/merchant/opt/index_.html', '操作员默认首页', '0');
